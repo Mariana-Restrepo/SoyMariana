@@ -87,7 +87,7 @@ export function Footer() {
           <span>
             © {year} {profile.fullName}
           </span>
-          <span>Hecho por mí, con cariño y mucho React.</span>
+          <span>Hecho con cariño ♡</span>
         </div>
       </div>
     </footer>

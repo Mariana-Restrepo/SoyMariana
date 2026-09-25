@@ -48,13 +48,7 @@ function seo(siteUrl: string): Plugin {
         description: site.description,
         url: `${siteUrl}/`,
         image: `${siteUrl}${site.ogImage}`,
-        knowsAbout: [
-          'Creación de contenido',
-          'Belleza',
-          'Cabello',
-          'Restaurantes',
-          'Desarrollo frontend',
-        ],
+        knowsAbout: ['Creación de contenido', 'Belleza', 'Cabello', 'Restaurantes'],
         ...(sameAs.length ? { sameAs } : {}),
       },
       {

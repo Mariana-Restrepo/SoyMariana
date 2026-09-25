@@ -46,20 +46,11 @@
       }
     },
     {
-      "label": "Qué estudio",
-      "text": "Desarrollo de Software, con foco en frontend y experiencia de usuario.",
-      "image": {
-        "alt": "Foto estudiando o programando (pendiente)",
-        "placeholder": "[IMAGEN_SOBRE_MI_04]",
-        "tone": "rosa"
-      }
-    },
-    {
       "label": "Qué quiero construir",
       "text": "[META_01]. Algo mío, con propósito.",
       "image": {
         "alt": "Foto sobre lo que quiere construir (pendiente)",
-        "placeholder": "[IMAGEN_SOBRE_MI_05]",
+        "placeholder": "[IMAGEN_SOBRE_MI_04]",
         "tone": "azul"
       }
     }

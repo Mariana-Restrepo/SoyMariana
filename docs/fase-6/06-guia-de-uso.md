@@ -149,7 +149,7 @@ La sección "Y cuando no estoy creando…" **se quitó** en la Fase 4, y los enl
 
 ### Los textos de "Sobre mí"
 
-En `profile.json`, la lista `story` son las tarjetas. Ya tienes **Medellín** y tus 21 años. Quedan por completar `[ME_GUSTA_01]` y `[META_01]`, y decidir si dejas la tarjeta "Qué estudio" (todavía habla de Desarrollo de Software).
+En `profile.json`, la lista `story` son las tarjetas. Ya tienes **Medellín** y tus 21 años. Quedan por completar `[ME_GUSTA_01]` y `[META_01]`. Son 4 tarjetas (quién soy, qué me gusta, por qué empecé y qué quiero construir); puedes agregar o quitar las que quieras copiando o borrando un bloque de `story`.
 
 ### El formulario de marcas
 
@@ -302,7 +302,6 @@ git push
 ## 9. Lista antes de publicar
 
 - [ ] `npm run check:content:strict` sin marcadores pendientes (fotos, videos, textos, lugares).
-- [ ] Decidiste si dejas la tarjeta "Qué estudio" de "Sobre mí".
 - [ ] Todas las fotos tienen un `alt` real, pasadas por `npm run images`.
 - [ ] Videos alojados en `https://`, ≤ 3 MB cada uno.
 - [ ] `VITE_SITE_URL` con tu dirección final.
