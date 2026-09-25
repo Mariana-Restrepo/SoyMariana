@@ -1,0 +1,23 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Iniciar (todas las plataformas)",
+      "type": "shell",
+      "command": "npm start",
+      "problemMatcher": []
+    },
+    {
+      "label": "Iniciar Web",
+      "type": "shell",
+      "command": "npm run web",
+      "problemMatcher": []
+    },
+    {
+      "label": "Verificar (tipos + lint)",
+      "type": "shell",
+      "command": "npm run check",
+      "problemMatcher": []
+    }
+  ]
+}

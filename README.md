@@ -1,56 +1,60 @@
-# Welcome to your Expo app 👋
+# SoyMariana
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Aplicación **web y móvil (Android / iOS)** con un único código base.
 
-## Get started
+**Stack:** [Expo](https://expo.dev) · React Native · React Native Web · TypeScript · Expo Router
 
-1. Install dependencies
+## Requisitos
 
-   ```bash
-   npm install
-   ```
+- [Node.js](https://nodejs.org) 20 o superior
+- [Visual Studio Code](https://code.visualstudio.com) (se recomiendan las extensiones de `.vscode/extensions.json`)
+- Para probar en el celular: app **Expo Go** (Android / iOS) o un emulador
 
-2. Start the app
-
-   ```bash
-   npx expo start
-   ```
-
-In the output, you'll find options to open the app in a
-
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
+## Empezar
 
 ```bash
-npm run reset-project
+npm install
+npm start          # menú de Expo: presiona w (web), a (Android), i (iOS)
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+| Comando               | Qué hace                                  |
+| --------------------- | ----------------------------------------- |
+| `npm start`           | Inicia el servidor de desarrollo          |
+| `npm run web`         | Abre la versión web                       |
+| `npm run android`     | Abre en Android                           |
+| `npm run ios`         | Abre en iOS (requiere macOS o Expo Go)    |
+| `npm run check`       | Verifica tipos (TypeScript) y lint        |
+| `npm run lint:fix`    | Corrige problemas de lint automáticamente |
+| `npm run format`      | Da formato al código con Prettier         |
+| `npm run build:web`   | Genera el build de producción web (`dist/`) |
 
-### Other setup steps
+## Estructura
 
-- To set up ESLint for linting, run `npx expo lint`, or follow our guide on ["Using ESLint and Prettier"](https://docs.expo.dev/guides/using-eslint/)
-- If you'd like to set up unit testing, follow our guide on ["Unit Testing with Jest"](https://docs.expo.dev/develop/unit-testing/)
-- Learn more about the TypeScript setup in this template in our guide on ["Using TypeScript"](https://docs.expo.dev/guides/typescript/)
+```
+SoyMariana/
+├── assets/            Imágenes, íconos y fuentes
+├── docs/              Documentación del proyecto
+├── src/
+│   ├── app/           Rutas y pantallas (Expo Router: cada archivo = una pantalla)
+│   ├── components/
+│   │   ├── ui/          Componentes visuales reutilizables
+│   │   └── navigation/  Barra de pestañas / navegación
+│   ├── config/        Constantes y configuración de la app
+│   ├── constants/     Tema: colores, espaciados, fuentes
+│   ├── features/      Módulos por funcionalidad (pantallas, lógica y componentes propios)
+│   ├── hooks/         Hooks reutilizables
+│   ├── services/      Acceso a APIs, base de datos, autenticación
+│   ├── types/         Tipos de TypeScript compartidos
+│   └── utils/         Funciones auxiliares
+├── app.json           Configuración de Expo (nombre, íconos, splash)
+└── package.json
+```
 
-## Learn more
+Más detalle en [docs/ARQUITECTURA.md](docs/ARQUITECTURA.md).
 
-To learn more about developing your project with Expo, look at the following resources:
+## Convenciones
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+- Alias de importación: `@/` apunta a `src/` (ej. `import { Spacing } from '@/constants/theme'`).
+- Archivos `*.web.tsx` se usan solo en web; `*.tsx` (sin sufijo) en móvil, o en ambos si no existe versión web.
+- Instalar paquetes con `npx expo install <paquete>` para que la versión sea compatible con el SDK.
+- Variables de entorno: copiar `.env.example` a `.env.local` (no se sube a git).
