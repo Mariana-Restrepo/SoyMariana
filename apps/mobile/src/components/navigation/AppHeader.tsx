@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
   brandText: { fontSize: 26, lineHeight: 34 },
   heart: { marginLeft: 3, marginTop: 6 },
   cta: {
-    minHeight: layout.touch - 4,
+    minHeight: layout.touch,
     paddingHorizontal: 16,
     borderRadius: radii.pill,
     backgroundColor: colors.cereza,

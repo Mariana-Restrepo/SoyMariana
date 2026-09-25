@@ -1,4 +1,4 @@
-import { AnimatePresence, motion, useReducedMotion } from 'motion/react';
+import { AnimatePresence, m, useReducedMotion } from 'motion/react';
 import { useEffect, useState } from 'react';
 
 import { ease, seconds } from '@/lib/motion';
@@ -30,7 +30,7 @@ export function WordRotator({ words, intervalMs = 2600 }: Props) {
         Yo
         <span className="relative inline-block min-w-[9ch] font-serif text-[1.5em] italic text-cereza-ink">
           <AnimatePresence mode="wait" initial={false}>
-            <motion.span
+            <m.span
               key={words[index]}
               className="inline-block"
               initial={{ opacity: 0, y: 8 }}
@@ -39,7 +39,7 @@ export function WordRotator({ words, intervalMs = 2600 }: Props) {
               transition={{ duration: seconds.base, ease }}
             >
               {words[index]}
-            </motion.span>
+            </m.span>
           </AnimatePresence>
         </span>
       </span>

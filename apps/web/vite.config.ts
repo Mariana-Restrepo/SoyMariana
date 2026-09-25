@@ -103,6 +103,36 @@ function seo(siteUrl: string): Plugin {
   };
 }
 
+/**
+ * Precarga las tipografías críticas (títulos y texto): el navegador las pide junto con el HTML
+ * en vez de esperar a leer el CSS, y el titular del hero se pinta con su tipografía real sin saltos.
+ */
+function preloadFonts(): Plugin {
+  const critical =
+    /(instrument-serif-latin-400-(normal|italic)|dm-sans-latin-wght-normal)-[^/]*.woff2$/;
+  return {
+    name: 'soymariana-preload-fonts',
+    apply: 'build',
+    transformIndexHtml: {
+      order: 'post',
+      handler: (_html, ctx) =>
+        Object.keys(ctx.bundle ?? {})
+          .filter((file) => critical.test(file))
+          .map((file) => ({
+            tag: 'link',
+            attrs: {
+              rel: 'preload',
+              as: 'font',
+              type: 'font/woff2',
+              href: `/${file}`,
+              crossorigin: '',
+            },
+            injectTo: 'head' as const,
+          })),
+    },
+  };
+}
+
 export default defineConfig(({ command, mode }) => {
   const env = loadEnv(mode, here, 'VITE_');
   const siteUrl = (env.VITE_SITE_URL || 'http://localhost:5173').replace(/\/$/, '');
@@ -119,6 +149,7 @@ export default defineConfig(({ command, mode }) => {
       react(),
       tailwindcss(),
       seo(siteUrl),
+      preloadFonts(),
       VitePWA({
         registerType: 'autoUpdate',
         includeAssets: ['favicon.svg', 'icons/apple-touch-icon.png'],

@@ -21,20 +21,22 @@ npm install     # una sola vez, desde la raíz: instala todo el monorepo
 npm run web     # abre la web en http://localhost:5173
 ```
 
-| Comando                        | Qué hace                                                           |
-| ------------------------------ | ------------------------------------------------------------------ |
-| `npm run web`                  | Web en modo desarrollo (recarga al guardar)                        |
-| `npm run web:lan`              | Web visible desde otros dispositivos de tu red (ej. tu iPhone)     |
-| `npm run mobile`               | App móvil con Expo (`a` Android, o escanea el QR con Expo Go)      |
-| `npm run mobile:tunnel`        | Igual, pero por internet (si tu Wi-Fi no deja conectar el celular) |
-| `npm run build`                | Compila la web para producción (`apps/web/dist`)                   |
-| `npm run preview`              | Sirve el build de producción para probarlo                         |
-| `npm run check`                | **Todo junto**: tipos, lint, pruebas y validación del contenido    |
-| `npm run check:content`        | Valida el contenido y lista qué `[PLACEHOLDERS]` faltan reemplazar |
-| `npm run check:content:strict` | Igual, pero **falla** si queda alguno (úsalo antes de publicar)    |
-| `npm run tokens`               | Regenera `tokens.css` desde el sistema de diseño                   |
-| `npm run assets`               | Regenera íconos PWA e imagen para redes (provisionales)            |
-| `npm run format`               | Da formato al código con Prettier                                  |
+| Comando                        | Qué hace                                                                                |
+| ------------------------------ | --------------------------------------------------------------------------------------- |
+| `npm run web`                  | Web en modo desarrollo (recarga al guardar)                                             |
+| `npm run web:lan`              | Web visible desde otros dispositivos de tu red (ej. tu iPhone)                          |
+| `npm run mobile`               | App móvil con Expo (`a` Android, o escanea el QR con Expo Go)                           |
+| `npm run mobile:tunnel`        | Igual, pero por internet (si tu Wi-Fi no deja conectar el celular)                      |
+| `npm run build`                | Compila la web para producción (`apps/web/dist`)                                        |
+| `npm run preview`              | Sirve el build de producción para probarlo                                              |
+| `npm run check`                | **Todo junto**: tipos, lint, pruebas y validación del contenido                         |
+| `npm run audit`                | **Auditoría en Chrome real**: Lighthouse, accesibilidad, PWA sin conexión, teclado, SEO |
+| `npm run images`               | Optimiza tus fotos (versiones responsive y sin ubicación GPS)                           |
+| `npm run check:content`        | Valida el contenido y lista qué `[PLACEHOLDERS]` faltan reemplazar                      |
+| `npm run check:content:strict` | Igual, pero **falla** si queda alguno (úsalo antes de publicar)                         |
+| `npm run tokens`               | Regenera `tokens.css` desde el sistema de diseño                                        |
+| `npm run assets`               | Regenera íconos PWA e imagen para redes (provisionales)                                 |
+| `npm run format`               | Da formato al código con Prettier                                                       |
 
 ## Estructura
 
@@ -63,7 +65,7 @@ Todo el texto, videos, recomendaciones y proyectos viven en [`packages/content/d
 | Videos del carrusel              | `videos.json`                         |
 | Categorías de "Lo que pruebo"    | `categories.json`                     |
 | Recomendaciones y lugares        | `recommendations.json`, `places.json` |
-| Mis números                      | `metrics.json`                        |
+| Mis números y mi audiencia       | `metrics.json`                        |
 | Sección para marcas              | `collab.json`                         |
 | Título y descripción (SEO)       | `site.json`                           |
 
@@ -82,6 +84,7 @@ Copia `apps/web/.env.example` a `apps/web/.env.local`:
 - [Fase 2 · Diseño visual y componentes](docs/fase-2/02-wireframes-y-componentes.md) · [prototipo visual](docs/fase-2/prototipo-visual.html)
 - [Fase 3 · Implementación web](docs/fase-3/03-implementacion-web.md)
 - [Fase 4 · App móvil](docs/fase-4/04-app-movil.md) (incluye cómo verla en tu iPhone)
+- [Fase 5 · Optimización y auditoría](docs/fase-5/05-optimizacion-y-auditoria.md) (resultados, fotos, videos y qué revisar antes de publicar)
 
 ## Convenciones
 

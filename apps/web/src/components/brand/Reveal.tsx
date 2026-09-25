@@ -1,4 +1,4 @@
-import { motion } from 'motion/react';
+import { m } from 'motion/react';
 import type { ReactNode } from 'react';
 
 import { ease, RISE, seconds, STAGGER } from '@/lib/motion';
@@ -16,7 +16,7 @@ type RevealProps = {
  */
 export function Reveal({ children, index = 0, className }: RevealProps) {
   return (
-    <motion.div
+    <m.div
       className={className}
       initial={{ opacity: 0, y: RISE }}
       whileInView={{ opacity: 1, y: 0 }}
@@ -24,6 +24,6 @@ export function Reveal({ children, index = 0, className }: RevealProps) {
       transition={{ duration: seconds.slow, ease, delay: index * STAGGER }}
     >
       {children}
-    </motion.div>
+    </m.div>
   );
 }

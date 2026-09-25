@@ -2,7 +2,7 @@
   "name": "Mariana",
   "fullName": "Mariana Restrepo",
   "age": 21,
-  "city": "[CIUDAD]",
+  "city": "Medellín",
   "role": "Creadora de contenido",
   "roleDev": "Desarrolladora de Software enfocada en Frontend y Experiencia de Usuario.",
   "eyebrow": "Creadora de contenido",
@@ -21,7 +21,7 @@
   "story": [
     {
       "label": "Quién soy",
-      "text": "Mariana, 21 años. [CIUDAD].",
+      "text": "Mariana, 21 años. Medellín.",
       "image": {
         "alt": "Foto de Mariana (pendiente)",
         "placeholder": "[IMAGEN_SOBRE_MI_01]",

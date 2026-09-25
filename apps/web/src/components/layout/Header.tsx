@@ -1,4 +1,4 @@
-import { AnimatePresence, motion } from 'motion/react';
+import { AnimatePresence, m } from 'motion/react';
 import { useEffect, useRef, useState } from 'react';
 
 import { useInquiry } from '@/app/inquiry';
@@ -85,7 +85,6 @@ export function Header() {
         <div className="wrap flex h-full items-center gap-7">
           <a
             href="#inicio"
-            aria-label="Soy Mariana, ir al inicio"
             className={cn(
               'group flex items-baseline gap-1.5 font-serif no-underline transition-[font-size] duration-300 ease-out-soft',
               scrolled ? 'text-[1.4rem]' : 'text-[1.75rem]',
@@ -159,7 +158,7 @@ export function Header() {
 
       <AnimatePresence>
         {sheetOpen && (
-          <motion.div
+          <m.div
             id="mobile-menu"
             role="dialog"
             aria-modal="true"
@@ -197,7 +196,7 @@ export function Header() {
             >
               ¿Creamos algo?
             </Button>
-          </motion.div>
+          </m.div>
         )}
       </AnimatePresence>
     </>

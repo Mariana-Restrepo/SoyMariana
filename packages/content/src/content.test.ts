@@ -1,9 +1,15 @@
 import { describe, expect, it } from 'vitest';
 import { z } from 'zod';
 
-import { categories, places, recommendations, videos } from './index';
+import { categories, metrics, places, recommendations, videos } from './index';
 import { extractPlaceholders, findPlaceholders, isPlaceholder } from './placeholders';
-import { categoryInfoSchema, placeSchema, recommendationSchema, videoSchema } from './schemas';
+import {
+  categoryInfoSchema,
+  metricsFileSchema,
+  placeSchema,
+  recommendationSchema,
+  videoSchema,
+} from './schemas';
 
 describe('contenido de ejemplo', () => {
   it('cumple los esquemas', () => {
@@ -18,6 +24,16 @@ describe('contenido de ejemplo', () => {
     expect(new Set(slugs).size).toBe(slugs.length);
     const ids = videos.map((v) => v.id);
     expect(new Set(ids).size).toBe(ids.length);
+  });
+});
+
+describe('audiencia', () => {
+  it('cumple el esquema y cada grupo suma 100 %', () => {
+    expect(metricsFileSchema.safeParse(metrics).success).toBe(true);
+    for (const group of metrics.audience?.groups ?? []) {
+      const total = group.items.reduce((sum, item) => sum + item.value, 0);
+      expect(total, group.id).toBeCloseTo(100, 5);
+    }
   });
 });
 

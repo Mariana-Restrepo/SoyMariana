@@ -18,5 +18,9 @@ export default tseslint.config(
       '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
     },
   },
-  { files: ['scripts/**/*.mjs'], languageOptions: { globals: globals.node } },
+  // Los scripts corren en Node, pero las auditorías evalúan código dentro de la página (document, caches…).
+  {
+    files: ['scripts/**/*.mjs'],
+    languageOptions: { globals: { ...globals.node, ...globals.browser } },
+  },
 );

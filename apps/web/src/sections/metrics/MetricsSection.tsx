@@ -5,6 +5,7 @@ import { Reveal } from '@/components/brand/Reveal';
 import { Eyebrow, Section } from '@/components/ui/Section';
 import { cn, isDev } from '@/lib/utils';
 
+import { AudienceBlock } from './AudienceBlock';
 import { CountUp } from './CountUp';
 
 const toneBg = {
@@ -56,8 +57,10 @@ export function MetricsSection() {
         ))}
       </ul>
 
+      {metrics.audience && <AudienceBlock audience={metrics.audience} />}
+
       <Reveal>
-        <p className="mt-6 flex flex-wrap items-center gap-x-4 gap-y-2 text-[0.9rem] text-ink-soft">
+        <p className="mt-10 flex flex-wrap items-center gap-x-4 gap-y-2 text-[0.9rem] text-ink-soft">
           <span className="inline-flex items-center gap-2 rounded-pill bg-white px-4 py-1.5 shadow-soft">
             <span aria-hidden="true" className="size-2 rounded-full bg-cereza" />
             Actualizado: {metrics.updatedAt}

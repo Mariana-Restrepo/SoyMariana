@@ -13,6 +13,11 @@ export function formatCompact(value: number): string {
   return formatInt(value);
 }
 
+/** 40.6 → "40,6 %" · 15 → "15 %" (espacio fino sin salto, como se escribe en español). */
+export function formatPercent(value: number): string {
+  return `${value.toFixed(1).replace('.', ',').replace(/,0$/, '')} %`;
+}
+
 /** 2000 → "~2.000". */
 export function formatApprox(value: number): string {
   return `~${formatInt(value)}`;

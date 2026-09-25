@@ -1,5 +1,5 @@
 import { profile } from '@soymariana/content';
-import { motion, useReducedMotion, useScroll, useTransform } from 'motion/react';
+import { m, useReducedMotion, useScroll, useTransform } from 'motion/react';
 
 import { Heart, Sparkle } from '@/components/brand/Doodles';
 import { WordRotator } from '@/components/brand/WordRotator';
@@ -71,7 +71,7 @@ export function Hero() {
             className="aspect-[1/1.05] rotate-[1.6deg] rounded-lg shadow-lift lg:aspect-[4/5]"
           />
 
-          <motion.div
+          <m.div
             aria-hidden="true"
             className="pointer-events-none absolute inset-0"
             style={{ y: reduce ? 0 : floatY }}
@@ -90,7 +90,7 @@ export function Hero() {
             </span>
             <Heart className="absolute -top-8 right-[34%] hidden size-8 animate-float text-cereza sm:block [animation-duration:5s]" />
             <Sparkle className="absolute -left-9 bottom-[16%] hidden size-6 animate-float text-azul sm:block [animation-delay:-2s] [animation-duration:6s]" />
-          </motion.div>
+          </m.div>
         </div>
       </div>
     </section>

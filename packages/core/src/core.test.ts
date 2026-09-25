@@ -4,7 +4,7 @@ import { categories, recommendations } from '@soymariana/content';
 
 import { setTracker, track } from './analytics';
 import { categoriesWithItems, filterByCategory } from './collection';
-import { formatApprox, formatCompact, formatInt, formatMetric } from './format';
+import { formatApprox, formatCompact, formatInt, formatMetric, formatPercent } from './format';
 import {
   buildMailto,
   emptyInquiry,
@@ -32,6 +32,14 @@ describe('formato de números', () => {
     expect(formatMetric(2000, 'approx')).toBe('~2.000');
     expect(formatMetric(1402, 'int')).toBe('1.402');
     expect(formatMetric(10300, 'compact')).toBe('10,3K');
+  });
+});
+
+describe('porcentajes', () => {
+  it('usa coma decimal y omite el ,0', () => {
+    expect(formatPercent(40.6)).toBe('40,6 %');
+    expect(formatPercent(15)).toBe('15 %');
+    expect(formatPercent(0.4)).toBe('0,4 %');
   });
 });
 

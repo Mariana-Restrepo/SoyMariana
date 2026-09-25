@@ -1,6 +1,7 @@
 import { profile } from '@soymariana/content';
 import { router } from 'expo-router';
 import { StyleSheet, View } from 'react-native';
+import { useReducedMotion } from 'react-native-reanimated';
 
 import { WordRotator } from '@/components/brand/WordRotator';
 import { AppText, Em } from '@/components/ui/AppText';
@@ -12,12 +13,12 @@ import { Reveal } from '@/components/ui/Reveal';
 import { colors, radii, shadows } from '@/theme';
 
 /** Nota tipo post-it, decorativa (la lee el lector de pantalla solo como parte de la foto). */
-function Note({ text, style }: { text: string; style: object }) {
+function Note({ text }: { text: string }) {
   return (
     <View
       importantForAccessibility="no-hide-descendants"
       accessibilityElementsHidden
-      style={[styles.note, shadows.soft, style]}
+      style={styles.note}
     >
       <AppText variant="hand" color={colors.cerezaInk}>
         {text}
@@ -31,17 +32,25 @@ function Note({ text, style }: { text: string; style: object }) {
  * a lo demás. Sin bloques de texto: el resto de la historia se descubre en las otras pestañas.
  */
 export function HomeHero() {
+  // Las notas son solo adorno. Con "reducir movimiento" activo se omiten: en Android (emulador, Android 15) su
+  // texto quedaba recortado al dibujarse sin animación, y para quien pide menos movimiento son ruido visual.
+  const reduceMotion = useReducedMotion();
+
   return (
     <View style={styles.wrap}>
       <Reveal>
         <View style={styles.stage}>
           <MediaFrame image={profile.heroImage} style={[styles.photo, shadows.lift]} />
-          <Float delay={0} style={styles.floatA}>
-            <Note text="amiga, mira esto" style={{ transform: [{ rotate: '-6deg' }] }} />
-          </Float>
-          <Float delay={900} style={styles.floatB}>
-            <Note text="lo probé ✦" style={{ transform: [{ rotate: '4deg' }] }} />
-          </Float>
+          {!reduceMotion && (
+            <>
+              <Float delay={0} rotate="-6deg" style={styles.floatA}>
+                <Note text="amiga, mira esto" />
+              </Float>
+              <Float delay={900} rotate="4deg" style={styles.floatB}>
+                <Note text="lo probé ✦" />
+              </Float>
+            </>
+          )}
           <Float delay={1600} style={styles.floatC}>
             <HeartMark color={colors.cereza} size={30} />
           </Float>
@@ -99,11 +108,19 @@ const styles = StyleSheet.create({
   floatA: { position: 'absolute', top: 6, left: '10%' },
   floatB: { position: 'absolute', bottom: 34, right: '8%' },
   floatC: { position: 'absolute', top: 0, right: '30%' },
+  // Sin `elevation`: en Android una vista rotada con sombra puede recortar su texto al dibujarse (visto en el emulador).
+  // El relieve lo da un borde fino y una sombra solo para iOS.
   note: {
     backgroundColor: colors.white,
     paddingHorizontal: 13,
     paddingVertical: 7,
     borderRadius: 12,
+    borderWidth: 1,
+    borderColor: 'rgba(43,31,38,0.08)',
+    shadowColor: colors.ink,
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.12,
+    shadowRadius: 8,
   },
   eyebrow: { marginBottom: 10 },
   emphasis: { alignSelf: 'flex-start' },

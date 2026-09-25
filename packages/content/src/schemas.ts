@@ -140,12 +140,26 @@ export const metricSchema = z.object({
   format: metricFormatSchema,
   tone: toneSchema,
 });
+export const audienceGroupSchema = z.object({
+  id: z.string(),
+  title: z.string(),
+  /** De quién son los datos (seguidores, espectadores…) y el periodo, si aplica. */
+  caption: z.string(),
+  /** Porcentajes (0–100). Cada grupo debe sumar 100. */
+  items: z.array(z.object({ label: z.string(), value: z.number().min(0).max(100) })).min(1),
+});
+export const audienceSchema = z.object({
+  title: z.string(),
+  groups: z.array(audienceGroupSchema).min(1),
+});
 export const metricsFileSchema = z.object({
   /** Fecha de la última actualización (ISO o texto). Se muestra como "Actualizado: …". */
   updatedAt: z.string(),
   /** Nota opcional bajo las cifras (solo si es cierta). */
   note: z.string().optional(),
   metrics: z.array(metricSchema),
+  /** Quién ve y sigue a Mariana (TikTok Studio). Se muestra solo si existe. */
+  audience: audienceSchema.optional(),
   /** Métricas futuras: estructura lista, NO se muestran hasta tener datos reales. */
   pending: z.array(z.string()).default([]),
 });

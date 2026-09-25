@@ -1,5 +1,5 @@
 {
-  "updatedAt": "[FECHA_ACTUALIZACION]",
+  "updatedAt": "23 de septiembre de 2026",
   "metrics": [
     {
       "id": "followers",
@@ -17,18 +17,93 @@
     },
     {
       "id": "views",
-      "label": "reproducciones en videos orgánicos, más los comentarios y la conversación que hay debajo.",
-      "value": 2000,
-      "format": "approx",
+      "label": "reproducciones en los últimos 60 días",
+      "value": 148200,
+      "format": "compact",
       "tone": "cereza"
     }
   ],
-  "pending": [
-    "Edad de la audiencia",
-    "Ciudades principales",
-    "Género de la audiencia",
-    "Promedio de reproducciones",
-    "Engagement",
-    "Mejores videos"
-  ]
+  "pending": ["Engagement", "Mejores videos"],
+  "audience": {
+    "title": "Quién me acompaña",
+    "groups": [
+      {
+        "id": "age",
+        "title": "Edad",
+        "caption": "De mis seguidores",
+        "items": [
+          {
+            "label": "18–24",
+            "value": 15.0
+          },
+          {
+            "label": "25–34",
+            "value": 40.6
+          },
+          {
+            "label": "35–44",
+            "value": 27.4
+          },
+          {
+            "label": "45–54",
+            "value": 11.1
+          },
+          {
+            "label": "55 o más",
+            "value": 5.9
+          }
+        ]
+      },
+      {
+        "id": "location",
+        "title": "Dónde están",
+        "caption": "De mis seguidores",
+        "items": [
+          {
+            "label": "Colombia",
+            "value": 68.3
+          },
+          {
+            "label": "Argentina",
+            "value": 1.0
+          },
+          {
+            "label": "Estados Unidos",
+            "value": 0.9
+          },
+          {
+            "label": "México",
+            "value": 0.8
+          },
+          {
+            "label": "Venezuela",
+            "value": 0.4
+          },
+          {
+            "label": "Otros países",
+            "value": 28.6
+          }
+        ]
+      },
+      {
+        "id": "gender",
+        "title": "Quién ve mis videos",
+        "caption": "Espectadores del 17 al 23 de septiembre",
+        "items": [
+          {
+            "label": "Mujeres",
+            "value": 66
+          },
+          {
+            "label": "Hombres",
+            "value": 33
+          },
+          {
+            "label": "Otro",
+            "value": 1
+          }
+        ]
+      }
+    ]
+  }
 }

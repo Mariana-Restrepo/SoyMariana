@@ -27,7 +27,9 @@
     "tokens": "npm run build -w @soymariana/tokens",
     "assets": "npm run assets -w @soymariana/web",
     "format": "prettier --write .",
-    "format:check": "prettier --check ."
+    "format:check": "prettier --check .",
+    "audit": "npm run audit -w @soymariana/web",
+    "images": "npm run images -w @soymariana/web"
   },
   "devDependencies": {
     "prettier": "^3.9.9"
