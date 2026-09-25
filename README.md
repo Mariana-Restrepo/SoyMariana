@@ -51,7 +51,7 @@ SoyMariana/
 │   ├── tokens/              colores, tipografía, espaciado, movimiento → tokens.css + objetos TS
 │   ├── content/             TODO el contenido editable (data/*.json) + esquemas y tipos
 │   └── core/                lógica pura: formato, filtros, formulario, analítica
-└── docs/                    fase-1 (dirección), fase-2 (diseño), fase-3 (implementación)
+└── docs/                    guías por fase (1 a 6); empieza por fase-6/06-guia-de-uso.md
 ```
 
 ## Cambiar el contenido
@@ -69,7 +69,7 @@ Todo el texto, videos, recomendaciones y proyectos viven en [`packages/content/d
 | Sección para marcas              | `collab.json`                         |
 | Título y descripción (SEO)       | `site.json`                           |
 
-Después de editar, corre `npm run check:content`: valida el formato y te dice qué `[PLACEHOLDERS]` siguen pendientes. Guía completa: [docs/fase-3](docs/fase-3/03-implementacion-web.md).
+Después de editar, corre `npm run check:content`: valida el formato y te dice qué `[PLACEHOLDERS]` siguen pendientes. Guía paso a paso: [docs/fase-6](docs/fase-6/06-guia-de-uso.md).
 
 ## Variables de entorno
 
@@ -85,6 +85,7 @@ Copia `apps/web/.env.example` a `apps/web/.env.local`:
 - [Fase 3 · Implementación web](docs/fase-3/03-implementacion-web.md)
 - [Fase 4 · App móvil](docs/fase-4/04-app-movil.md) (incluye cómo verla en tu iPhone)
 - [Fase 5 · Optimización y auditoría](docs/fase-5/05-optimizacion-y-auditoria.md) (resultados, fotos, videos y qué revisar antes de publicar)
+- [Fase 6 · Guía de uso](docs/fase-6/06-guia-de-uso.md) (correr, cambiar contenido, actualizar números, publicar y qué hacer si algo falla)
 
 ## Convenciones
 
