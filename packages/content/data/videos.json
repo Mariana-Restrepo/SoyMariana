@@ -1,0 +1,57 @@
+[
+  {
+    "id": "video-01",
+    "title": "[TITULO_VIDEO_01]",
+    "caption": "Una línea en mi voz sobre este video.",
+    "poster": {
+      "alt": "Portada del video 1 (pendiente)",
+      "placeholder": "[VIDEO_TIKTOK_01]",
+      "tone": "rosa"
+    },
+    "tiktokUrl": "[LINK_TIKTOK_VIDEO_01]"
+  },
+  {
+    "id": "video-02",
+    "title": "[TITULO_VIDEO_02]",
+    "caption": "Lo probé para que tú no tengas que hacerlo.",
+    "poster": {
+      "alt": "Portada del video 2 (pendiente)",
+      "placeholder": "[VIDEO_TIKTOK_02]",
+      "tone": "cereza"
+    },
+    "tiktokUrl": "[LINK_TIKTOK_VIDEO_02]"
+  },
+  {
+    "id": "video-03",
+    "title": "[TITULO_VIDEO_03]",
+    "caption": "¿Esto realmente vale la pena?",
+    "poster": {
+      "alt": "Portada del video 3 (pendiente)",
+      "placeholder": "[VIDEO_TIKTOK_03]",
+      "tone": "azul"
+    },
+    "tiktokUrl": "[LINK_TIKTOK_VIDEO_03]"
+  },
+  {
+    "id": "video-04",
+    "title": "[TITULO_VIDEO_04]",
+    "caption": "Encontré un lugar que tienes que conocer.",
+    "poster": {
+      "alt": "Portada del video 4 (pendiente)",
+      "placeholder": "[VIDEO_TIKTOK_04]",
+      "tone": "rosa"
+    },
+    "tiktokUrl": "[LINK_TIKTOK_VIDEO_04]"
+  },
+  {
+    "id": "video-05",
+    "title": "[TITULO_VIDEO_05]",
+    "caption": "Amiga, probé esto…",
+    "poster": {
+      "alt": "Portada del video 5 (pendiente)",
+      "placeholder": "[VIDEO_TIKTOK_05]",
+      "tone": "cereza"
+    },
+    "tiktokUrl": "[LINK_TIKTOK_VIDEO_05]"
+  }
+]

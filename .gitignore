@@ -41,3 +41,16 @@ yarn-error.*
 # generated native folders
 /ios
 /android
+
+# monorepo
+**/node_modules/
+**/dist/
+**/.expo/
+**/expo-env.d.ts
+apps/web/dev-dist/
+*.log
+coverage/
+
+# Los videos pesan: se alojan fuera de git (Cloudflare R2 / Bunny / Cloudinary) y solo se guarda la URL en el JSON.
+apps/web/public/media/videos/*
+!apps/web/public/media/videos/.gitkeep

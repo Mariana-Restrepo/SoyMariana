@@ -1,0 +1,98 @@
+[
+  {
+    "id": "rec-01",
+    "slug": "producto-01",
+    "name": "[PRODUCTO_01]",
+    "category": "cabello",
+    "verdict": "se-queda",
+    "opinion": "Me sorprendió más de lo que esperaba. Este se queda.",
+    "liked": ["Se siente ligero", "Lo usaría todos los días"],
+    "disliked": ["Se acaba rápido"],
+    "image": {
+      "alt": "Producto 1 (foto pendiente)",
+      "placeholder": "[IMAGEN_PRODUCTO_01]",
+      "tone": "azul"
+    },
+    "link": "[LINK_PRODUCTO_01]",
+    "linkLabel": "Ver dónde encontrarlo"
+  },
+  {
+    "id": "rec-02",
+    "slug": "producto-02",
+    "name": "[PRODUCTO_02]",
+    "category": "belleza",
+    "verdict": "repite",
+    "opinion": "Lo volvería a comprar sin pensarlo dos veces.",
+    "liked": ["El acabado", "Dura todo el día"],
+    "disliked": ["El empaque"],
+    "image": {
+      "alt": "Producto 2 (foto pendiente)",
+      "placeholder": "[IMAGEN_PRODUCTO_02]",
+      "tone": "rosa"
+    },
+    "link": "[LINK_PRODUCTO_02]",
+    "linkLabel": "Ver dónde encontrarlo"
+  },
+  {
+    "id": "rec-03",
+    "slug": "producto-03",
+    "name": "[PRODUCTO_03]",
+    "category": "cuidado-personal",
+    "verdict": "no-convencio",
+    "opinion": "La verdad, no me convenció. Te cuento por qué en el video.",
+    "liked": ["La textura"],
+    "disliked": ["No vi resultados", "El precio"],
+    "image": {
+      "alt": "Producto 3 (foto pendiente)",
+      "placeholder": "[IMAGEN_PRODUCTO_03]",
+      "tone": "crema"
+    }
+  },
+  {
+    "id": "rec-04",
+    "slug": "producto-04",
+    "name": "[PRODUCTO_04]",
+    "category": "productos",
+    "verdict": "vale-la-pena",
+    "opinion": "Vale la pena, aunque no es un milagro.",
+    "liked": ["Relación calidad-precio"],
+    "disliked": ["Tarda en llegar"],
+    "image": {
+      "alt": "Producto 4 (foto pendiente)",
+      "placeholder": "[IMAGEN_PRODUCTO_04]",
+      "tone": "cereza"
+    },
+    "link": "[LINK_PRODUCTO_04]",
+    "linkLabel": "Ver dónde encontrarlo"
+  },
+  {
+    "id": "rec-05",
+    "slug": "producto-05",
+    "name": "[PRODUCTO_05]",
+    "category": "lifestyle",
+    "verdict": "sorprendio",
+    "opinion": "No lo esperaba y ahora lo uso todos los días.",
+    "liked": ["Práctico", "Bonito"],
+    "disliked": ["Nada por ahora"],
+    "image": {
+      "alt": "Producto 5 (foto pendiente)",
+      "placeholder": "[IMAGEN_PRODUCTO_05]",
+      "tone": "azul"
+    }
+  },
+  {
+    "id": "rec-06",
+    "slug": "producto-06",
+    "name": "[PRODUCTO_06]",
+    "category": "belleza",
+    "verdict": "vale-la-pena",
+    "opinion": "Cumple lo que promete, sin exagerar.",
+    "liked": ["Rinde bastante"],
+    "disliked": ["El olor"],
+    "image": {
+      "alt": "Producto 6 (foto pendiente)",
+      "placeholder": "[IMAGEN_PRODUCTO_06]",
+      "tone": "rosa"
+    }
+  }
+]

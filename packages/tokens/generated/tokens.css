@@ -1,0 +1,94 @@
+/* GENERADO por packages/tokens/scripts/build-css.ts. No editar a mano: edita packages/tokens/src. */
+@theme {
+  /* Colores */
+  --color-paper: #FFFAF6;
+  --color-ink: #2B1F26;
+  --color-ink-soft: #6B5A63;
+  --color-rosa: #FF8DB5;
+  --color-rosa-tint: #FFE1EA;
+  --color-rosa-deep: #D9457F;
+  --color-rosa-ink: #9C2A5B;
+  --color-cereza: #D92B3F;
+  --color-cereza-tint: #FFD9D8;
+  --color-cereza-ink: #A61B2C;
+  --color-azul: #2F55E0;
+  --color-azul-tint: #DCE5FF;
+  --color-white: #FFFFFF;
+
+  /* Tipografía */
+  --font-serif: 'Instrument Serif', Georgia, 'Times New Roman', serif;
+  --font-sans: 'DM Sans Variable', 'DM Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-hand: 'Caveat', 'Bradley Hand', cursive;
+  --text-hero: clamp(2.7rem, 9vw, 6.2rem);
+  --text-hero--line-height: 1.04;
+  --text-h2: clamp(2.1rem, 6vw, 3.8rem);
+  --text-h2--line-height: 1.04;
+  --text-h3: 1.55rem;
+  --text-h3--line-height: 1.1;
+  --text-lead: clamp(1.05rem, 2.4vw, 1.25rem);
+  --text-lead--line-height: 1.55;
+  --text-body: 1.0625rem;
+  --text-body--line-height: 1.6;
+  --text-small: 0.9rem;
+  --text-small--line-height: 1.5;
+  --text-eyebrow: 0.78rem;
+  --text-eyebrow--line-height: 1;
+  --text-huge: clamp(3.6rem, 15vw, 10rem);
+  --text-huge--line-height: 0.95;
+  --text-number: clamp(3.6rem, 11vw, 6rem);
+  --text-number--line-height: 1;
+
+  /* Radios y sombras */
+  --radius-sm: 10px;
+  --radius-md: 20px;
+  --radius-lg: 28px;
+  --radius-pill: 999px;
+  --shadow-soft: 0 10px 28px -14px rgb(43 31 38 / 0.25);
+  --shadow-lift: 0 18px 40px -16px rgb(217 69 127 / 0.35);
+  --shadow-glow: 0 14px 30px -10px rgb(217 43 63 / 0.55);
+  --shadow-blue: 0 14px 34px -18px rgb(47 85 224 / 0.5);
+
+  /* Breakpoints (móvil primero) */
+  --breakpoint-sm: 30rem;
+  --breakpoint-md: 48rem;
+  --breakpoint-lg: 64rem;
+  --breakpoint-xl: 80rem;
+
+  /* Movimiento */
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out-soft: cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+:root {
+  /* Layout */
+  --max-w: 1160px;
+  --gutter: clamp(16px, 5vw, 40px);
+  --section-y: clamp(4rem, 10vw, 8.5rem);
+  --header-h: 68px;
+  --header-h-compact: 54px;
+  --touch: 44px;
+
+  /* Movimiento */
+  --dur-fast: 150ms;
+  --dur-base: 280ms;
+  --dur-slow: 500ms;
+  --dur-ambient: 7000ms;
+
+  /* Capas */
+  --z-base: 0;
+  --z-floating-cta: 30;
+  --z-sheet: 35;
+  --z-header: 40;
+  --z-modal: 50;
+  --z-toast: 60;
+
+  /* Tonos de foto / placeholder */
+  --tone-rosa-from: #FFE1EA;
+  --tone-rosa-to: #FF8DB5;
+  --tone-cereza-from: #FFD9D8;
+  --tone-cereza-to: #FF9AA3;
+  --tone-azul-from: #DCE5FF;
+  --tone-azul-to: #9DB3FF;
+  --tone-crema-from: #F3EBE6;
+  --tone-crema-to: #D9CFCA;
+}

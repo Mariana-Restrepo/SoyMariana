@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="es-CO">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SoyMariana · Style tile (Fase 1)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FFFAF6; --ink:#2B1F26; --ink-soft:#6B5A63;
+    --rosa:#FF8DB5; --rosa-tint:#FFE1EA; --rosa-deep:#D9457F;
+    --cereza:#D92B3F; --cereza-tint:#FFD9D8;
+    --azul:#2F55E0; --azul-tint:#DCE5FF;
+    --r-sm:10px; --r-md:20px; --r-lg:28px;
+    --shadow:0 12px 32px -12px rgb(217 69 127 / .28);
+    --ease:cubic-bezier(.22,1,.36,1);
+    --serif:'Instrument Serif',Georgia,serif; --sans:'DM Sans',system-ui,sans-serif; --hand:'Caveat',cursive;
+  }
+  *{box-sizing:border-box;margin:0}
+  body{background:var(--paper);color:var(--ink);font:300 1.0625rem/1.6 var(--sans);-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+  section{padding:clamp(3rem,8vw,6rem) 0}
+  h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.05}
+  h1{font-size:clamp(2.6rem,8vw,5.5rem)} h2{font-size:clamp(2rem,5vw,3.2rem);margin-bottom:.4em}
+  em{font-style:italic}
+  .eyebrow{font:500 .8rem/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:1rem;display:block}
+  .note{color:var(--ink-soft);font-size:.95rem;max-width:60ch}
+  .u{background:linear-gradient(transparent 62%,var(--rosa) 62% 88%,transparent 88%);padding:0 .08em}
+
+  /* header demo */
+  .top{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--paper) 86%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid rgb(43 31 38 / .08)}
+  .top .wrap{display:flex;align-items:center;gap:24px;height:64px}
+  .logo{font:400 1.5rem var(--serif);letter-spacing:.02em}
+  .logo i{color:var(--cereza);font-style:normal;font-size:.8em}
+  nav{display:flex;gap:22px;margin-left:auto;font-weight:400;font-size:.95rem}
+  nav a{color:var(--ink);text-decoration:none;padding:6px 0;border-bottom:2px solid transparent;transition:border-color .28s var(--ease)}
+  nav a:hover,nav a:focus-visible{border-color:var(--rosa)}
+  @media(max-width:720px){nav a:not(.cta){display:none}}
+
+  /* buttons */
+  .btn{font:500 .95rem var(--sans);min-height:44px;padding:0 22px;border-radius:999px;border:0;cursor:pointer;transition:transform .28s var(--ease),box-shadow .28s var(--ease)}
+  .btn:hover{transform:translateY(-2px) scale(1.02)} .btn:focus-visible{outline:3px solid var(--azul);outline-offset:3px}
+  .btn-rosa{background:var(--rosa);color:var(--ink);box-shadow:var(--shadow)}
+  .btn-cereza{background:var(--cereza);color:#fff}
+  .btn-quiet{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--ink)}
+  .btn-azul{background:var(--azul);color:#fff}
+
+  /* hero */
+  .hero{background:radial-gradient(60% 70% at 78% 30%,var(--rosa) 0,var(--rosa-tint) 55%,var(--paper) 100%);position:relative;overflow:hidden}
+  .hero .wrap{display:grid;gap:32px;align-items:center}
+  @media(min-width:820px){.hero .wrap{grid-template-columns:1.1fr .9fr}}
+  .rot{display:inline-block;min-width:8ch;color:var(--cereza);font-style:italic}
+  .photo{aspect-ratio:4/5;border-radius:var(--r-lg);background:repeating-linear-gradient(135deg,#fff8 0 12px,#fff3 12px 24px),var(--rosa-tint);display:grid;place-items:center;font:500 .8rem var(--sans);letter-spacing:.1em;color:var(--ink-soft);transform:rotate(1.5deg);box-shadow:var(--shadow);position:relative}
+  .sticker{position:absolute;font:500 1.35rem var(--hand);background:#fff;padding:.3em .8em;border-radius:12px;box-shadow:var(--shadow);animation:float 7s ease-in-out infinite}
+  .s1{top:-14px;left:-18px;transform:rotate(-6deg);color:var(--cereza)}
+  .s2{bottom:26px;right:-16px;transform:rotate(4deg);animation-delay:-3s}
+  @keyframes float{50%{translate:0 -8px}}
+
+  /* palette */
+  .swatches{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:14px}
+  .sw{border-radius:var(--r-md);overflow:hidden;box-shadow:inset 0 0 0 1px rgb(43 31 38 / .08);background:#fff}
+  .sw b{display:block;height:84px}
+  .sw span{display:block;padding:10px 12px;font-size:.82rem;line-height:1.35}
+  .sw code{font-size:.78rem;color:var(--ink-soft)}
+  .ratio{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+  .pill{padding:10px 16px;border-radius:999px;font-weight:400;font-size:.88rem}
+
+  /* stamps */
+  .stamps{display:flex;flex-wrap:wrap;gap:22px}
+  .stamp{display:inline-flex;align-items:center;gap:8px;padding:.55em 1.1em;border-radius:999px;font:500 .9rem var(--sans);border:2px solid currentColor;transform:rotate(var(--rot,-3deg));background:var(--bg)}
+  .st-repite{--bg:var(--cereza-tint);color:var(--cereza);--rot:-3deg}
+  .st-sorprendio{--bg:var(--azul-tint);color:var(--azul);--rot:2deg}
+  .st-vale{--bg:var(--rosa-tint);color:#9c2a5b;--rot:-2deg}
+  .st-quedo{--bg:var(--cereza);color:#fff;--rot:3deg}
+  .st-volveria{--bg:#fff;color:var(--azul);--rot:-1.5deg}
+  .st-no{--bg:transparent;color:var(--ink-soft);border-style:dashed;--rot:1.5deg}
+
+  /* cards */
+  .grid{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+  .card{background:#fff;border-radius:var(--r-lg);padding:14px 14px 20px;box-shadow:var(--shadow);transform:rotate(var(--rot,0));transition:transform .5s var(--ease)}
+  .card:hover{transform:rotate(0) translateY(-6px) scale(1.02)}
+  .card .img{aspect-ratio:4/3;border-radius:var(--r-md);background:linear-gradient(140deg,var(--c1),var(--c2));margin-bottom:14px;display:grid;place-items:center;font-size:2.6rem}
+  .card h3{font-size:1.6rem;margin:10px 6px 4px}
+  .card p{margin:0 6px;color:var(--ink-soft);font-size:.95rem}
+  .card .stamp{margin:0 6px 4px}
+  .cat{--c1:var(--rosa-tint);--c2:var(--rosa)}
+  .cat.b{--c1:var(--azul-tint);--c2:#9db3ff} .cat.r{--c1:var(--cereza-tint);--c2:#ff9aa3}
+  .more{max-height:0;overflow:hidden;opacity:0;transition:max-height .5s var(--ease),opacity .4s;margin:0 6px}
+  .cat:hover .more,.cat:focus-within .more{max-height:120px;opacity:1;margin-top:10px}
+  .tag{display:inline-block;font:500 .75rem var(--sans);background:var(--rosa-tint);padding:.25em .7em;border-radius:99px;margin:0 4px 4px 0}
+
+  /* dev band */
+  .dev{background:var(--azul-tint)}
+  .dev h2 em{color:var(--azul)}
+  .chip{display:inline-block;font:400 .85rem var(--sans);border:1.5px solid var(--azul);color:var(--azul);border-radius:99px;padding:.3em .9em;margin:0 8px 8px 0;background:#fff8}
+
+  /* type */
+  .spec{display:grid;gap:26px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+  .spec div{background:#fff;border-radius:var(--r-lg);padding:26px;box-shadow:var(--shadow)}
+  .big{font:400 3.4rem/1 var(--serif)} .hand{font:500 1.7rem var(--hand);color:var(--cereza)}
+  .num{font:400 clamp(3rem,9vw,5.5rem)/1 var(--serif)}
+
+  .tiles{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+  .tile{background:var(--rosa-tint);border-radius:var(--r-lg);padding:24px}
+  .tile:nth-child(2){background:#fff;box-shadow:var(--shadow)} .tile:nth-child(3){background:var(--cereza-tint)}
+  footer{padding:40px 0;color:var(--ink-soft);font-size:.9rem}
+  @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<header class="top"><div class="wrap">
+  <div class="logo"><em>Soy</em> Mariana <i>♡</i></div>
+  <nav aria-label="Principal"><a href="#">Videos</a><a href="#">Lo que pruebo</a><a href="#">Sobre mí</a><a class="btn btn-cereza cta" style="display:inline-flex;align-items:center;text-decoration:none" href="#">¿Creamos algo?</a></nav>
+</div></header>
+
+<main>
+<section class="hero" aria-label="Hero de ejemplo"><div class="wrap">
+  <div>
+    <span class="eyebrow">Style tile · Fase 1 · propuesta</span>
+    <h1>La amiga que prueba todo <em class="u">primero.</em></h1>
+    <p style="margin:1.2rem 0 1.6rem;font-size:1.2rem">Productos, lugares y recomendaciones reales.</p>
+    <p style="margin-bottom:1.6rem;font-size:1.05rem">Yo <span class="rot" id="rot">pruebo</span></p>
+    <button class="btn btn-rosa">Ver lo que probé</button>
+    <button class="btn btn-quiet" style="margin-left:8px">Sobre mí</button>
+  </div>
+  <div class="photo" role="img" aria-label="Espacio para la foto de Mariana">[IMAGEN_HERO_01]
+    <span class="sticker s1">amiga, mira esto</span>
+    <span class="sticker s2">lo probé ✦</span>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <span class="eyebrow">Paleta · el color es un evento, no el ambiente</span>
+  <h2>Rosado, cereza y azul <em>sobre una base crema</em></h2>
+  <p class="note" style="margin-bottom:26px">Calibrar con capturas de tus fondos de TikTok. Un color dominante por sección; los otros dos, solo detalles.</p>
+  <div class="swatches">
+    <div class="sw"><b style="background:#FFFAF6"></b><span>paper<br><code>#FFFAF6</code></span></div>
+    <div class="sw"><b style="background:#2B1F26"></b><span>ink<br><code>#2B1F26</code></span></div>
+    <div class="sw"><b style="background:#FF8DB5"></b><span>rosa<br><code>#FF8DB5</code></span></div>
+    <div class="sw"><b style="background:#FFE1EA"></b><span>rosa-tint<br><code>#FFE1EA</code></span></div>
+    <div class="sw"><b style="background:#D9457F"></b><span>rosa-deep · solo grande<br><code>#D9457F</code></span></div>
+    <div class="sw"><b style="background:#D92B3F"></b><span>cereza<br><code>#D92B3F</code></span></div>
+    <div class="sw"><b style="background:#FFD9D8"></b><span>cereza-tint<br><code>#FFD9D8</code></span></div>
+    <div class="sw"><b style="background:#2F55E0"></b><span>azul<br><code>#2F55E0</code></span></div>
+    <div class="sw"><b style="background:#DCE5FF"></b><span>azul-tint<br><code>#DCE5FF</code></span></div>
+  </div>
+  <div class="ratio" aria-label="Contrastes verificados">
+    <span class="pill" style="background:var(--paper);box-shadow:inset 0 0 0 1px #0002">ink / paper · 15.3</span>
+    <span class="pill" style="background:var(--rosa)">ink / rosa · 7.3</span>
+    <span class="pill" style="background:var(--azul);color:#fff">blanco / azul · 6.0</span>
+    <span class="pill" style="background:var(--cereza);color:#fff">blanco / cereza · 4.8</span>
+  </div>
+</div></section>
+
+<section style="background:#fff"><div class="wrap">
+  <span class="eyebrow">Tipografía · ligera, sin negritas</span>
+  <div class="spec">
+    <div><p class="note">Títulos · Instrument Serif</p><p class="big">Esto sí te lo <em>recomiendo</em></p></div>
+    <div><p class="note">Texto · DM Sans 300 / 400 / 500</p>
+      <p>Probé este suero durante tres semanas y la verdad me sorprendió: no es milagroso, pero mi piel se siente más tranquila. Te cuento todo en el video.</p></div>
+    <div><p class="note">Notas a mano · Caveat (muy poco)</p><p class="hand">amiga, mira esto ♡</p>
+      <p class="note" style="margin-top:14px">Máx. 1–2 etiquetas por pantalla. Nunca en párrafos.</p></div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <span class="eyebrow">Sellos de veredicto · en vez de estrellas</span>
+  <h2>Con honestidad, <em>incluso cuando no convenció</em></h2>
+  <div class="stamps" style="margin-top:24px">
+    <span class="stamp st-repite">♡ Sí volvería a comprarlo</span>
+    <span class="stamp st-sorprendio">✦ Me sorprendió</span>
+    <span class="stamp st-vale">Vale la pena</span>
+    <span class="stamp st-quedo">♡ Esto se queda conmigo</span>
+    <span class="stamp st-volveria">Lo volvería a visitar</span>
+    <span class="stamp st-no">No me convenció</span>
+  </div>
+</div></section>
+
+<section style="background:var(--rosa-tint)"><div class="wrap">
+  <span class="eyebrow">Tarjetas · categorías y colección</span>
+  <h2>Pasa el mouse o toca <em>una categoría</em></h2>
+  <div class="grid" style="margin-top:26px">
+    <article class="card cat" style="--rot:-1.5deg" tabindex="0"><div class="img">💆🏻‍♀️</div><h3>Cabello</h3><p>Rizos, técnicas y productos que sí (y no) funcionan.</p>
+      <div class="more"><span class="tag">[EJEMPLO_01]</span><span class="tag">[EJEMPLO_02]</span><br><button class="btn btn-quiet" style="min-height:38px;margin-top:6px">Ver colección</button></div></article>
+    <article class="card cat b" style="--rot:1deg" tabindex="0"><div class="img">☕</div><h3>Lugares</h3><p>Cafés y rincones que vale la pena conocer.</p>
+      <div class="more"><span class="tag">[EJEMPLO_01]</span><span class="tag">[EJEMPLO_02]</span><br><button class="btn btn-quiet" style="min-height:38px;margin-top:6px">Ver colección</button></div></article>
+    <article class="card cat r" style="--rot:-.8deg" tabindex="0"><div class="img">🍓</div><h3>Cuidado personal</h3><p>Lo que uso y lo que me sirvió de verdad.</p>
+      <div class="more"><span class="tag">[EJEMPLO_01]</span><span class="tag">[EJEMPLO_02]</span><br><button class="btn btn-quiet" style="min-height:38px;margin-top:6px">Ver colección</button></div></article>
+    <article class="card" style="--rot:1.6deg"><div class="img" style="--c1:#fff;--c2:var(--azul-tint);font:500 .8rem var(--sans);letter-spacing:.1em;color:var(--ink-soft)">[IMAGEN_PRODUCTO_01]</div>
+      <span class="stamp st-sorprendio">✦ Me sorprendió</span>
+      <h3>[Nombre del producto]</h3><p>Belleza · "Opinión de 1–2 líneas en mi voz."</p></article>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <span class="eyebrow">Números · sin maquillaje</span>
+  <div class="tiles">
+    <div class="tile"><div class="num" data-n="1402">1.402</div><p>seguidores en TikTok</p></div>
+    <div class="tile"><div class="num">10,3K</div><p>likes acumulados</p></div>
+    <div class="tile"><div class="num">~2.000</div><p>reproducciones en videos orgánicos</p></div>
+  </div>
+  <p class="note" style="margin-top:16px">Actualizado: [FECHA] · Los números se editan en un JSON. Audiencia, ciudades y engagement quedan listos y ocultos hasta tener datos.</p>
+</div></section>
+
+<section class="dev"><div class="wrap">
+  <span class="eyebrow">Su segunda capa · el clima cambia a azul</span>
+  <h2>Y cuando no estoy <em>creando…</em></h2>
+  <p style="max-width:52ch;margin-bottom:18px">También estudio Desarrollo de Software: frontend y experiencia de usuario.</p>
+  <span class="chip">React</span><span class="chip">TypeScript</span><span class="chip">Vite</span><span class="chip">UI/UX</span><span class="chip">Git / GitHub</span>
+  <div style="margin-top:14px"><button class="btn btn-azul">Ver mis proyectos</button></div>
+</div></section>
+
+<section><div class="wrap">
+  <span class="eyebrow">Botones</span>
+  <div style="display:flex;flex-wrap:wrap;gap:12px">
+    <button class="btn btn-rosa">Principal</button>
+    <button class="btn btn-cereza">Quiero trabajar con Mariana</button>
+    <button class="btn btn-quiet">Secundario</button>
+    <button class="btn btn-azul">Developer</button>
+  </div>
+</div></section>
+</main>
+
+<footer><div class="wrap">Style tile de propuesta · los colores, textos y placeholders son provisionales y se ajustan con tu feedback.</div></footer>
+
+<script>
+  const words=['pruebo','descubro','recomiendo'];let i=0;const el=document.getElementById('rot');
+  if(!matchMedia('(prefers-reduced-motion: reduce)').matches){
+    setInterval(()=>{el.style.transition='opacity .25s,transform .25s';el.style.opacity=0;el.style.transform='translateY(6px)';
+      setTimeout(()=>{i=(i+1)%words.length;el.textContent=words[i];el.style.opacity=1;el.style.transform='none'},260)},2600);
+  }
+</script>
+</body>
+</html>

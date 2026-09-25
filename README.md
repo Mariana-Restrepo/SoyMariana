@@ -1,60 +1,89 @@
-# SoyMariana
+# Soy Mariana
 
-Aplicación **web y móvil (Android / iOS)** con un único código base.
+Experiencia digital personal de **Mariana Restrepo**: creadora de contenido ("la amiga que prueba todo primero") y desarrolladora frontend. Una **web** responsive instalable como PWA y una **app móvil**, que comparten contenido, sistema de diseño y lógica.
 
-**Stack:** [Expo](https://expo.dev) · React Native · React Native Web · TypeScript · Expo Router
+|                | Tecnología                                                                           |
+| -------------- | ------------------------------------------------------------------------------------ |
+| **Web**        | React 19 · TypeScript · Vite · Tailwind CSS v4 · Motion · PWA                        |
+| **Móvil**      | Expo · React Native · Expo Router · TypeScript                                       |
+| **Compartido** | `tokens` (diseño) · `content` (JSON + esquemas) · `core` (lógica), en npm workspaces |
 
 ## Requisitos
 
-- [Node.js](https://nodejs.org) 20 o superior
-- [Visual Studio Code](https://code.visualstudio.com) (se recomiendan las extensiones de `.vscode/extensions.json`)
-- Para probar en el celular: app **Expo Go** (Android / iOS) o un emulador
+- [Node.js](https://nodejs.org) 20 o superior (probado con 24)
+- [Visual Studio Code](https://code.visualstudio.com) con las extensiones de `.vscode/extensions.json`
+- Para la app móvil: **Expo Go** en tu celular, o un emulador Android
 
 ## Empezar
 
 ```bash
-npm install
-npm start          # menú de Expo: presiona w (web), a (Android), i (iOS)
+npm install     # una sola vez, desde la raíz: instala todo el monorepo
+npm run web     # abre la web en http://localhost:5173
 ```
 
-| Comando               | Qué hace                                  |
-| --------------------- | ----------------------------------------- |
-| `npm start`           | Inicia el servidor de desarrollo          |
-| `npm run web`         | Abre la versión web                       |
-| `npm run android`     | Abre en Android                           |
-| `npm run ios`         | Abre en iOS (requiere macOS o Expo Go)    |
-| `npm run check`       | Verifica tipos (TypeScript) y lint        |
-| `npm run lint:fix`    | Corrige problemas de lint automáticamente |
-| `npm run format`      | Da formato al código con Prettier         |
-| `npm run build:web`   | Genera el build de producción web (`dist/`) |
+| Comando                        | Qué hace                                                           |
+| ------------------------------ | ------------------------------------------------------------------ |
+| `npm run web`                  | Web en modo desarrollo (recarga al guardar)                        |
+| `npm run mobile`               | App móvil con Expo (`w` web, `a` Android, o escanea el QR)         |
+| `npm run build`                | Compila la web para producción (`apps/web/dist`)                   |
+| `npm run preview`              | Sirve el build de producción para probarlo                         |
+| `npm run check`                | **Todo junto**: tipos, lint, pruebas y validación del contenido    |
+| `npm run check:content`        | Valida el contenido y lista qué `[PLACEHOLDERS]` faltan reemplazar |
+| `npm run check:content:strict` | Igual, pero **falla** si queda alguno (úsalo antes de publicar)    |
+| `npm run tokens`               | Regenera `tokens.css` desde el sistema de diseño                   |
+| `npm run assets`               | Regenera íconos PWA e imagen para redes (provisionales)            |
+| `npm run format`               | Da formato al código con Prettier                                  |
 
 ## Estructura
 
 ```
 SoyMariana/
-├── assets/            Imágenes, íconos y fuentes
-├── docs/              Documentación del proyecto
-├── src/
-│   ├── app/           Rutas y pantallas (Expo Router: cada archivo = una pantalla)
-│   ├── components/
-│   │   ├── ui/          Componentes visuales reutilizables
-│   │   └── navigation/  Barra de pestañas / navegación
-│   ├── config/        Constantes y configuración de la app
-│   ├── constants/     Tema: colores, espaciados, fuentes
-│   ├── features/      Módulos por funcionalidad (pantallas, lógica y componentes propios)
-│   ├── hooks/         Hooks reutilizables
-│   ├── services/      Acceso a APIs, base de datos, autenticación
-│   ├── types/         Tipos de TypeScript compartidos
-│   └── utils/         Funciones auxiliares
-├── app.json           Configuración de Expo (nombre, íconos, splash)
-└── package.json
+├── apps/
+│   ├── web/                 React + Vite: secciones, componentes, PWA, SEO
+│   │   ├── public/media/      imágenes (y videos en desarrollo) del sitio
+│   │   └── src/               app · sections · components · hooks · lib · styles
+│   └── mobile/              Expo + React Native (Fase 4)
+├── packages/
+│   ├── tokens/              colores, tipografía, espaciado, movimiento → tokens.css + objetos TS
+│   ├── content/             TODO el contenido editable (data/*.json) + esquemas y tipos
+│   └── core/                lógica pura: formato, filtros, formulario, analítica
+└── docs/                    fase-1 (dirección), fase-2 (diseño), fase-3 (implementación)
 ```
 
-Más detalle en [docs/ARQUITECTURA.md](docs/ARQUITECTURA.md).
+## Cambiar el contenido
+
+Todo el texto, videos, recomendaciones y proyectos viven en [`packages/content/data/`](packages/content/data). **No hace falta tocar componentes**: edita el JSON, guarda y la web se actualiza.
+
+| Quiero cambiar…                  | Archivo                               |
+| -------------------------------- | ------------------------------------- |
+| Mis datos, historia, frase final | `profile.json`                        |
+| Redes y correo                   | `links.json`                          |
+| Videos del carrusel              | `videos.json`                         |
+| Categorías de "Lo que pruebo"    | `categories.json`                     |
+| Recomendaciones y lugares        | `recommendations.json`, `places.json` |
+| Mis números                      | `metrics.json`                        |
+| Sección para marcas              | `collab.json`                         |
+| Proyectos developer              | `developer.json`                      |
+| Título y descripción (SEO)       | `site.json`                           |
+
+Después de editar, corre `npm run check:content`: valida el formato y te dice qué `[PLACEHOLDERS]` siguen pendientes. Guía completa: [docs/fase-3](docs/fase-3/03-implementacion-web.md).
+
+## Variables de entorno
+
+Copia `apps/web/.env.example` a `apps/web/.env.local`:
+
+- `VITE_SITE_URL`: URL pública del sitio (canonical, Open Graph, sitemap).
+- `VITE_INQUIRY_ENDPOINT`: servicio que recibe el formulario de marcas. Sin él, el formulario abre el correo (mailto).
+
+## Documentación
+
+- [Fase 1 · Dirección creativa y arquitectura](docs/fase-1/01-direccion-creativa-y-arquitectura.md)
+- [Fase 2 · Diseño visual y componentes](docs/fase-2/02-wireframes-y-componentes.md) · [prototipo visual](docs/fase-2/prototipo-visual.html)
+- [Fase 3 · Implementación web](docs/fase-3/03-implementacion-web.md)
 
 ## Convenciones
 
-- Alias de importación: `@/` apunta a `src/` (ej. `import { Spacing } from '@/constants/theme'`).
-- Archivos `*.web.tsx` se usan solo en web; `*.tsx` (sin sufijo) en móvil, o en ambos si no existe versión web.
-- Instalar paquetes con `npx expo install <paquete>` para que la versión sea compatible con el SDK.
-- Variables de entorno: copiar `.env.example` a `.env.local` (no se sube a git).
+- Alias `@/` → `apps/web/src/` en la web.
+- Tokens: nunca escribas un color o tamaño suelto; usa las clases de Tailwind derivadas de `packages/tokens`.
+- Paquetes nuevos: `npm install <paquete> -w @soymariana/web` (o el workspace que corresponda). En móvil, `npx expo install <paquete>` desde `apps/mobile`.
+- **React va fijado en 19.2.3** en toda la raíz para que web y móvil compartan una sola copia; no lo actualices por separado.

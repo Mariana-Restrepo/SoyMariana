@@ -1,0 +1,34 @@
+{
+  "updatedAt": "[FECHA_ACTUALIZACION]",
+  "metrics": [
+    {
+      "id": "followers",
+      "label": "seguidores en TikTok",
+      "value": 1402,
+      "format": "int",
+      "tone": "rosa"
+    },
+    {
+      "id": "likes",
+      "label": "likes acumulados",
+      "value": 10300,
+      "format": "compact",
+      "tone": "azul"
+    },
+    {
+      "id": "views",
+      "label": "reproducciones en videos orgánicos, más los comentarios y la conversación que hay debajo.",
+      "value": 2000,
+      "format": "approx",
+      "tone": "cereza"
+    }
+  ],
+  "pending": [
+    "Edad de la audiencia",
+    "Ciudades principales",
+    "Género de la audiencia",
+    "Promedio de reproducciones",
+    "Engagement",
+    "Mejores videos"
+  ]
+}

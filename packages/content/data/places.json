@@ -1,0 +1,54 @@
+[
+  {
+    "id": "place-01",
+    "slug": "lugar-01",
+    "name": "[LUGAR_01]",
+    "city": "[CIUDAD]",
+    "category": "restaurantes",
+    "verdict": "volveria",
+    "tried": ["[QUE_PROBE_01]", "[QUE_PROBE_02]"],
+    "liked": ["[QUE_ME_GUSTO_01]"],
+    "review": "Lo que me gustó, en una o dos líneas y con mi voz.",
+    "image": {
+      "alt": "Lugar 1 (foto pendiente)",
+      "placeholder": "[IMAGEN_LUGAR_01]",
+      "tone": "rosa"
+    },
+    "mapUrl": "[LINK_MAPA_01]",
+    "socialUrl": "[LINK_RED_LUGAR_01]"
+  },
+  {
+    "id": "place-02",
+    "slug": "lugar-02",
+    "name": "[LUGAR_02]",
+    "city": "[CIUDAD]",
+    "category": "lugares",
+    "verdict": "se-queda",
+    "tried": ["[QUE_PROBE_01]"],
+    "liked": ["[QUE_ME_GUSTO_01]"],
+    "review": "Fui, probé y esto fue lo que encontré.",
+    "image": {
+      "alt": "Lugar 2 (foto pendiente)",
+      "placeholder": "[IMAGEN_LUGAR_02]",
+      "tone": "azul"
+    },
+    "mapUrl": "[LINK_MAPA_02]"
+  },
+  {
+    "id": "place-03",
+    "slug": "lugar-03",
+    "name": "[LUGAR_03]",
+    "city": "[CIUDAD]",
+    "category": "restaurantes",
+    "verdict": "vale-la-pena",
+    "tried": ["[QUE_PROBE_01]", "[QUE_PROBE_02]"],
+    "liked": [],
+    "review": "Bonito, pero no es para todos los días.",
+    "image": {
+      "alt": "Lugar 3 (foto pendiente)",
+      "placeholder": "[IMAGEN_LUGAR_03]",
+      "tone": "cereza"
+    },
+    "socialUrl": "[LINK_RED_LUGAR_03]"
+  }
+]

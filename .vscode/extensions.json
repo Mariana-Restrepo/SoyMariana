@@ -3,6 +3,7 @@
     "expo.vscode-expo-tools",
     "dbaeumer.vscode-eslint",
     "esbenp.prettier-vscode",
-    "editorconfig.editorconfig"
+    "editorconfig.editorconfig",
+    "bradlc.vscode-tailwindcss"
   ]
 }

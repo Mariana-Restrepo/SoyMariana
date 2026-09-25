@@ -1,0 +1,47 @@
+{
+  "eyebrow": "Su otra capa",
+  "title": "Y cuando no estoy",
+  "titleEmphasis": "creando…",
+  "intro": "También estudio Desarrollo de Software: frontend y experiencia de usuario.",
+  "skills": ["Frontend", "UI/UX", "React", "TypeScript", "Vite", "Git / GitHub"],
+  "projects": [
+    {
+      "id": "proj-soymariana",
+      "name": "Soy Mariana",
+      "description": "Esta experiencia: web y app móvil con un sistema de diseño propio.",
+      "stack": ["React", "TypeScript", "Vite", "Tailwind", "Expo"],
+      "image": {
+        "alt": "Captura de Soy Mariana (pendiente)",
+        "placeholder": "[IMAGEN_PROYECTO_01]",
+        "tone": "azul"
+      },
+      "githubUrl": "[LINK_GITHUB_01]",
+      "demoUrl": "[LINK_DEMO_01]",
+      "badge": "lo estás viendo ✦"
+    },
+    {
+      "id": "proj-02",
+      "name": "[PROYECTO_02]",
+      "description": "[DESCRIPCION_PROYECTO]",
+      "stack": ["[TECNOLOGIA]"],
+      "image": {
+        "alt": "Captura del proyecto 2 (pendiente)",
+        "placeholder": "[IMAGEN_PROYECTO_02]",
+        "tone": "azul"
+      },
+      "githubUrl": "[LINK_GITHUB_02]"
+    },
+    {
+      "id": "proj-03",
+      "name": "[PROYECTO_03]",
+      "description": "[DESCRIPCION_PROYECTO]",
+      "stack": ["[TECNOLOGIA]"],
+      "image": {
+        "alt": "Captura del proyecto 3 (pendiente)",
+        "placeholder": "[IMAGEN_PROYECTO_03]",
+        "tone": "azul"
+      },
+      "githubUrl": "[LINK_GITHUB_03]"
+    }
+  ]
+}

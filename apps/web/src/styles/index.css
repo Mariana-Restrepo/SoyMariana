@@ -1,0 +1,177 @@
+@import 'tailwindcss';
+/* Fuente única del sistema de diseño: se genera desde packages/tokens */
+@import '@soymariana/tokens/tokens.css';
+
+/* Animaciones ambientales (todas se apagan con prefers-reduced-motion, ver más abajo) */
+@theme {
+  --animate-float: float 7s ease-in-out infinite;
+  --animate-wheel: wheel 1.8s var(--ease-in-out-soft) infinite;
+  --animate-drift: drift 9s ease-in-out infinite alternate;
+  --animate-progress: progress 8s linear infinite;
+  --animate-rise: rise 0.7s var(--ease-out-soft) both;
+  --animate-pop: pop 0.4s var(--ease-out-soft);
+
+  @keyframes float {
+    50% {
+      translate: 0 -10px;
+    }
+  }
+  @keyframes wheel {
+    0% {
+      opacity: 0;
+      transform: translateY(0);
+    }
+    30% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(12px);
+    }
+  }
+  @keyframes drift {
+    to {
+      transform: translate(18%, 22%);
+    }
+  }
+  @keyframes progress {
+    to {
+      transform: scaleX(1);
+    }
+  }
+  @keyframes rise {
+    from {
+      opacity: 0;
+      transform: translateY(16px);
+    }
+  }
+  @keyframes pop {
+    from {
+      opacity: 0;
+      transform: translateY(24px) scale(0.98);
+    }
+  }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: calc(var(--header-h-compact) + 12px);
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    background: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-weight: 300;
+    font-size: var(--text-body);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: clip;
+  }
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-serif);
+    font-weight: 400;
+  }
+  em {
+    font-style: italic;
+  }
+  button {
+    cursor: pointer;
+  }
+  img,
+  svg,
+  video {
+    display: block;
+    max-width: 100%;
+  }
+  :focus-visible {
+    outline: 3px solid var(--color-azul);
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+  ::selection {
+    background: var(--color-rosa);
+    color: var(--color-ink);
+  }
+  [inert] {
+    pointer-events: none;
+  }
+}
+
+@layer components {
+  /* Subrayado dibujado bajo la palabra clave */
+  .hand-underline {
+    background: linear-gradient(transparent 64%, var(--color-rosa) 64% 90%, transparent 90%);
+    padding-inline: 0.06em;
+  }
+
+  /* Contenedor con gutter fluido */
+  .wrap {
+    width: 100%;
+    max-width: var(--max-w);
+    margin-inline: auto;
+    padding-inline: var(--gutter);
+  }
+
+  .no-scrollbar {
+    scrollbar-width: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* <dialog> nativo: fondo y animación de entrada */
+  dialog.sm-dialog {
+    border: 0;
+    padding: 0;
+    background: var(--color-paper);
+    color: var(--color-ink);
+    border-radius: var(--radius-lg);
+    width: min(560px, 94vw);
+    max-height: 92svh;
+    box-shadow: 0 30px 80px -20px rgb(43 31 38 / 0.5);
+    margin: auto;
+  }
+  dialog.sm-dialog[open] {
+    animation: var(--animate-pop);
+  }
+  dialog.sm-dialog::backdrop {
+    background: rgb(43 31 38 / 0.45);
+    backdrop-filter: blur(3px);
+  }
+  @media (max-width: 47.99rem) {
+    dialog.sm-dialog {
+      margin: auto 0 0;
+      width: 100%;
+      max-width: 100%;
+      border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    }
+  }
+}
+
+/* Accesibilidad: respeta la preferencia de reducir movimiento */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@layer components {
+  /* Luz difusa rosa del hero (un solo matiz, sin bandas) */
+  .hero-bg {
+    background:
+      radial-gradient(55% 60% at 82% 28%, var(--color-rosa) 0, transparent 70%),
+      radial-gradient(40% 45% at 8% 92%, var(--color-rosa-tint) 0, transparent 70%),
+      var(--color-paper);
+  }
+}

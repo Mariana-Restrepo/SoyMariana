@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="es-CO">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+
+    <title>__SITE_TITLE__</title>
+    <meta name="description" content="__SITE_DESCRIPTION__" />
+    <meta name="keywords" content="__SITE_KEYWORDS__" />
+    <meta name="author" content="Mariana Restrepo" />
+    <meta name="theme-color" content="__THEME_COLOR__" />
+    <link rel="canonical" href="__SITE_URL__/" />
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/icons/favicon-32.png" type="image/png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
+
+    <!-- Open Graph / Twitter -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Soy Mariana" />
+    <meta property="og:locale" content="es_CO" />
+    <meta property="og:title" content="__SITE_TITLE__" />
+    <meta property="og:description" content="__SITE_DESCRIPTION__" />
+    <meta property="og:url" content="__SITE_URL__/" />
+    <meta property="og:image" content="__OG_IMAGE_URL__" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Soy Mariana: la amiga que prueba todo primero." />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="__SITE_TITLE__" />
+    <meta name="twitter:description" content="__SITE_DESCRIPTION__" />
+    <meta name="twitter:image" content="__OG_IMAGE_URL__" />
+
+    <!-- Datos estructurados (se generan desde packages/content al compilar) -->
+    <script type="application/ld+json">
+      __JSON_LD__
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <noscript>
+      <p style="font-family: Georgia, serif; font-size: 1.4rem; padding: 2rem; text-align: center">
+        Soy Mariana · La amiga que prueba todo primero.<br />
+        Activa JavaScript para ver la experiencia completa.
+      </p>
+    </noscript>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

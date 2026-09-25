@@ -1,0 +1,69 @@
+{
+  "name": "Mariana",
+  "fullName": "Mariana Restrepo",
+  "age": 21,
+  "city": "[CIUDAD]",
+  "role": "Creadora de contenido",
+  "roleDev": "Desarrolladora de Software enfocada en Frontend y Experiencia de Usuario.",
+  "eyebrow": "Creadora de contenido",
+  "heroTitle": "La amiga que prueba todo",
+  "heroEmphasis": "primero.",
+  "heroSubtitle": "Productos, lugares y recomendaciones reales.",
+  "heroWords": ["pruebo", "descubro", "recomiendo"],
+  "heroImage": {
+    "alt": "Mariana (foto pendiente de agregar)",
+    "placeholder": "[IMAGEN_HERO_01]",
+    "tone": "rosa"
+  },
+  "aboutTitle": "Empecé creando contenido porque siempre me ha gustado",
+  "aboutEmphasis": "descubrir cosas",
+  "aboutSuffix": "y compartirlas.",
+  "story": [
+    {
+      "label": "Quién soy",
+      "text": "Mariana, 21 años. [CIUDAD].",
+      "image": {
+        "alt": "Foto de Mariana (pendiente)",
+        "placeholder": "[IMAGEN_SOBRE_MI_01]",
+        "tone": "rosa"
+      }
+    },
+    {
+      "label": "Qué me gusta",
+      "text": "Descubrir cosas nuevas. [ME_GUSTA_01].",
+      "image": {
+        "alt": "Foto de lo que le gusta (pendiente)",
+        "placeholder": "[IMAGEN_SOBRE_MI_02]",
+        "tone": "azul"
+      }
+    },
+    {
+      "label": "Por qué empecé",
+      "text": "Porque me encanta contar lo que encuentro.",
+      "image": {
+        "alt": "Foto de sus inicios creando contenido (pendiente)",
+        "placeholder": "[IMAGEN_SOBRE_MI_03]",
+        "tone": "cereza"
+      }
+    },
+    {
+      "label": "Qué estudio",
+      "text": "Desarrollo de Software, con foco en frontend y experiencia de usuario.",
+      "image": {
+        "alt": "Foto estudiando o programando (pendiente)",
+        "placeholder": "[IMAGEN_SOBRE_MI_04]",
+        "tone": "rosa"
+      }
+    },
+    {
+      "label": "Qué quiero construir",
+      "text": "[META_01]. Algo mío, con propósito.",
+      "image": {
+        "alt": "Foto sobre lo que quiere construir (pendiente)",
+        "placeholder": "[IMAGEN_SOBRE_MI_05]",
+        "tone": "azul"
+      }
+    }
+  ],
+  "closing": "Gracias por pasar por aquí. Yo me voy a probar algo nuevo; nos vemos en TikTok ♡"
+}

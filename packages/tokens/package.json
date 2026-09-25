@@ -1,0 +1,22 @@
+{
+  "name": "@soymariana/tokens",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Design tokens de Soy Mariana: fuente única para web (CSS/Tailwind) y móvil (objetos TS).",
+  "type": "module",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "exports": {
+    ".": "./src/index.ts",
+    "./tokens.css": "./generated/tokens.css"
+  },
+  "scripts": {
+    "build": "tsx scripts/build-css.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "tsx": "^4.23.15",
+    "typescript": "~6.0.3",
+    "@types/node": "^24.0.0"
+  }
+}

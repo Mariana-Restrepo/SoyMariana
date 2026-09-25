@@ -1,0 +1,29 @@
+{
+  "name": "@soymariana/content",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Todo el contenido editable de Soy Mariana (JSON) + esquemas y tipos. Compartido por web y móvil.",
+  "type": "module",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "exports": {
+    ".": "./src/index.ts",
+    "./schemas": "./src/schemas.ts",
+    "./data/*": "./data/*"
+  },
+  "scripts": {
+    "check": "tsx scripts/check-content.ts",
+    "check:strict": "tsx scripts/check-content.ts --strict",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "zod": "^4.6.5"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "tsx": "^4.23.15",
+    "typescript": "~6.0.3",
+    "vitest": "^5.0.2"
+  }
+}

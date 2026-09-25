@@ -1,0 +1,40 @@
+{
+  "eyebrow": "Trabajemos juntas",
+  "title": "¿Creamos",
+  "titleEmphasis": "algo?",
+  "phrase": "Cuento lo que viví, no lo que me dictaron.",
+  "audiencesTitle": "Con quién me encanta trabajar",
+  "audiences": [
+    "Belleza",
+    "Cabello",
+    "Skincare",
+    "Maquillaje",
+    "Cuidado corporal",
+    "Restaurantes",
+    "Cafés",
+    "Emprendimientos",
+    "Lifestyle",
+    "Experiencias"
+  ],
+  "formatsTitle": "Cómo lo podemos hacer",
+  "formats": [
+    { "id": "resenas", "title": "Reseñas" },
+    { "id": "recomendaciones", "title": "Recomendaciones" },
+    { "id": "experiencias", "title": "Experiencias" },
+    { "id": "visitas", "title": "Visitas" },
+    { "id": "lanzamientos", "title": "Lanzamientos" },
+    { "id": "video-tiktok", "title": "Videos para TikTok" },
+    { "id": "storytelling", "title": "Storytelling" },
+    { "id": "demostraciones", "title": "Demostraciones" }
+  ],
+  "types": [
+    "Reseña",
+    "Recomendación",
+    "Experiencia o visita",
+    "Lanzamiento de producto",
+    "Video para TikTok",
+    "Storytelling",
+    "Demostración",
+    "Otra idea"
+  ]
+}

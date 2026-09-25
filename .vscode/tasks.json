@@ -1,22 +1,29 @@
 {
   "version": "2.0.0",
   "tasks": [
+    { "label": "Web: iniciar", "type": "shell", "command": "npm run web", "problemMatcher": [] },
     {
-      "label": "Iniciar (todas las plataformas)",
+      "label": "Móvil: iniciar (Expo)",
       "type": "shell",
-      "command": "npm start",
+      "command": "npm run mobile",
       "problemMatcher": []
     },
     {
-      "label": "Iniciar Web",
-      "type": "shell",
-      "command": "npm run web",
-      "problemMatcher": []
-    },
-    {
-      "label": "Verificar (tipos + lint)",
+      "label": "Verificar todo (tipos, lint, pruebas, contenido)",
       "type": "shell",
       "command": "npm run check",
+      "problemMatcher": []
+    },
+    {
+      "label": "Contenido: ¿qué falta reemplazar?",
+      "type": "shell",
+      "command": "npm run check:content",
+      "problemMatcher": []
+    },
+    {
+      "label": "Web: compilar para producción",
+      "type": "shell",
+      "command": "npm run build",
       "problemMatcher": []
     }
   ]

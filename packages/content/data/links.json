@@ -1,0 +1,7 @@
+{
+  "tiktok": { "handle": "@[USUARIO_TIKTOK]", "url": "[LINK_TIKTOK]" },
+  "instagram": { "handle": "@[USUARIO_INSTAGRAM]", "url": "[LINK_INSTAGRAM]" },
+  "github": { "handle": "[USUARIO_GITHUB]", "url": "[LINK_GITHUB]" },
+  "linkedin": { "handle": "[USUARIO_LINKEDIN]", "url": "[LINK_LINKEDIN]" },
+  "email": "[CORREO]"
+}
