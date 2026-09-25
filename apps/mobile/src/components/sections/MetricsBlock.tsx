@@ -8,6 +8,8 @@ import { Reveal } from '@/components/ui/Reveal';
 import { useCountUp } from '@/hooks/use-count-up';
 import { colors, radii, shadows } from '@/theme';
 
+import { AudienceBlock } from './AudienceBlock';
+
 const tint = {
   rosa: colors.rosaTint,
   azul: colors.azulTint,
@@ -41,7 +43,7 @@ function MetricCard({ metric, index }: { metric: Metric; index: number }) {
 
 /**
  * Números honestos. Solo se muestran las métricas de metrics.json: no se inventa nada.
- * Las "pendientes" (audiencia, ciudades, engagement…) quedan ocultas hasta tener datos reales.
+ * La audiencia aparece solo si existe en metrics.json; las "pendientes" quedan ocultas.
  */
 export function MetricsBlock() {
   return (
@@ -58,6 +60,8 @@ export function MetricsBlock() {
           <MetricCard key={metric.id} metric={metric} index={i} />
         ))}
       </View>
+
+      {metrics.audience ? <AudienceBlock audience={metrics.audience} /> : null}
 
       <View style={[styles.updated, shadows.soft]}>
         <View style={styles.dot} />
@@ -91,7 +95,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     gap: 8,
-    marginTop: 18,
+    marginTop: 32,
     backgroundColor: colors.white,
     paddingHorizontal: 14,
     paddingVertical: 7,

@@ -312,7 +312,7 @@ git push
 ## 10. Lo que sigue
 
 - **Números automáticos desde TikTok:** se puede con la API oficial (seguidores, likes, lista de videos y sus vistas); **la edad, el género y las ubicaciones de la audiencia no** vienen en ella y seguirían siendo manuales. Necesita que registres una app en developers.tiktok.com y que TikTok la apruebe (pide una URL pública con política de privacidad y términos). Cuando la tengas retomamos.
-- **La app móvil:** mostrar el bloque de audiencia (hoy solo está en la web) y decidir si se publica en las tiendas.
+- **La app móvil:** el bloque de audiencia ya se muestra igual que en la web (mismo `metrics.json`); queda decidir si se publica en las tiendas.
 - **Qué mirar cada mes:** los videos de lugares de Medellín fueron los que mejor te funcionaron, y casi todo tu alcance viene de "Para ti". Vale la pena repetir lo que despegó y revisar el efecto cada mes con los mismos 60 días.
 
 ## Lo que no se pudo comprobar
