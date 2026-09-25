@@ -13,7 +13,9 @@ Estado: **web completa con contenido de ejemplo**, monorepo funcionando. La app 
 | `@soymariana/core`    | Lógica sin UI: formato de números, filtros, validación y envío del formulario, rotación "orgánica" estable, interfaz de analítica. 16 pruebas                                                |
 | `@soymariana/web`     | La web: 8 secciones, header/menú móvil, botón flotante, formulario, PWA, SEO                                                                                                                 |
 
-**Secciones** (`apps/web/src/sections`): Hero · Videos (carrusel) · Categorías · Colección + Diario de lugares · Sobre mí · Números · Trabajemos juntas (+ formulario) · Developer (carga aparte).
+**Secciones** (`apps/web/src/sections`): Hero · Videos (carrusel) · Categorías · Colección + Diario de lugares · Sobre mí · Números · Trabajemos juntas (+ formulario).
+
+> **Actualización (Fase 4):** la sección "Su otra capa / Y cuando no estoy creando…" (lado developer) se retiró por decisión de Mariana, en web y en la app. Su contenido (`developer.json`) sigue en el historial de git (commit `b19267d`) por si se quiere retomar.
 
 ## 2. Decisiones y diferencias respecto al plan
 
@@ -61,10 +63,6 @@ Sin `src` se ve el placeholder de color. El orden del archivo es el orden del ca
 
 En `recommendations.json`: `id` y `slug` **únicos**, `category` (belleza, cabello, cuidado-personal, restaurantes, lugares, productos, lifestyle) y `verdict` (`repite`, `sorprendio`, `vale-la-pena`, `se-queda`, `volveria`, `no-convencio`). `liked`/`disliked` son opcionales. Los lugares van en `places.json` con el mismo esquema de veredicto.
 
-### Agregar un proyecto developer
-
-En `developer.json` → `projects`. Recomendado tener 2–3. `demoUrl` y `badge` son opcionales.
-
 ### Reemplazar una imagen
 
 Copia la foto a `apps/web/public/media/images/` (WebP o JPG, ~1200 px de ancho máx.) y en el JSON pon `"src": "/media/images/foto.webp"`. Escribe un `alt` que describa la imagen. Al tener `src`, el `[PLACEHOLDER]` de esa imagen deja de contar como pendiente.
@@ -103,6 +101,6 @@ Y crea `apps/web/.env.local` con `VITE_SITE_URL` (y `VITE_INQUIRY_ENDPOINT` si c
 
 ## 5. Pendiente para las siguientes fases
 
-- **Fase 4:** app móvil (Expo) consumiendo `tokens`, `content` y `core`.
+- ~~**Fase 4:** app móvil~~ → hecha, ver [fase-4](../fase-4/04-app-movil.md).
 - **Fase 5:** Lighthouse y pruebas en dispositivos; optimizar el peso de **Caveat** (51 KB, se usa en 4 etiquetas); generar imágenes responsive (`srcSet` ya está soportado en el JSON, falta el script que las produce); confirmar PWA; pruebas con lector de pantalla.
 - **Contenido real** de tu parte (ver la lista de `npm run check:content`).

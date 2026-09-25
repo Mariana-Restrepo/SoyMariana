@@ -24,7 +24,9 @@ npm run web     # abre la web en http://localhost:5173
 | Comando                        | Qué hace                                                           |
 | ------------------------------ | ------------------------------------------------------------------ |
 | `npm run web`                  | Web en modo desarrollo (recarga al guardar)                        |
-| `npm run mobile`               | App móvil con Expo (`w` web, `a` Android, o escanea el QR)         |
+| `npm run web:lan`              | Web visible desde otros dispositivos de tu red (ej. tu iPhone)     |
+| `npm run mobile`               | App móvil con Expo (`a` Android, o escanea el QR con Expo Go)      |
+| `npm run mobile:tunnel`        | Igual, pero por internet (si tu Wi-Fi no deja conectar el celular) |
 | `npm run build`                | Compila la web para producción (`apps/web/dist`)                   |
 | `npm run preview`              | Sirve el build de producción para probarlo                         |
 | `npm run check`                | **Todo junto**: tipos, lint, pruebas y validación del contenido    |
@@ -42,7 +44,7 @@ SoyMariana/
 │   ├── web/                 React + Vite: secciones, componentes, PWA, SEO
 │   │   ├── public/media/      imágenes (y videos en desarrollo) del sitio
 │   │   └── src/               app · sections · components · hooks · lib · styles
-│   └── mobile/              Expo + React Native (Fase 4)
+│   └── mobile/              Expo + React Native: 5 pestañas, video nativo
 ├── packages/
 │   ├── tokens/              colores, tipografía, espaciado, movimiento → tokens.css + objetos TS
 │   ├── content/             TODO el contenido editable (data/*.json) + esquemas y tipos
@@ -63,7 +65,6 @@ Todo el texto, videos, recomendaciones y proyectos viven en [`packages/content/d
 | Recomendaciones y lugares        | `recommendations.json`, `places.json` |
 | Mis números                      | `metrics.json`                        |
 | Sección para marcas              | `collab.json`                         |
-| Proyectos developer              | `developer.json`                      |
 | Título y descripción (SEO)       | `site.json`                           |
 
 Después de editar, corre `npm run check:content`: valida el formato y te dice qué `[PLACEHOLDERS]` siguen pendientes. Guía completa: [docs/fase-3](docs/fase-3/03-implementacion-web.md).
@@ -80,6 +81,7 @@ Copia `apps/web/.env.example` a `apps/web/.env.local`:
 - [Fase 1 · Dirección creativa y arquitectura](docs/fase-1/01-direccion-creativa-y-arquitectura.md)
 - [Fase 2 · Diseño visual y componentes](docs/fase-2/02-wireframes-y-componentes.md) · [prototipo visual](docs/fase-2/prototipo-visual.html)
 - [Fase 3 · Implementación web](docs/fase-3/03-implementacion-web.md)
+- [Fase 4 · App móvil](docs/fase-4/04-app-movil.md) (incluye cómo verla en tu iPhone)
 
 ## Convenciones
 

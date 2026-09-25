@@ -4,6 +4,8 @@
 >
 > **Para ver el diseño:** abre [`prototipo-visual.html`](prototipo-visual.html) en el navegador y cambia el tamaño de la ventana (móvil / tablet / desktop). Es un prototipo de **diseño** (HTML + un poco de JS): no es la app final, sirve para aprobar look, movimiento e interacción antes de programar la web real.
 
+> **Nota (Fase 4):** la sección "Su otra capa / Y cuando no estoy creando…" (lado developer) que aparece en este documento se retiró después por decisión de Mariana. Este archivo queda como registro histórico de la propuesta.
+
 ---
 
 ## 1. Qué contiene el prototipo

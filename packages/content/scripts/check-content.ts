@@ -26,7 +26,6 @@ const files = {
   'places.json': z.array(S.placeSchema),
   'metrics.json': S.metricsFileSchema,
   'collab.json': S.collabSchema,
-  'developer.json': S.developerSchema,
 } as const;
 
 let invalid = 0;

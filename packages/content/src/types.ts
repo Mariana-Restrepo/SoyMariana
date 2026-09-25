@@ -19,6 +19,4 @@ export type Metric = z.infer<typeof S.metricSchema>;
 export type MetricFormat = z.infer<typeof S.metricFormatSchema>;
 export type MetricsFile = z.infer<typeof S.metricsFileSchema>;
 export type Collab = z.infer<typeof S.collabSchema>;
-export type DevProject = z.infer<typeof S.projectSchema>;
-export type Developer = z.infer<typeof S.developerSchema>;
 export type BrandInquiry = z.infer<typeof S.brandInquirySchema>;

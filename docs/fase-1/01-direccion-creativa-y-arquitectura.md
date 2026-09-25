@@ -3,6 +3,8 @@
 > Estado: **propuesta para aprobar**. No hay implementación todavía.
 > Contenido real que falta se marca con placeholders `[ASÍ_EN_MAYÚSCULAS]`.
 
+> **Nota (Fase 4):** la sección "Su otra capa / Y cuando no estoy creando…" (lado developer) que aparece en este documento se retiró después por decisión de Mariana. Este archivo queda como registro histórico de la propuesta.
+
 ---
 
 ## 0. Resumen en 30 segundos

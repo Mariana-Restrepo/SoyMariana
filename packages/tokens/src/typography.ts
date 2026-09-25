@@ -26,7 +26,7 @@ export const fontSizeFluid = {
 
 /** Tamaños en px para React Native (equivalentes de los fluidos). */
 export const fontSizeNative = {
-  hero: 44,
+  hero: 40,
   h2: 34,
   h3: 25,
   lead: 18,

@@ -12,7 +12,9 @@
   },
   "scripts": {
     "web": "npm run dev -w @soymariana/web",
+    "web:lan": "npm run dev -w @soymariana/web -- --host",
     "mobile": "npm run start -w @soymariana/mobile",
+    "mobile:tunnel": "npm run start -w @soymariana/mobile -- --tunnel",
     "dev": "npm run dev -w @soymariana/web",
     "build": "npm run build -w @soymariana/web",
     "preview": "npm run preview -w @soymariana/web",

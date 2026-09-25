@@ -154,4 +154,31 @@ const og = `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" v
   <g transform="translate(96 470) rotate(-12) scale(0.9)"><path d="${HEART}" fill="${C.azul}" opacity="0.9"/></g>
 </svg>`;
 await png(og, 'og-image.png');
-console.log('Listo. Recursos provisionales generados en apps/web/public.');
+
+/* ---------- app móvil (Expo): ícono, ícono adaptativo, splash, favicon ---------- */
+const mobileDir = resolve(here, '../../mobile/assets/images');
+mkdirSync(mobileDir, { recursive: true });
+const heartOnly = ({ size, scale, fill }) => {
+  const t = (size * (1 - scale)) / 2;
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}" viewBox="0 0 ${size} ${size}">
+    <g transform="translate(${t} ${t}) scale(${(size / 64) * scale})"><path d="${HEART}" fill="${fill}"/></g></svg>`;
+};
+const solid = (size, color) =>
+  `<svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}"><rect width="${size}" height="${size}" fill="${color}"/></svg>`;
+const mobilePng = async (svg, file) => {
+  await sharp(Buffer.from(svg)).png({ compressionLevel: 9 }).toFile(resolve(mobileDir, file));
+  console.log('✓ mobile/', file);
+};
+await mobilePng(iconSvg({ size: 1024, rounded: false, scale: 0.62 }), 'icon.png');
+await mobilePng(solid(1024, C.rosa), 'android-icon-background.png');
+await mobilePng(
+  heartOnly({ size: 1024, scale: 0.5, fill: '#ffffff' }),
+  'android-icon-foreground.png',
+);
+await mobilePng(
+  heartOnly({ size: 1024, scale: 0.5, fill: '#ffffff' }),
+  'android-icon-monochrome.png',
+);
+await mobilePng(heartOnly({ size: 1024, scale: 0.9, fill: C.cereza }), 'splash-icon.png');
+await mobilePng(iconSvg({ size: 48 }), 'favicon.png');
+console.log('Listo. Recursos provisionales generados (web y móvil).');

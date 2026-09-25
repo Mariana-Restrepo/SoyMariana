@@ -163,27 +163,6 @@ export const collabSchema = z.object({
   types: z.array(z.string()),
 });
 
-export const projectSchema = z.object({
-  id: z.string(),
-  name: z.string(),
-  description: z.string(),
-  stack: z.array(z.string()),
-  image: imageSchema,
-  githubUrl: z.string().optional(),
-  demoUrl: z.string().optional(),
-  /** Etiqueta manuscrita opcional (ej. "lo estás viendo"). */
-  badge: z.string().optional(),
-});
-
-export const developerSchema = z.object({
-  eyebrow: z.string(),
-  title: z.string(),
-  titleEmphasis: z.string(),
-  intro: z.string(),
-  skills: z.array(z.string()),
-  projects: z.array(projectSchema),
-});
-
 export const brandInquirySchema = z.object({
   name: z.string().trim().min(1),
   brand: z.string().trim().min(1),

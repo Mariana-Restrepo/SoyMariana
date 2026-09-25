@@ -7,3 +7,31 @@ export const shadows = {
   glow: '0 14px 30px -10px rgb(217 43 63 / 0.55)',
   blue: '0 14px 34px -18px rgb(47 85 224 / 0.5)',
 } as const;
+
+/**
+ * Sombras para React Native (iOS usa shadow*, Android usa elevation).
+ * Equivalentes de `shadows` (CSS) para que web y móvil se vean igual.
+ */
+export const shadowsNative = {
+  soft: {
+    shadowColor: '#2B1F26',
+    shadowOffset: { width: 0, height: 8 },
+    shadowOpacity: 0.14,
+    shadowRadius: 16,
+    elevation: 4,
+  },
+  lift: {
+    shadowColor: '#D9457F',
+    shadowOffset: { width: 0, height: 14 },
+    shadowOpacity: 0.28,
+    shadowRadius: 24,
+    elevation: 8,
+  },
+  glow: {
+    shadowColor: '#D92B3F',
+    shadowOffset: { width: 0, height: 10 },
+    shadowOpacity: 0.4,
+    shadowRadius: 18,
+    elevation: 10,
+  },
+} as const;

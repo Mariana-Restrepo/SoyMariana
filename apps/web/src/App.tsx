@@ -1,7 +1,7 @@
 import type { CategoryKey } from '@soymariana/content';
 import type { CategoryFilter } from '@soymariana/core';
 import { MotionConfig } from 'motion/react';
-import { lazy, Suspense, useState } from 'react';
+import { useState } from 'react';
 
 import { InquiryProvider } from '@/app/inquiry';
 import { FloatingCta } from '@/components/layout/FloatingCta';
@@ -14,9 +14,6 @@ import { Hero } from '@/sections/hero/Hero';
 import { MetricsSection } from '@/sections/metrics/MetricsSection';
 import { VideosSection } from '@/sections/videos/VideosSection';
 import { WorkSection } from '@/sections/work/WorkSection';
-
-/** Es lo último de la historia: se descarga aparte para no cargar peso al inicio. */
-const DeveloperSection = lazy(() => import('@/sections/developer/DeveloperSection'));
 
 export function App() {
   const [filter, setFilter] = useState<CategoryFilter>('all');
@@ -45,13 +42,6 @@ export function App() {
           <AboutSection />
           <MetricsSection />
           <WorkSection />
-          <Suspense
-            fallback={
-              <section id="developer" aria-hidden="true" className="min-h-[70svh] bg-azul-tint" />
-            }
-          >
-            <DeveloperSection />
-          </Suspense>
         </main>
         <Footer />
         <FloatingCta />

@@ -4,5 +4,7 @@ dist
 package-lock.json
 coverage
 **/generated
-apps/mobile
 docs/**/*.html
+
+apps/mobile/.expo
+apps/mobile/dist

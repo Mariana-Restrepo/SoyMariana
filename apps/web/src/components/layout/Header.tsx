@@ -197,16 +197,6 @@ export function Header() {
             >
               ¿Creamos algo?
             </Button>
-            <p className="mt-auto text-[0.95rem] text-ink-soft">
-              Y cuando no estoy creando…{' '}
-              <a
-                href="#developer"
-                onClick={() => setMenuOpen(false)}
-                className="text-azul underline underline-offset-4"
-              >
-                mira mi lado developer
-              </a>
-            </p>
           </motion.div>
         )}
       </AnimatePresence>
