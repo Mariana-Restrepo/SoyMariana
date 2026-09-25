@@ -91,11 +91,6 @@ export default function MoreScreen() {
           Encuéntrame
         </AppText>
         <LinkRow label="TikTok" detail={links.tiktok.handle} url={safeUrl(links.tiktok.url)} />
-        <LinkRow
-          label="Instagram"
-          detail={links.instagram.handle}
-          url={safeUrl(links.instagram.url)}
-        />
         <LinkRow label="Correo" detail={links.email} url={safeMailto(links.email)} />
 
         <AppText variant="h3" style={styles.closing}>

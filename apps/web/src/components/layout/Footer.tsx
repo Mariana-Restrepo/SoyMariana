@@ -71,11 +71,6 @@ export function Footer() {
                 </SocialLink>
               </li>
               <li>
-                <SocialLink href={safeHref(links.instagram.url)} label="Instagram">
-                  Instagram
-                </SocialLink>
-              </li>
-              <li>
                 <SocialLink href={email} label="Correo">
                   Correo
                 </SocialLink>

@@ -301,7 +301,7 @@ git push
 
 ## 9. Lista antes de publicar
 
-- [ ] `npm run check:content:strict` sin marcadores pendientes (fotos, videos, textos, lugares, Instagram).
+- [ ] `npm run check:content:strict` sin marcadores pendientes (fotos, videos, textos, lugares).
 - [ ] Decidiste si dejas la tarjeta "Qué estudio" de "Sobre mí".
 - [ ] Todas las fotos tienen un `alt` real, pasadas por `npm run images`.
 - [ ] Videos alojados en `https://`, ≤ 3 MB cada uno.

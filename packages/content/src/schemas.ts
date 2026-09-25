@@ -76,7 +76,6 @@ export const profileSchema = z.object({
 
 export const linksSchema = z.object({
   tiktok: z.object({ handle: z.string(), url: z.string() }),
-  instagram: z.object({ handle: z.string(), url: z.string() }),
   email: z.string(),
 });
 
