@@ -61,7 +61,6 @@ export const profileSchema = z.object({
   age: z.number().int().optional(),
   city: z.string(),
   role: z.string(),
-  roleDev: z.string(),
   eyebrow: z.string(),
   heroTitle: z.string(),
   heroEmphasis: z.string(),
@@ -78,8 +77,6 @@ export const profileSchema = z.object({
 export const linksSchema = z.object({
   tiktok: z.object({ handle: z.string(), url: z.string() }),
   instagram: z.object({ handle: z.string(), url: z.string() }),
-  github: z.object({ handle: z.string(), url: z.string() }),
-  linkedin: z.object({ handle: z.string(), url: z.string() }),
   email: z.string(),
 });
 

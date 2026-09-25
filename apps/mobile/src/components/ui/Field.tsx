@@ -7,15 +7,28 @@ import { AppText } from './AppText';
 type Props = Omit<TextInputProps, 'style'> & {
   label: string;
   optional?: boolean;
+  /** Campo obligatorio: asterisco visible y "obligatorio" para el lector de pantalla. */
+  required?: boolean;
   error?: string;
 };
 
+/** Asterisco de obligatorio (decorativo: el lector dice "obligatorio" en la etiqueta del campo). */
+export function RequiredMark() {
+  return (
+    <AppText variant="label" color={colors.cerezaInk} importantForAccessibility="no">
+      {' '}
+      *
+    </AppText>
+  );
+}
+
 /** Campo con etiqueta visible y error en la voz de Mariana. */
-export function Field({ label, optional, error, multiline, ...props }: Props) {
+export function Field({ label, optional, required, error, multiline, ...props }: Props) {
   return (
     <View style={styles.wrap}>
       <AppText variant="label" style={styles.label}>
         {label}
+        {required ? <RequiredMark /> : null}
         {optional ? (
           <AppText variant="small" color={colors.inkSoft}>
             {' '}
@@ -24,7 +37,7 @@ export function Field({ label, optional, error, multiline, ...props }: Props) {
         ) : null}
       </AppText>
       <TextInput
-        accessibilityLabel={label}
+        accessibilityLabel={required ? `${label}, obligatorio` : label}
         accessibilityHint={error}
         placeholderTextColor={colors.inkSoft}
         multiline={multiline}

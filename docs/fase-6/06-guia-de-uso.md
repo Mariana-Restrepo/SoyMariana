@@ -143,13 +143,17 @@ Igual, en `places.json`. Cambia lo que hay de más: `city` (ej. `"Medellín"`), 
 
 Sin `src` se ve un bloque de color con el título (el carrusel sigue funcionando). `tiktokUrl` es el enlace "Ver en TikTok" de cada tarjeta.
 
-### Proyectos y la sección de desarrolladora
+### Proyectos, GitHub, LinkedIn y la línea de desarrolladora
 
-La sección "Y cuando no estoy creando…" **se quitó** en la Fase 4 a pedido tuyo, así que no hay proyectos que mantener. Si un día la quieres de vuelta, el archivo `developer.json` y su sección siguen en el historial de git (commit `b19267d`).
+La sección "Y cuando no estoy creando…" **se quitó** en la Fase 4, y los enlaces a **GitHub y LinkedIn** y la línea de **desarrolladora de software** se quitaron después (web, app y esquemas). No hay proyectos que mantener. Si un día quieres volver a algo de eso, sigue en el historial de git (la sección en el commit `b19267d`).
 
 ### Los textos de "Sobre mí"
 
-En `profile.json`, la lista `story` son las tarjetas. Ya tienes **Medellín** y tus 21 años. Quedan por completar `[ME_GUSTA_01]` y `[META_01]`, y decidir si dejas la tarjeta "Qué estudio" y la línea de desarrolladora del pie de página (tú pediste quitar solo la sección).
+En `profile.json`, la lista `story` son las tarjetas. Ya tienes **Medellín** y tus 21 años. Quedan por completar `[ME_GUSTA_01]` y `[META_01]`, y decidir si dejas la tarjeta "Qué estudio" (todavía habla de Desarrollo de Software).
+
+### El formulario de marcas
+
+Los **tipos de colaboración** que se ofrecen (Reseña, Recomendación, Video para TikTok…) salen de la lista `types` de `collab.json`: agrega, quita o renombra ahí y se actualizan en la web y en la app. En la web se muestran como pastillas para elegir una. Los campos **obligatorios** llevan un asterisco (`*`): tu nombre, la marca, el correo y "Cuéntame sobre el proyecto". La red de la marca y el presupuesto son opcionales.
 
 ### Título y descripción en Google
 
@@ -298,7 +302,7 @@ git push
 ## 9. Lista antes de publicar
 
 - [ ] `npm run check:content:strict` sin marcadores pendientes (fotos, videos, textos, lugares, Instagram).
-- [ ] Decidiste qué hacer con GitHub, LinkedIn, la línea de desarrolladora y la tarjeta "Qué estudio".
+- [ ] Decidiste si dejas la tarjeta "Qué estudio" de "Sobre mí".
 - [ ] Todas las fotos tienen un `alt` real, pasadas por `npm run images`.
 - [ ] Videos alojados en `https://`, ≤ 3 MB cada uno.
 - [ ] `VITE_SITE_URL` con tu dirección final.

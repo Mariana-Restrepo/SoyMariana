@@ -1,6 +1,6 @@
 # Soy Mariana
 
-Experiencia digital personal de **Mariana Restrepo**: creadora de contenido ("la amiga que prueba todo primero") y desarrolladora frontend. Una **web** responsive instalable como PWA y una **app móvil**, que comparten contenido, sistema de diseño y lógica.
+Experiencia digital personal de **Mariana Restrepo**: creadora de contenido ("la amiga que prueba todo primero"). Una **web** responsive instalable como PWA y una **app móvil**, que comparten contenido, sistema de diseño y lógica.
 
 |                | Tecnología                                                                           |
 | -------------- | ------------------------------------------------------------------------------------ |

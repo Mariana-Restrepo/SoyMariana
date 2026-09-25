@@ -128,10 +128,18 @@ export function InquiryForm() {
         Paso {step} de 2
       </AppText>
 
+      <AppText variant="small" color={colors.inkSoft} style={styles.requiredNote}>
+        <AppText variant="label" color={colors.cerezaInk} importantForAccessibility="no">
+          *
+        </AppText>{' '}
+        Obligatorio
+      </AppText>
+
       {step === 1 ? (
         <View>
           <Field
             label="Tu nombre"
+            required
             autoComplete="name"
             value={draft.name}
             error={errors.name}
@@ -139,6 +147,7 @@ export function InquiryForm() {
           />
           <Field
             label="Marca"
+            required
             autoComplete="organization-title"
             value={draft.brand}
             error={errors.brand}
@@ -146,6 +155,7 @@ export function InquiryForm() {
           />
           <Field
             label="Correo"
+            required
             keyboardType="email-address"
             autoCapitalize="none"
             autoComplete="email"
@@ -182,6 +192,7 @@ export function InquiryForm() {
           </View>
           <Field
             label="Cuéntame sobre el proyecto"
+            required
             multiline
             value={draft.message}
             error={errors.message}
@@ -229,7 +240,8 @@ const styles = StyleSheet.create({
   title: { marginTop: 8 },
   steps: { flexDirection: 'row', gap: 6, marginTop: 14 },
   stepBar: { flex: 1, height: 4, borderRadius: 2, backgroundColor: 'rgba(43,31,38,0.12)' },
-  stepLabel: { marginTop: 6, marginBottom: 14 },
+  stepLabel: { marginTop: 6 },
+  requiredNote: { marginTop: 2, marginBottom: 14 },
   typeLabel: { marginBottom: 8 },
   types: { flexDirection: 'row', flexWrap: 'wrap', gap: 8, marginBottom: 16 },
   actions: { flexDirection: 'row', justifyContent: 'flex-end', marginTop: 8 },

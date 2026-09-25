@@ -96,12 +96,6 @@ export default function MoreScreen() {
           detail={links.instagram.handle}
           url={safeUrl(links.instagram.url)}
         />
-        <LinkRow label="GitHub" detail={links.github.handle} url={safeUrl(links.github.url)} />
-        <LinkRow
-          label="LinkedIn"
-          detail={links.linkedin.handle}
-          url={safeUrl(links.linkedin.url)}
-        />
         <LinkRow label="Correo" detail={links.email} url={safeMailto(links.email)} />
 
         <AppText variant="h3" style={styles.closing}>
@@ -109,9 +103,6 @@ export default function MoreScreen() {
         </AppText>
         <AppText variant="small" color={colors.inkSoft}>
           © {new Date().getFullYear()} {profile.fullName} · versión {version}
-        </AppText>
-        <AppText variant="small" color={colors.inkSoft}>
-          {profile.roleDev}
         </AppText>
       </View>
     </Screen>

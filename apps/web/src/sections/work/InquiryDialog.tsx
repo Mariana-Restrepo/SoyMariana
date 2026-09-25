@@ -13,7 +13,7 @@ import { useEffect, useRef, useState, type FormEvent } from 'react';
 
 import { Button } from '@/components/ui/Button';
 import { Dialog } from '@/components/ui/Dialog';
-import { InputField, SelectField, TextareaField } from '@/components/ui/Field';
+import { ChoiceGroup, InputField, RequiredMark, TextareaField } from '@/components/ui/Field';
 import { cn, isDev, safeMailto } from '@/lib/utils';
 
 type Props = { open: boolean; onClose: () => void };
@@ -141,9 +141,14 @@ export default function InquiryDialog({ open, onClose }: Props) {
             Paso {step} de 2
           </p>
 
+          <p className="mb-4 text-[0.82rem] text-ink-soft">
+            <RequiredMark /> Obligatorio
+          </p>
+
           <div data-step="1" hidden={step !== 1}>
             <InputField
               label="Tu nombre"
+              required
               autoComplete="name"
               value={draft.name}
               error={errors.name}
@@ -151,6 +156,7 @@ export default function InquiryDialog({ open, onClose }: Props) {
             />
             <InputField
               label="Marca"
+              required
               autoComplete="organization"
               value={draft.brand}
               error={errors.brand}
@@ -158,6 +164,7 @@ export default function InquiryDialog({ open, onClose }: Props) {
             />
             <InputField
               label="Correo"
+              required
               type="email"
               autoComplete="email"
               inputMode="email"
@@ -180,14 +187,15 @@ export default function InquiryDialog({ open, onClose }: Props) {
           </div>
 
           <div data-step="2" hidden={step !== 2}>
-            <SelectField
+            <ChoiceGroup
               label="Tipo de colaboración"
               options={collab.types}
               value={draft.collabType}
-              onChange={(e) => set('collabType', e.target.value)}
+              onChange={(value) => set('collabType', value)}
             />
             <TextareaField
               label="Cuéntame sobre el proyecto"
+              required
               value={draft.message}
               error={errors.message}
               onChange={(e) => set('message', e.target.value)}

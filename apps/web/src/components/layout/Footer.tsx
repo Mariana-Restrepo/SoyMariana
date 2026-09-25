@@ -46,10 +46,7 @@ export function Footer() {
             <h2 className="mb-2.5 font-sans text-eyebrow font-medium uppercase tracking-[0.14em]">
               {profile.fullName}
             </h2>
-            <p>
-              {profile.role}.<br />
-              {profile.roleDev}
-            </p>
+            <p>{profile.role}.</p>
             <p className="mt-4">
               TikTok:{' '}
               <SocialLink href={tiktok} label="TikTok">
@@ -76,16 +73,6 @@ export function Footer() {
               <li>
                 <SocialLink href={safeHref(links.instagram.url)} label="Instagram">
                   Instagram
-                </SocialLink>
-              </li>
-              <li>
-                <SocialLink href={safeHref(links.github.url)} label="GitHub">
-                  GitHub
-                </SocialLink>
-              </li>
-              <li>
-                <SocialLink href={safeHref(links.linkedin.url)} label="LinkedIn">
-                  LinkedIn
                 </SocialLink>
               </li>
               <li>

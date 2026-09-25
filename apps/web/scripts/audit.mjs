@@ -211,6 +211,36 @@ try {
     await m.evaluate(() => document.querySelector('#floating-cta button')?.click());
     await wait(1200);
     await runAxe(m, 'móvil · formulario (paso 1)');
+
+    // Paso 2: tipo de colaboración (radios en pastillas) y campos obligatorios marcados.
+    await m.type('dialog[open] input[autocomplete="name"]', 'Prueba');
+    await m.type('dialog[open] input[autocomplete="organization"]', 'Marca X');
+    await m.type('dialog[open] input[type="email"]', 'prueba@marca.co');
+    await m.evaluate(() =>
+      [...document.querySelectorAll('dialog[open] button')]
+        .find((b) => b.textContent?.includes('Siguiente'))
+        ?.click(),
+    );
+    await wait(600);
+    await runAxe(m, 'móvil · formulario (paso 2)');
+    const step2 = await m.evaluate(() => ({
+      radios: document.querySelectorAll('dialog[open] input[type="radio"]').length,
+      checked: document.querySelectorAll('dialog[open] input[type="radio"]:checked').length,
+      required: document.querySelectorAll('dialog[open] [aria-required="true"]').length,
+      selects: document.querySelectorAll('dialog[open] select').length,
+    }));
+    check(
+      'form',
+      'Tipo de colaboración: 8 opciones, 1 elegida, sin desplegable nativo',
+      step2.radios === 8 && step2.checked === 1 && step2.selects === 0,
+      JSON.stringify(step2),
+    );
+    check(
+      'form',
+      'Campos obligatorios con aria-required (nombre, marca, correo, proyecto)',
+      step2.required === 4,
+      String(step2.required),
+    );
     await m.close();
   }
 
