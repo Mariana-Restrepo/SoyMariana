@@ -62,11 +62,12 @@ export function WorkSection() {
           <h3 className="mb-3 font-sans text-eyebrow font-medium uppercase tracking-[0.14em]">
             {collab.formatsTitle}
           </h3>
-          <ol className="grid grid-cols-2 gap-3 md:grid-cols-4">
+          {/* 4 columnas solo cuando la lista ocupa todo el ancho (tablet); en la mitad de la sección (lg+) son 2. */}
+          <ol className="grid grid-cols-2 gap-3 md:grid-cols-4 lg:grid-cols-2">
             {collab.formats.map((format, i) => (
               <li
                 key={format.id}
-                className="flex min-h-[104px] flex-col justify-between gap-2.5 rounded-md bg-white/12 p-4 text-[0.92rem] leading-tight transition duration-300 ease-out-soft hover:-translate-y-0.5 hover:bg-white/20"
+                className="flex min-h-[104px] min-w-0 flex-col justify-between gap-2.5 break-words rounded-md bg-white/12 p-3.5 text-[0.92rem] leading-tight transition duration-300 ease-out-soft hover:-translate-y-0.5 hover:bg-white/20 max-[350px]:text-[0.8rem] sm:p-4"
               >
                 <span aria-hidden="true" className="font-serif text-[1.7rem] leading-none">
                   {String(i + 1).padStart(2, '0')}

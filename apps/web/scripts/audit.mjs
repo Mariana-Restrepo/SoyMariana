@@ -114,7 +114,9 @@ async function runAxe(page, label) {
       },
     }),
   );
-  const detail = r.violations.map((v) => `${v.id}(${v.nodes.length})`).join(', ');
+  const detail = r.violations
+    .map((v) => `${v.id}(${v.nodes.length}) → ${v.nodes[0].target.join(' ')}`)
+    .join(' · ');
   check(
     'axe',
     `axe · ${label}`,
@@ -201,7 +203,8 @@ try {
     await wait(500);
 
     await m.evaluate(() => document.querySelector('#coleccion article h3 button')?.click());
-    await wait(600);
+    // Espera a que termine la animación de apertura: axe mide el contraste con la opacidad final.
+    await wait(1200);
     await runAxe(m, 'móvil · detalle de recomendación');
     await m.evaluate(() =>
       document.querySelector('dialog[open] button[aria-label="Cerrar"]')?.click(),
