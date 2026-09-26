@@ -1,5 +1,6 @@
 import { links, profile } from '@soymariana/content';
 import { seededRotation } from '@soymariana/core';
+import { router } from 'expo-router';
 import Constants from 'expo-constants';
 import { Pressable, ScrollView, StyleSheet, View } from 'react-native';
 
@@ -34,6 +35,23 @@ function LinkRow({
       </AppText>
       <AppText variant="small" color={enabled ? colors.azul : colors.inkSoft}>
         {enabled ? `${detail} ↗` : 'enlace pendiente'}
+      </AppText>
+    </Pressable>
+  );
+}
+
+/** Fila que abre una pantalla de la app (por ejemplo, la política de privacidad). */
+function NavRow({ label, onPress }: { label: string; onPress: () => void }) {
+  return (
+    <Pressable
+      accessibilityRole="button"
+      accessibilityLabel={label}
+      onPress={onPress}
+      style={({ pressed }) => [styles.linkRow, pressed && { opacity: 0.7 }]}
+    >
+      <AppText variant="body">{label}</AppText>
+      <AppText variant="small" color={colors.inkSoft}>
+        ver ›
       </AppText>
     </Pressable>
   );
@@ -93,6 +111,19 @@ export default function MoreScreen() {
         <LinkRow label="TikTok" detail={links.tiktok.handle} url={safeUrl(links.tiktok.url)} />
         <LinkRow label="Correo" detail={links.email} url={safeMailto(links.email)} />
 
+        <View style={styles.legal}>
+          <NavRow
+            label="Política de privacidad"
+            onPress={() =>
+              router.push({ pathname: '/legal/[slug]', params: { slug: 'privacidad' } })
+            }
+          />
+          <NavRow
+            label="Términos de uso"
+            onPress={() => router.push({ pathname: '/legal/[slug]', params: { slug: 'terminos' } })}
+          />
+        </View>
+
         <AppText variant="h3" style={styles.closing}>
           <Em>{profile.closing}</Em>
         </AppText>
@@ -131,5 +162,6 @@ const styles = StyleSheet.create({
     borderBottomColor: 'rgba(43,31,38,0.1)',
   },
   pending: { textDecorationLine: 'underline', textDecorationStyle: 'dotted' },
+  legal: { marginTop: 18 },
   closing: { marginTop: 32, marginBottom: 14 },
 });

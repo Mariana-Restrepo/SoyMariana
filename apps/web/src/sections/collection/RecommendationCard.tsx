@@ -1,6 +1,7 @@
 import { categories, type Recommendation } from '@soymariana/content';
 import { seededRotation } from '@soymariana/core';
 
+import { DisclosureTag } from '@/components/brand/DisclosureTag';
 import { VerdictStamp } from '@/components/brand/VerdictStamp';
 import { MediaFrame } from '@/components/ui/MediaFrame';
 
@@ -39,6 +40,11 @@ export function RecommendationCard({ recommendation: rec, index, onOpen }: Props
         </button>
       </h3>
       <p className="mx-1.5 text-[0.95rem] leading-relaxed text-ink-soft">“{rec.opinion}”</p>
+      {rec.disclosure && (
+        <div className="mx-1.5 mt-3">
+          <DisclosureTag disclosure={rec.disclosure} />
+        </div>
+      )}
     </article>
   );
 }

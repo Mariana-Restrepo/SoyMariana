@@ -59,15 +59,9 @@ Lighthouse se corre **3 veces por perfil y se usa la mediana**: una sola corrida
 
 Genera versiones WebP de 480, 960 y 1440 px (el navegador elige la que necesita), corrige la orientación de fotos de celular y **elimina los metadatos EXIF, incluida la ubicación GPS**. Se probó con fotos sintéticas con EXIF y con orientación girada. Las originales no se suben a git.
 
-### Videos (con ffmpeg)
+### Videos: `npm run videos`
 
-En este equipo no hay `ffmpeg`, así que **este comando no está probado**. Instálalo (`winget install ffmpeg`) y usa:
-
-```bash
-ffmpeg -i original.mp4 -vf "scale=720:1280:force_original_aspect_ratio=increase,crop=720:1280" -c:v libx264 -profile:v main -crf 26 -preset slow -c:a aac -b:a 96k -movflags +faststart -t 15 video-01.mp4
-```
-
-Deja el video vertical 720×1280, H.264, máximo 15 s, con el audio (para el botón de sonido) y listo para empezar a reproducir sin esperar la descarga completa. Objetivo: **≤ 3 MB**. Revisa el peso: si pasa de 3 MB, sube `-crf` a 28.
+Copia tus videos a `apps/web/media-src/videos/` y corre `npm run videos`: genera un clip vertical de hasta 15 s y ≤ 3 MB por cada uno, con su portada. Usa `ffmpeg-static` (un ffmpeg que viene con el proyecto: no hay que instalar nada en el sistema). Se probó con 7 videos reales de WhatsApp (576×1024 y uno horizontal): pesan entre 0,8 y 2,3 MB. Los detalles están en la [guía de uso](../fase-6/06-guia-de-uso.md#videos).
 
 ## 4. Publicar: lo que hay que saber
 
@@ -103,5 +97,4 @@ Los ajustes de animación del emulador se restauraron después de la prueba.
 - **La imagen del sitio al compartirlo** en WhatsApp/Instagram/TikTok: la imagen y las etiquetas existen y son correctas, pero cada red las cachea y las muestra a su manera; se ve al publicar con el dominio real.
 - **Videos reales pesados** en la web (en la app sí se probó reproducción real con un archivo de prueba).
 - **Envío real del formulario:** falta conectar tu servicio (`VITE_INQUIRY_ENDPOINT`).
-- El comando de **ffmpeg** de arriba.
 - **Posibles mejoras de rendimiento móvil** (ya en 96): mostrar el hero como HTML estático antes de que cargue JavaScript, y dividir las secciones bajo el pliegue. No se hicieron porque el beneficio no justifica el riesgo de saltos visuales.

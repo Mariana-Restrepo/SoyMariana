@@ -5,6 +5,7 @@ import type * as S from './schemas';
 /** Tipos derivados de los esquemas (una sola fuente de verdad). */
 export type CategoryKey = z.infer<typeof S.categoryKeySchema>;
 export type Verdict = z.infer<typeof S.verdictSchema>;
+export type DisclosureKey = z.infer<typeof S.disclosureKeySchema>;
 export type ToneName = z.infer<typeof S.toneSchema>;
 export type ImageRef = z.infer<typeof S.imageSchema>;
 export type Site = z.infer<typeof S.siteSchema>;
@@ -20,3 +21,8 @@ export type MetricFormat = z.infer<typeof S.metricFormatSchema>;
 export type MetricsFile = z.infer<typeof S.metricsFileSchema>;
 export type Collab = z.infer<typeof S.collabSchema>;
 export type BrandInquiry = z.infer<typeof S.brandInquirySchema>;
+export type DisclosureInfo = z.infer<typeof S.disclosureInfoSchema>;
+export type DisclosuresFile = z.infer<typeof S.disclosuresFileSchema>;
+export type LegalSection = z.infer<typeof S.legalSectionSchema>;
+export type LegalDoc = z.infer<typeof S.legalDocSchema>;
+export type LegalFile = z.infer<typeof S.legalFileSchema>;

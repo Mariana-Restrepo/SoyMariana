@@ -87,7 +87,23 @@ export function Footer() {
           <span>
             © {year} {profile.fullName}
           </span>
-          <span>Hecho con cariño ♡</span>
+          <span className="flex flex-wrap items-center gap-x-5 gap-y-1">
+            <nav aria-label="Legal" className="flex gap-x-5">
+              <a
+                href="/privacidad"
+                className="inline-flex min-h-11 items-center underline underline-offset-4"
+              >
+                Privacidad
+              </a>
+              <a
+                href="/terminos"
+                className="inline-flex min-h-11 items-center underline underline-offset-4"
+              >
+                Términos
+              </a>
+            </nav>
+            <span>Hecho con cariño ♡</span>
+          </span>
         </div>
       </div>
     </footer>

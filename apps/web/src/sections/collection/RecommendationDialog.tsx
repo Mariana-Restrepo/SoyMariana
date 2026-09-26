@@ -1,5 +1,6 @@
 import { categories, type Recommendation } from '@soymariana/content';
 
+import { AffiliateNote, DisclosureTag, DisclosureText } from '@/components/brand/DisclosureTag';
 import { VerdictStamp } from '@/components/brand/VerdictStamp';
 import { ButtonLink } from '@/components/ui/Button';
 import { Dialog } from '@/components/ui/Dialog';
@@ -23,11 +24,15 @@ export function RecommendationDialog({ recommendation: rec, onClose }: Props) {
           <p className="mb-2 text-eyebrow font-medium uppercase tracking-[0.14em] text-ink-soft">
             {categoryName}
           </p>
-          <VerdictStamp verdict={rec.verdict} />
+          <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
+            <VerdictStamp verdict={rec.verdict} />
+            {rec.disclosure && <DisclosureTag disclosure={rec.disclosure} />}
+          </div>
           <h2 id="rec-dialog-title" className="my-2 text-[2.2rem] leading-none">
             {rec.name}
           </h2>
           <p className="text-ink">“{rec.opinion}”</p>
+          {rec.disclosure && <DisclosureText disclosure={rec.disclosure} className="mt-2.5" />}
 
           {rec.liked.length > 0 && (
             <>
@@ -61,9 +66,12 @@ export function RecommendationDialog({ recommendation: rec, onClose }: Props) {
           )}
 
           {link ? (
-            <ButtonLink variant="rosa" href={link} {...externalProps(link)}>
-              {rec.linkLabel ?? 'Ver más'} ↗
-            </ButtonLink>
+            <>
+              <ButtonLink variant="rosa" href={link} {...externalProps(link)}>
+                {rec.linkLabel ?? 'Ver más'} ↗
+              </ButtonLink>
+              {rec.affiliate && <AffiliateNote className="mt-3" />}
+            </>
           ) : rec.link ? (
             <p className="text-[0.85rem] text-ink-soft">Enlace pendiente de agregar.</p>
           ) : null}

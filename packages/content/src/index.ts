@@ -1,5 +1,6 @@
 import categoriesJson from '../data/categories.json';
 import collabJson from '../data/collab.json';
+import disclosuresJson from '../data/disclosures.json';
 import linksJson from '../data/links.json';
 import metricsJson from '../data/metrics.json';
 import placesJson from '../data/places.json';
@@ -10,6 +11,7 @@ import videosJson from '../data/videos.json';
 import type {
   CategoryInfo,
   Collab,
+  DisclosuresFile,
   Links,
   MetricsFile,
   Place,
@@ -35,6 +37,7 @@ export const recommendations = recommendationsJson as unknown as Recommendation[
 export const places = placesJson as unknown as Place[];
 export const metrics = metricsJson as unknown as MetricsFile;
 export const collab = collabJson as unknown as Collab;
+export const disclosures = disclosuresJson as unknown as DisclosuresFile;
 
 export const content = {
   site,
@@ -46,6 +49,7 @@ export const content = {
   places,
   metrics,
   collab,
+  disclosures,
 };
 
 export { extractPlaceholders, findPlaceholders, isPlaceholder } from './placeholders';

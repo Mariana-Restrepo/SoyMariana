@@ -29,7 +29,8 @@
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "audit": "npm run audit -w @soymariana/web",
-    "images": "npm run images -w @soymariana/web"
+    "images": "npm run images -w @soymariana/web",
+    "videos": "npm run videos -w @soymariana/web"
   },
   "devDependencies": {
     "prettier": "^3.9.9"

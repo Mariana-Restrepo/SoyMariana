@@ -5,6 +5,7 @@ import { categories, recommendations } from '@soymariana/content';
 import { setTracker, track } from './analytics';
 import { categoriesWithItems, filterByCategory } from './collection';
 import { formatApprox, formatCompact, formatInt, formatMetric, formatPercent } from './format';
+import { fillLegalText, legalSlugFromPath } from './legal';
 import {
   buildMailto,
   emptyInquiry,
@@ -40,6 +41,24 @@ describe('porcentajes', () => {
     expect(formatPercent(40.6)).toBe('40,6 %');
     expect(formatPercent(15)).toBe('15 %');
     expect(formatPercent(0.4)).toBe('0,4 %');
+  });
+});
+
+describe('páginas legales', () => {
+  it('reconoce las rutas de privacidad y términos', () => {
+    expect(legalSlugFromPath('/privacidad')).toBe('privacidad');
+    expect(legalSlugFromPath('/terminos/')).toBe('terminos');
+    expect(legalSlugFromPath('/Privacidad')).toBe('privacidad');
+    expect(legalSlugFromPath('/')).toBeNull();
+    expect(legalSlugFromPath('/otra-cosa')).toBeNull();
+    expect(legalSlugFromPath('/privacidad/extra')).toBeNull();
+  });
+
+  it('rellena los datos y deja lo desconocido', () => {
+    expect(
+      fillLegalText('Escribe a {{email}} ({{ name }}).', { email: 'a@b.co', name: 'Ana' }),
+    ).toBe('Escribe a a@b.co (Ana).');
+    expect(fillLegalText('{{otro}}', {})).toBe('{{otro}}');
   });
 });
 

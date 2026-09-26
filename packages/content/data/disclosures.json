@@ -1,0 +1,30 @@
+{
+  "title": "Transparencia",
+  "intro": "Cada recomendación y cada lugar dice cómo llegó a mí. Así sabes cuándo es una opinión sin nada de por medio y cuándo hay una marca involucrada.",
+  "items": [
+    {
+      "key": "propio",
+      "label": "Lo pagué yo",
+      "description": "Lo compré con mi plata o fui por mi cuenta. Ninguna marca me pagó ni me lo regaló."
+    },
+    {
+      "key": "regalo",
+      "label": "Me lo regalaron",
+      "description": "Recibí el producto sin costo, sin acuerdo de pago y sin condiciones sobre lo que yo dijera. Si hay pago o condiciones, lo marco como colaboración."
+    },
+    {
+      "key": "invitacion",
+      "label": "Me invitaron",
+      "description": "Me invitaron al lugar o a la experiencia (una cortesía), sin pago y sin condiciones sobre mi opinión."
+    },
+    {
+      "key": "colaboracion",
+      "label": "Colaboración pagada",
+      "description": "Hay un acuerdo con la marca: recibo un pago u otra compensación. Lo cuento con mi voz, pero es publicidad y así lo marco."
+    }
+  ],
+  "affiliate": {
+    "label": "Enlace de afiliado",
+    "description": "Si compras desde este enlace puedo recibir una comisión, sin costo extra para ti. Mi opinión no cambia por eso."
+  }
+}

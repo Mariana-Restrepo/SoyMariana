@@ -1,0 +1,3 @@
+{
+  "_ayuda": "Ajusta cada video por su nombre de archivo (sin .mp4): start = segundo donde empieza el clip, duration = cuántos segundos dura (máx. recomendado 15), mute = true quita el audio (úsalo si suena música con derechos de autor), posterAt = segundo del clip para la portada. Lo que no pongas usa los valores por defecto: start 0, duration 15, con audio, portada en el segundo 1."
+}

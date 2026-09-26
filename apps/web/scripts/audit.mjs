@@ -3,7 +3,7 @@
  *
  * Compila la web, la sirve y comprueba:
  *   1. Lighthouse (móvil y escritorio): rendimiento, accesibilidad, buenas prácticas, SEO
- *   2. axe-core (WCAG 2.2 AA) en varios estados: página, menú móvil, detalle, formulario
+ *   2. axe-core (WCAG 2.2 AA) en varios estados: página, menú móvil, detalle, formulario, páginas legales
  *   3. PWA: service worker registrado, caché llena y la app abre SIN conexión
  *   4. "Reducir movimiento": sin animaciones ambientales, números finales, sin autoavance
  *   5. Teclado: enlace "saltar al contenido", foco visible, foco atrapado en diálogos, Esc
@@ -245,6 +245,32 @@ try {
       String(step2.required),
     );
     await m.close();
+
+    // Páginas legales (/privacidad y /terminos): accesibilidad y estructura.
+    for (const slug of ['privacidad', 'terminos']) {
+      const legal = await newPage({ mobile: false });
+      await legal.goto(`${URL_BASE}/${slug}`, { waitUntil: 'networkidle0' });
+      await wait(600);
+      await runAxe(legal, `página legal · /${slug}`);
+      const info = await legal.evaluate(() => ({
+        h1: document.querySelectorAll('h1').length,
+        tokens: (document.body.innerText.match(/\{\{/g) || []).length,
+        canonical: document.querySelector('link[rel="canonical"]')?.getAttribute('href') ?? '',
+        title: document.title,
+        footerLinks: document.querySelectorAll('footer nav[aria-label="Legal"] a').length,
+      }));
+      check(
+        'legal',
+        `/${slug}: un h1, sin marcas sin rellenar, título y canonical propios, enlaces en el pie`,
+        info.h1 === 1 &&
+          info.tokens === 0 &&
+          info.canonical.endsWith(`/${slug}`) &&
+          info.title.endsWith(' · Soy Mariana') &&
+          info.footerLinks === 2,
+        JSON.stringify(info),
+      );
+      await legal.close();
+    }
   }
 
   /* ---------- 3. PWA ---------- */
@@ -304,6 +330,16 @@ try {
       'Abre SIN conexión (hero y secciones)',
       offline.hero && offline.sections >= 6,
       `${offline.sections} secciones`,
+    );
+    // Las páginas legales también abren sin conexión (el service worker sirve la misma app).
+    await page.goto(`${URL_BASE}/privacidad`, { waitUntil: 'load' });
+    await wait(1500);
+    const legalOffline = await page.evaluate(() => document.querySelector('h1')?.textContent ?? '');
+    check(
+      'pwa',
+      'Las páginas legales abren SIN conexión',
+      /Política de privacidad/.test(legalOffline),
+      legalOffline,
     );
     await page.setOfflineMode(false);
     await page.close();
@@ -507,6 +543,11 @@ try {
     const sitemap = await (await fetch(`${URL_BASE}/sitemap.xml`)).text();
     check('seo', 'robots.txt apunta al sitemap', /Sitemap:/.test(robots));
     check('seo', 'sitemap.xml válido', /<urlset/.test(sitemap) && /<loc>/.test(sitemap));
+    check(
+      'seo',
+      'sitemap.xml incluye privacidad y términos',
+      sitemap.includes('/privacidad') && sitemap.includes('/terminos'),
+    );
     const og = await fetch(`${URL_BASE}/og-image.png`);
     check(
       'seo',

@@ -1,6 +1,7 @@
 import type { Video } from '@soymariana/content';
 import { useEffect, useRef, useState } from 'react';
 
+import { DisclosureTag } from '@/components/brand/DisclosureTag';
 import { MediaFrame } from '@/components/ui/MediaFrame';
 import { cn, externalProps, safeHref } from '@/lib/utils';
 
@@ -187,6 +188,7 @@ export function VideoCard({
       >
         <h3 className="text-[1.3rem] leading-tight">{video.title}</h3>
         <p className="text-[0.92rem] text-ink-soft">{video.caption}</p>
+        {video.disclosure && <DisclosureTag disclosure={video.disclosure} className="mt-2" />}
         {tiktok ? (
           <a
             href={tiktok}

@@ -2,6 +2,7 @@ import type { Place } from '@soymariana/content';
 import { seededRotation } from '@soymariana/core';
 import { Pressable, StyleSheet, View } from 'react-native';
 
+import { DisclosureTag } from '@/components/brand/DisclosureTag';
 import { VerdictStamp } from '@/components/brand/VerdictStamp';
 import { AppText } from '@/components/ui/AppText';
 import { MediaFrame } from '@/components/ui/MediaFrame';
@@ -52,6 +53,7 @@ export function PlaceCard({ place }: { place: Place }) {
 
       <View style={styles.footer}>
         <VerdictStamp verdict={place.verdict} />
+        {place.disclosure ? <DisclosureTag disclosure={place.disclosure} /> : null}
         {map && (
           <Pressable
             accessibilityRole="link"
@@ -117,7 +119,7 @@ const styles = StyleSheet.create({
     flexWrap: 'wrap',
     alignItems: 'center',
     columnGap: 16,
-    rowGap: 4,
+    rowGap: 8,
     marginHorizontal: 4,
     marginTop: 14,
   },

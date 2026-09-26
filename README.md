@@ -32,6 +32,7 @@ npm run web     # abre la web en http://localhost:5173
 | `npm run check`                | **Todo junto**: tipos, lint, pruebas y validación del contenido                         |
 | `npm run audit`                | **Auditoría en Chrome real**: Lighthouse, accesibilidad, PWA sin conexión, teclado, SEO |
 | `npm run images`               | Optimiza tus fotos (versiones responsive y sin ubicación GPS)                           |
+| `npm run videos`               | Prepara tus videos (clips verticales de ≤ 15 s y ≤ 3 MB, con portada)                   |
 | `npm run check:content`        | Valida el contenido y lista qué `[PLACEHOLDERS]` faltan reemplazar                      |
 | `npm run check:content:strict` | Igual, pero **falla** si queda alguno (úsalo antes de publicar)                         |
 | `npm run tokens`               | Regenera `tokens.css` desde el sistema de diseño                                        |
@@ -58,16 +59,18 @@ SoyMariana/
 
 Todo el texto, videos, recomendaciones y proyectos viven en [`packages/content/data/`](packages/content/data). **No hace falta tocar componentes**: edita el JSON, guarda y la web se actualiza.
 
-| Quiero cambiar…                  | Archivo                               |
-| -------------------------------- | ------------------------------------- |
-| Mis datos, historia, frase final | `profile.json`                        |
-| Redes y correo                   | `links.json`                          |
-| Videos del carrusel              | `videos.json`                         |
-| Categorías de "Lo que pruebo"    | `categories.json`                     |
-| Recomendaciones y lugares        | `recommendations.json`, `places.json` |
-| Mis números y mi audiencia       | `metrics.json`                        |
-| Sección para marcas              | `collab.json`                         |
-| Título y descripción (SEO)       | `site.json`                           |
+| Quiero cambiar…                  | Archivo                                                           |
+| -------------------------------- | ----------------------------------------------------------------- |
+| Mis datos, historia, frase final | `profile.json`                                                    |
+| Redes y correo                   | `links.json`                                                      |
+| Videos del carrusel              | `videos.json`                                                     |
+| Categorías de "Lo que pruebo"    | `categories.json`                                                 |
+| Recomendaciones y lugares        | `recommendations.json`, `places.json`                             |
+| Mis números y mi audiencia       | `metrics.json`                                                    |
+| Sección para marcas              | `collab.json`                                                     |
+| Etiquetas de transparencia       | `disclosures.json` (+ `disclosure` en cada recomendación y lugar) |
+| Privacidad y términos            | `legal.json`                                                      |
+| Título y descripción (SEO)       | `site.json`                                                       |
 
 Después de editar, corre `npm run check:content`: valida el formato y te dice qué `[PLACEHOLDERS]` siguen pendientes. Guía paso a paso: [docs/fase-6](docs/fase-6/06-guia-de-uso.md).
 

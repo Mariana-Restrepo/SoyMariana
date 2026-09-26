@@ -14,6 +14,7 @@ import Animated, {
   type SharedValue,
 } from 'react-native-reanimated';
 
+import { DisclosureTag } from '@/components/brand/DisclosureTag';
 import { AppText } from '@/components/ui/AppText';
 import { MediaFrame } from '@/components/ui/MediaFrame';
 import { mediaUrl } from '@/lib/media';
@@ -208,6 +209,9 @@ export function VideoCard({
         <AppText variant="small" color={colors.inkSoft}>
           {video.caption}
         </AppText>
+        {video.disclosure ? (
+          <DisclosureTag disclosure={video.disclosure} style={{ marginTop: 6 }} />
+        ) : null}
         {tiktok ? (
           <Pressable
             accessibilityRole="link"

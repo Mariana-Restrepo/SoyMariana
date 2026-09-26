@@ -26,6 +26,14 @@ export const verdictKeys = [
 ] as const;
 export const verdictSchema = z.enum(verdictKeys);
 
+/**
+ * Transparencia: cómo llegó a Mariana cada cosa que recomienda.
+ * propio = lo pagó ella · regalo = se lo enviaron sin costo · invitacion = la invitaron
+ * · colaboracion = hay un acuerdo con la marca (pago u otra compensación).
+ */
+export const disclosureKeys = ['propio', 'regalo', 'invitacion', 'colaboracion'] as const;
+export const disclosureKeySchema = z.enum(disclosureKeys);
+
 export const toneSchema = z.enum(['rosa', 'cereza', 'azul', 'crema']);
 
 /** Imagen con placeholder: si `src` está vacío se dibuja un bloque de color con la etiqueta. */
@@ -88,6 +96,8 @@ export const videoSchema = z.object({
   poster: imageSchema,
   tiktokUrl: z.string(),
   category: categoryKeySchema.optional(),
+  /** Si el video es regalo, invitación o colaboración. Opcional: sin etiqueta no se muestra nada. */
+  disclosure: disclosureKeySchema.optional(),
 });
 
 export const categoryInfoSchema = z.object({
@@ -111,6 +121,10 @@ export const recommendationSchema = z.object({
   image: imageSchema,
   link: z.string().optional(),
   linkLabel: z.string().optional(),
+  /** Cómo llegó a Mariana. `check:content:strict` exige elegirlo antes de publicar. */
+  disclosure: disclosureKeySchema.optional(),
+  /** El `link` es de afiliado (Mariana puede recibir una comisión). */
+  affiliate: z.boolean().optional(),
 });
 
 export const placeSchema = z.object({
@@ -126,6 +140,8 @@ export const placeSchema = z.object({
   image: imageSchema,
   mapUrl: z.string().optional(),
   socialUrl: z.string().optional(),
+  /** Cómo llegó a Mariana (propio, invitación, colaboración…). Obligatorio para publicar. */
+  disclosure: disclosureKeySchema.optional(),
 });
 
 export const metricFormatSchema = z.enum(['int', 'compact', 'approx']);
@@ -181,4 +197,52 @@ export const brandInquirySchema = z.object({
   collabType: z.string().trim().min(1),
   message: z.string().trim().min(1),
   budget: z.string().trim().optional(),
+});
+
+/** Definiciones de las etiquetas de transparencia (se muestran en la web, la app y los términos). */
+export const disclosureInfoSchema = z.object({
+  key: disclosureKeySchema,
+  label: z.string().min(1),
+  description: z.string().min(1),
+});
+export const disclosuresFileSchema = z.object({
+  title: z.string(),
+  intro: z.string(),
+  items: z.array(disclosureInfoSchema).min(1),
+  affiliate: z.object({ label: z.string(), description: z.string() }),
+});
+
+/**
+ * Documentos legales. Los textos aceptan {{name}}, {{place}} y {{email}}: se rellenan con los
+ * datos de la responsable (controller) y de links.json al mostrarlos.
+ */
+export const legalSectionSchema = z.object({
+  id: z.string(),
+  title: z.string(),
+  paragraphs: z.array(z.string()).default([]),
+  list: z.array(z.string()).optional(),
+  /** Párrafo que va después de la lista. */
+  closing: z.string().optional(),
+  /** Si es true, se muestran aquí las etiquetas de transparencia (disclosures.json). */
+  showDisclosures: z.boolean().optional(),
+});
+export const legalDocSchema = z.object({
+  title: z.string(),
+  description: z.string(),
+  intro: z.string(),
+  sections: z.array(legalSectionSchema).min(1),
+});
+export const legalFileSchema = z.object({
+  /** Fecha de la última actualización de los textos. */
+  updatedAt: z.string(),
+  /** Pon true cuando una persona abogada haya revisado estos textos. `--strict` falla si es false. */
+  reviewedByLawyer: z.boolean(),
+  controller: z.object({
+    name: z.string(),
+    place: z.string(),
+    /** Teléfono de contacto (la norma de datos personales lo pide entre los datos de la responsable). */
+    phone: z.string().optional(),
+  }),
+  privacy: legalDocSchema,
+  terms: legalDocSchema,
 });

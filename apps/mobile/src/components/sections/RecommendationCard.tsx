@@ -2,6 +2,7 @@ import { categories, type Recommendation } from '@soymariana/content';
 import { seededRotation } from '@soymariana/core';
 import { Pressable, StyleSheet, View } from 'react-native';
 
+import { DisclosureTag, disclosureA11y } from '@/components/brand/DisclosureTag';
 import { VerdictStamp } from '@/components/brand/VerdictStamp';
 import { AppText } from '@/components/ui/AppText';
 import { MediaFrame } from '@/components/ui/MediaFrame';
@@ -18,7 +19,7 @@ export function RecommendationCard({ recommendation: rec, index, onOpen }: Props
   return (
     <Pressable
       accessibilityRole="button"
-      accessibilityLabel={`${rec.name}. ${categoryName}. ${rec.opinion}. Ver detalle`}
+      accessibilityLabel={`${rec.name}. ${categoryName}. ${rec.opinion}.${rec.disclosure ? ` ${disclosureA11y(rec.disclosure)}.` : ''} Ver detalle`}
       onPress={() => onOpen(rec.slug)}
       style={({ pressed }) => [
         styles.card,
@@ -47,6 +48,9 @@ export function RecommendationCard({ recommendation: rec, index, onOpen }: Props
       <AppText variant="small" color={colors.inkSoft} style={styles.opinion}>
         “{rec.opinion}”
       </AppText>
+      {rec.disclosure ? (
+        <DisclosureTag disclosure={rec.disclosure} style={styles.disclosure} />
+      ) : null}
     </Pressable>
   );
 }
@@ -58,4 +62,5 @@ const styles = StyleSheet.create({
   category: { marginTop: 28, marginHorizontal: 6, marginBottom: 4 },
   name: { marginHorizontal: 6 },
   opinion: { marginHorizontal: 6, marginTop: 4 },
+  disclosure: { marginHorizontal: 6, marginTop: 10 },
 });

@@ -14,7 +14,9 @@
       "tone": "azul"
     },
     "link": "[LINK_PRODUCTO_01]",
-    "linkLabel": "Ver dónde encontrarlo"
+    "linkLabel": "Ver dónde encontrarlo",
+    "disclosure": "regalo",
+    "affiliate": true
   },
   {
     "id": "rec-02",
@@ -31,7 +33,8 @@
       "tone": "rosa"
     },
     "link": "[LINK_PRODUCTO_02]",
-    "linkLabel": "Ver dónde encontrarlo"
+    "linkLabel": "Ver dónde encontrarlo",
+    "disclosure": "propio"
   },
   {
     "id": "rec-03",
@@ -46,7 +49,8 @@
       "alt": "Producto 3 (foto pendiente)",
       "placeholder": "[IMAGEN_PRODUCTO_03]",
       "tone": "crema"
-    }
+    },
+    "disclosure": "propio"
   },
   {
     "id": "rec-04",
@@ -63,7 +67,8 @@
       "tone": "cereza"
     },
     "link": "[LINK_PRODUCTO_04]",
-    "linkLabel": "Ver dónde encontrarlo"
+    "linkLabel": "Ver dónde encontrarlo",
+    "disclosure": "colaboracion"
   },
   {
     "id": "rec-05",
@@ -78,7 +83,8 @@
       "alt": "Producto 5 (foto pendiente)",
       "placeholder": "[IMAGEN_PRODUCTO_05]",
       "tone": "azul"
-    }
+    },
+    "disclosure": "propio"
   },
   {
     "id": "rec-06",
@@ -93,6 +99,7 @@
       "alt": "Producto 6 (foto pendiente)",
       "placeholder": "[IMAGEN_PRODUCTO_06]",
       "tone": "rosa"
-    }
+    },
+    "disclosure": "regalo"
   }
 ]

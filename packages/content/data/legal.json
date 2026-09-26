@@ -1,0 +1,223 @@
+{
+  "updatedAt": "25 de septiembre de 2026",
+  "reviewedByLawyer": false,
+  "controller": {
+    "name": "Mariana Restrepo",
+    "place": "Medellín, Antioquia, Colombia"
+  },
+  "privacy": {
+    "title": "Política de privacidad",
+    "description": "Qué datos personales recoge Soy Mariana, para qué se usan y cómo ejercer tus derechos.",
+    "intro": "Esta política explica qué datos personales recojo cuando usas el sitio web y la app de Soy Mariana, para qué los uso y cuáles son tus derechos. Está pensada para cumplir la Ley 1581 de 2012 y las normas que la reglamentan en Colombia.",
+    "sections": [
+      {
+        "id": "responsable",
+        "title": "Quién es la responsable",
+        "paragraphs": [
+          "{{name}}, persona natural, con domicilio en {{place}}. Para todo lo relacionado con tus datos personales me puedes escribir a {{email}}."
+        ]
+      },
+      {
+        "id": "datos",
+        "title": "Qué datos recojo",
+        "paragraphs": [
+          "Los datos que me das tú. Solo recojo datos cuando escribes por el formulario «¿Creamos algo?»:"
+        ],
+        "list": [
+          "Tu nombre, el nombre de tu marca y tu correo electrónico.",
+          "El tipo de colaboración que te interesa y tu mensaje.",
+          "Si quieres, la red social de la marca y un presupuesto aproximado."
+        ],
+        "closing": "Datos técnicos mínimos: como en cualquier sitio, el servicio donde está alojado puede registrar tu dirección IP, el navegador y la fecha de la visita para que el sitio funcione y para seguridad. No los uso para identificarte."
+      },
+      {
+        "id": "no-recojo",
+        "title": "Lo que no recojo",
+        "paragraphs": [
+          "No te pido crear una cuenta ni una contraseña. No recojo datos de pago ni datos sensibles. No uso cookies de seguimiento ni de publicidad, y por ahora no uso herramientas de analítica. El sitio guarda en tu dispositivo solo lo necesario para poder abrirse sin conexión."
+        ]
+      },
+      {
+        "id": "finalidades",
+        "title": "Para qué los uso",
+        "paragraphs": ["Uso los datos del formulario únicamente para:"],
+        "list": [
+          "Leer y responder tu mensaje.",
+          "Evaluar y gestionar una posible colaboración contigo o con tu marca.",
+          "Guardar el historial de esa conversación mientras dure la gestión.",
+          "Cumplir obligaciones legales, si llegan a aplicar."
+        ],
+        "closing": "No los uso para enviarte publicidad ni los vendo ni los cedo a nadie."
+      },
+      {
+        "id": "autorizacion",
+        "title": "Tu autorización",
+        "paragraphs": [
+          "Al enviar el formulario me autorizas de forma previa, expresa e informada para tratar tus datos con las finalidades de esta política. Puedes retirar esa autorización cuando quieras (ver «Cómo ejercer tus derechos»).",
+          "Si prefieres no usar el formulario, también me puedes escribir directamente a {{email}}."
+        ]
+      },
+      {
+        "id": "terceros",
+        "title": "Con quién los comparto",
+        "paragraphs": [
+          "No vendo tus datos. Para que el sitio funcione intervienen proveedores que los tratan por mi cuenta y solo para ese fin:"
+        ],
+        "list": [
+          "El servicio donde está alojado el sitio.",
+          "El servicio que recibe los mensajes del formulario y me los entrega por correo.",
+          "Mi proveedor de correo electrónico."
+        ],
+        "closing": "Estos proveedores pueden guardar información en servidores fuera de Colombia. Cuando el formulario no está conectado a un servicio, el botón abre tu propio programa de correo y el mensaje viaja directamente de tu correo al mío. También puedo compartir datos si una autoridad competente me lo exige."
+      },
+      {
+        "id": "conservacion",
+        "title": "Cuánto tiempo los conservo",
+        "paragraphs": [
+          "El tiempo necesario para responderte y gestionar la posible colaboración. Después los elimino o dejo de usarlos, salvo que la ley me exija conservarlos. Si quieres que los elimine antes, solo pídemelo."
+        ]
+      },
+      {
+        "id": "derechos",
+        "title": "Tus derechos",
+        "paragraphs": ["Como titular de tus datos tienes derecho a:"],
+        "list": [
+          "Conocer, actualizar y rectificar tus datos.",
+          "Pedir prueba de la autorización que me diste.",
+          "Saber para qué usé tus datos.",
+          "Revocar tu autorización y pedir que elimine tus datos.",
+          "Acceder gratis a tus datos.",
+          "Presentar quejas ante la Superintendencia de Industria y Comercio (SIC) si crees que no respeté la ley."
+        ]
+      },
+      {
+        "id": "ejercer",
+        "title": "Cómo ejercer tus derechos",
+        "paragraphs": [
+          "Escríbeme a {{email}} con tu nombre y lo que quieres hacer (consultar, corregir, eliminar o revocar). Respondo las consultas en máximo 10 días hábiles y los reclamos en máximo 15 días hábiles. Si necesito más tiempo te aviso antes de que se venza el plazo y te cuento el motivo; la ley permite una prórroga."
+        ]
+      },
+      {
+        "id": "menores",
+        "title": "Menores de edad",
+        "paragraphs": [
+          "El formulario está pensado para personas mayores de edad y para marcas. No recojo a propósito datos de menores de 18 años; si recibo alguno, lo elimino."
+        ]
+      },
+      {
+        "id": "terceros-enlaces",
+        "title": "Enlaces y contenido de otros sitios",
+        "paragraphs": [
+          "El sitio enlaza a otros servicios (por ejemplo TikTok), que tienen sus propias políticas de privacidad. Los videos pueden cargarse desde un servicio de alojamiento externo, que puede ver tu dirección IP cuando los pides."
+        ]
+      },
+      {
+        "id": "seguridad",
+        "title": "Seguridad",
+        "paragraphs": [
+          "El sitio usa conexión cifrada (HTTPS) y los mensajes llegan solo a mi correo. Ninguna medida es infalible, pero me tomo el cuidado de tus datos en serio."
+        ]
+      },
+      {
+        "id": "cambios",
+        "title": "Cambios en esta política",
+        "paragraphs": [
+          "Si algo cambia (por ejemplo, si más adelante agrego una herramienta de analítica), actualizo esta página y la fecha de arriba."
+        ]
+      }
+    ]
+  },
+  "terms": {
+    "title": "Términos de uso",
+    "description": "Las condiciones para usar el sitio y la app de Soy Mariana, y cómo marco cada recomendación.",
+    "intro": "Al usar el sitio web y la app de Soy Mariana aceptas estas condiciones. Las escribí cortas y en claro; si algo no te queda claro, escríbeme.",
+    "sections": [
+      {
+        "id": "que-es",
+        "title": "Qué es Soy Mariana",
+        "paragraphs": [
+          "Es el sitio y la app personal de {{name}}, creadora de contenido, donde comparto lo que pruebo: productos, lugares y recomendaciones. No es una tienda: no vendo productos ni presto servicios de compra."
+        ]
+      },
+      {
+        "id": "opiniones",
+        "title": "Mis recomendaciones son opiniones",
+        "paragraphs": [
+          "Lo que cuento sale de mi experiencia y puede ser distinta a la tuya. No son consejo médico, dermatológico ni profesional. Si tienes alergias, condiciones de piel o de salud, consulta a un profesional antes de usar un producto.",
+          "Los precios, la disponibilidad y las características de los productos y lugares pueden cambiar sin que yo me entere."
+        ]
+      },
+      {
+        "id": "transparencia",
+        "title": "Transparencia: cómo marco cada recomendación",
+        "paragraphs": [
+          "Cada recomendación y cada lugar trae una etiqueta que dice cómo llegó a mí. Estas son las etiquetas y lo que significan:"
+        ],
+        "showDisclosures": true,
+        "closing": "Si una etiqueta falta o crees que está mal, escríbeme a {{email}} y la corrijo."
+      },
+      {
+        "id": "propiedad",
+        "title": "Propiedad intelectual",
+        "paragraphs": [
+          "Los textos, fotos, videos, el diseño y la marca «Soy Mariana» son de {{name}} o de quienes me autorizaron a usarlos. Los nombres y las marcas de los productos y lugares pertenecen a sus dueños.",
+          "Puedes compartir los enlaces de este sitio y citar mis textos dando crédito. No puedes copiar, modificar ni usar mi contenido con fines comerciales sin mi permiso por escrito."
+        ]
+      },
+      {
+        "id": "marcas",
+        "title": "Colaboraciones con marcas",
+        "paragraphs": [
+          "El formulario es solo para contactarme. Enviarlo no crea ninguna obligación: una colaboración existe únicamente cuando la acordamos por escrito. Puedo aceptar o rechazar cualquier propuesta.",
+          "Mi opinión sobre un producto es independiente: una colaboración no garantiza una reseña positiva. Toda colaboración pagada la marco como tal."
+        ]
+      },
+      {
+        "id": "uso",
+        "title": "Uso adecuado",
+        "paragraphs": ["Para que el sitio funcione bien para todas las personas, no puedes:"],
+        "list": [
+          "Usar el formulario para enviar spam, engañar o hacerte pasar por otra persona o marca.",
+          "Intentar acceder a partes no públicas del sitio, o sobrecargarlo o dañarlo.",
+          "Copiar de forma masiva el contenido del sitio."
+        ],
+        "closing": "Puedo bloquear el acceso a quien use el sitio de forma indebida."
+      },
+      {
+        "id": "terceros",
+        "title": "Enlaces y sitios de terceros",
+        "paragraphs": [
+          "El sitio enlaza a tiendas, redes y otros sitios que no controlo. No soy responsable de su contenido, de sus productos, de sus precios ni de cómo tratan tus datos."
+        ]
+      },
+      {
+        "id": "garantias",
+        "title": "Sin garantías y límite de responsabilidad",
+        "paragraphs": [
+          "Hago lo posible para que la información sea correcta y esté al día, pero el sitio se ofrece «tal como está». En la medida en que la ley lo permita, no respondo por daños que resulten de usar el sitio o de decisiones de compra basadas en mis opiniones. Esto no limita los derechos que la ley te da como consumidor."
+        ]
+      },
+      {
+        "id": "datos",
+        "title": "Tus datos personales",
+        "paragraphs": [
+          "Cómo trato los datos que me das está explicado en la política de privacidad."
+        ]
+      },
+      {
+        "id": "cambios",
+        "title": "Cambios en estos términos",
+        "paragraphs": [
+          "Puedo actualizar estos términos. La versión vigente es la de esta página, con la fecha de arriba."
+        ]
+      },
+      {
+        "id": "ley",
+        "title": "Ley aplicable",
+        "paragraphs": [
+          "Estos términos se rigen por las leyes de Colombia. Si tenemos una diferencia, intentemos resolverla primero hablando ({{email}}); si no se logra, será competente la justicia colombiana."
+        ]
+      }
+    ]
+  }
+}

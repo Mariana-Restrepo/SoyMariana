@@ -10,8 +10,9 @@ import {
   type InquiryStep,
 } from '@soymariana/core';
 import * as Linking from 'expo-linking';
+import { router } from 'expo-router';
 import { useState } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 
 import { AppText, Em } from '@/components/ui/AppText';
 import { Button } from '@/components/ui/Button';
@@ -227,7 +228,16 @@ export function InquiryForm() {
       )}
 
       <AppText variant="small" color={colors.inkSoft} style={styles.privacy}>
-        Solo uso tus datos para responderte. No los comparto con nadie.
+        Solo uso tus datos para responderte y no los vendo ni los cedo. Al enviar autorizas su uso
+        como explico en la{' '}
+        <Text
+          accessibilityRole="link"
+          onPress={() => router.push({ pathname: '/legal/[slug]', params: { slug: 'privacidad' } })}
+          style={styles.privacyLink}
+        >
+          política de privacidad
+        </Text>
+        .
       </AppText>
     </View>
   );
@@ -248,4 +258,5 @@ const styles = StyleSheet.create({
   between: { justifyContent: 'space-between', gap: 10, flexWrap: 'wrap' },
   errorBox: { backgroundColor: colors.cerezaTint, borderRadius: 12, padding: 12, marginBottom: 12 },
   privacy: { marginTop: 16 },
+  privacyLink: { textDecorationLine: 'underline', color: colors.azul },
 });

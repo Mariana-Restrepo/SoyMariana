@@ -41,6 +41,7 @@ export default function RootLayout() {
       >
         <Stack.Screen name="(tabs)" />
         <Stack.Screen name="recomendacion/[slug]" options={{ presentation: 'modal' }} />
+        <Stack.Screen name="legal/[slug]" options={{ presentation: 'modal' }} />
       </Stack>
     </SafeAreaProvider>
   );

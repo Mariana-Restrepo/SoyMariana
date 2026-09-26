@@ -3,6 +3,7 @@ import { router, useLocalSearchParams } from 'expo-router';
 import { Pressable, ScrollView, StyleSheet, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
+import { AffiliateNote, DisclosureTag, DisclosureText } from '@/components/brand/DisclosureTag';
 import { VerdictStamp } from '@/components/brand/VerdictStamp';
 import { AppText } from '@/components/ui/AppText';
 import { Button } from '@/components/ui/Button';
@@ -45,11 +46,17 @@ export default function RecommendationDetail() {
         <AppText variant="eyebrow" color={colors.inkSoft} style={styles.category}>
           {categoryName}
         </AppText>
-        <VerdictStamp verdict={rec.verdict} />
+        <View style={styles.badges}>
+          <VerdictStamp verdict={rec.verdict} />
+          {rec.disclosure ? <DisclosureTag disclosure={rec.disclosure} /> : null}
+        </View>
         <AppText variant="h2" accessibilityRole="header" style={styles.name}>
           {rec.name}
         </AppText>
         <AppText variant="lead">“{rec.opinion}”</AppText>
+        {rec.disclosure ? (
+          <DisclosureText disclosure={rec.disclosure} style={styles.disclosure} />
+        ) : null}
 
         {rec.liked.length > 0 && (
           <View style={styles.block}>
@@ -85,6 +92,9 @@ export default function RecommendationDetail() {
             onPress={() => openLink(link)}
             style={styles.cta}
           />
+        ) : null}
+        {link && rec.affiliate ? (
+          <AffiliateNote style={styles.affiliate} />
         ) : rec.link ? (
           <AppText variant="small" color={colors.inkSoft} style={styles.cta}>
             Enlace pendiente de agregar.
@@ -116,6 +126,9 @@ const styles = StyleSheet.create({
   photo: { width: '100%', aspectRatio: 16 / 10, borderRadius: radii.md },
   category: { marginTop: 18, marginBottom: 8 },
   name: { marginTop: 10, marginBottom: 8 },
+  badges: { flexDirection: 'row', flexWrap: 'wrap', alignItems: 'center', gap: 10 },
+  disclosure: { marginTop: 12 },
+  affiliate: { marginTop: 12 },
   block: { marginTop: 22, gap: 4 },
   item: { marginTop: 4 },
   cta: { marginTop: 28, alignSelf: 'flex-start' },

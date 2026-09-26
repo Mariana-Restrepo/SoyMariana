@@ -1,10 +1,14 @@
 import { describe, expect, it } from 'vitest';
 import { z } from 'zod';
 
-import { categories, metrics, places, recommendations, videos } from './index';
+import { categories, disclosures, metrics, places, recommendations, videos } from './index';
+import { legal } from './legal';
 import { extractPlaceholders, findPlaceholders, isPlaceholder } from './placeholders';
 import {
   categoryInfoSchema,
+  disclosureKeys,
+  disclosuresFileSchema,
+  legalFileSchema,
   metricsFileSchema,
   placeSchema,
   recommendationSchema,
@@ -34,6 +38,33 @@ describe('audiencia', () => {
       const total = group.items.reduce((sum, item) => sum + item.value, 0);
       expect(total, group.id).toBeCloseTo(100, 5);
     }
+  });
+});
+
+describe('transparencia y textos legales', () => {
+  it('cumplen los esquemas', () => {
+    expect(disclosuresFileSchema.safeParse(disclosures).success).toBe(true);
+    expect(legalFileSchema.safeParse(legal).success).toBe(true);
+  });
+
+  it('hay una definición por cada etiqueta de transparencia', () => {
+    expect(disclosures.items.map((item) => item.key).sort()).toEqual([...disclosureKeys].sort());
+  });
+
+  it('los textos legales solo usan datos que se rellenan', () => {
+    const allowed = new Set(['name', 'place', 'email']);
+    const text = JSON.stringify(legal);
+    const tokens = [...text.matchAll(/\{\{\s*(\w+)\s*\}\}/g)].map((m) => m[1] ?? '');
+    expect(tokens.length).toBeGreaterThan(0);
+    for (const token of tokens) expect(allowed.has(token), token).toBe(true);
+  });
+
+  it('cada documento tiene secciones con id único', () => {
+    for (const doc of [legal.privacy, legal.terms]) {
+      const ids = doc.sections.map((section) => section.id);
+      expect(new Set(ids).size).toBe(ids.length);
+    }
+    expect(legal.terms.sections.some((section) => section.showDisclosures)).toBe(true);
   });
 });
 

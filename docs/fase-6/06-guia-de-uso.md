@@ -77,6 +77,8 @@ Todo vive en [`packages/content/data/`](../../packages/content/data). Editas, gu
 | Lugares y restaurantes                            | `places.json`          |
 | Números y audiencia                               | `metrics.json`         |
 | Sección "Trabajemos juntas"                       | `collab.json`          |
+| Etiquetas de transparencia (textos)               | `disclosures.json`     |
+| Política de privacidad y términos de uso          | `legal.json`           |
 | Título y descripción para Google                  | `site.json`            |
 
 **Regla de oro:** después de editar, corre `npm run check:content`. Si te equivocas en una coma o en un nombre, te dice exactamente dónde. Si no dice error, el archivo está bien.
@@ -155,6 +157,44 @@ En `profile.json`, la lista `story` son las tarjetas. Ya tienes **Medellín** y 
 
 Los **tipos de colaboración** que se ofrecen (Reseña, Recomendación, Video para TikTok…) salen de la lista `types` de `collab.json`: agrega, quita o renombra ahí y se actualizan en la web y en la app. En la web se muestran como pastillas para elegir una. Los campos **obligatorios** llevan un asterisco (`*`): tu nombre, la marca, el correo y "Cuéntame sobre el proyecto". La red de la marca y el presupuesto son opcionales.
 
+### Etiquetas de transparencia (cómo llegó cada cosa)
+
+Cada recomendación, cada lugar (y, si quieres, cada video) lleva una etiqueta que dice cómo llegó a ti. Se elige con el campo `disclosure`:
+
+| Valor          | Se muestra          | Úsalo cuando…                                                |
+| -------------- | ------------------- | ------------------------------------------------------------ |
+| `propio`       | Lo pagué yo         | Lo compraste tú o fuiste por tu cuenta, sin ninguna marca    |
+| `regalo`       | Me lo regalaron     | Te lo enviaron sin costo, sin pago y sin condiciones         |
+| `invitacion`   | Me invitaron        | Te invitaron al lugar o experiencia, sin pago ni condiciones |
+| `colaboracion` | Colaboración pagada | Hay un acuerdo con la marca (pago u otra compensación)       |
+
+Si hay pago o condiciones sobre lo que puedes decir, **es `colaboracion`**, aunque te hayan mandado el producto. Si el enlace de compra es de afiliado (puedes ganar una comisión), agrega `"affiliate": true` en la recomendación: el detalle mostrará el aviso.
+
+```json
+{
+  "id": "rec-07",
+  "name": "Nombre del producto",
+  "disclosure": "regalo",
+  "affiliate": true
+}
+```
+
+Los textos de cada etiqueta (`disclosures.json`) se muestran también en los términos de uso; para cambiarlos, edítalos ahí. `npm run check:content:strict` **falla si una recomendación o un lugar no tiene etiqueta**: así nada se publica sin decir cómo llegó. Las de los ejemplos son solo para ver el diseño; cámbialas por las reales.
+
+> En Colombia la Superintendencia de Industria y Comercio (SIC) tiene una guía sobre publicidad con influenciadores. Vale la pena leerla y decidir con tu abogado o abogada cómo marcar cada caso.
+
+### Páginas legales: privacidad y términos
+
+Están en `/privacidad` y `/terminos` (web) y en **Más** (app), y salen de un solo archivo: `packages/content/data/legal.json`. Los textos usan `{{name}}`, `{{place}}` y `{{email}}`, que se rellenan con tus datos (`controller` y `links.json`): no los escribas a mano.
+
+Lo que hay que saber:
+
+- **Son un borrador.** Los redacté según cómo funciona el sitio hoy (un formulario que recoge nombre, marca, correo y mensaje; sin cookies de seguimiento ni analítica). **No son asesoría legal.** Pídele a una persona abogada que los revise antes de publicar y, cuando lo haga, cambia `"reviewedByLawyer"` a `true`. Mientras esté en `false`, `check:content:strict` no te deja dar el sitio por listo.
+- **Preguntas para esa revisión:** si conviene agregar tu teléfono (`controller.phone`), si el aviso del formulario basta o prefieres una casilla de aceptación, cuánto tiempo conservar los mensajes, y si te aplica registrar bases de datos ante la SIC.
+- **Si cambias algo del sitio, actualiza los textos.** Por ejemplo: al agregar analítica (Plausible, Google Analytics…), cookies, un servicio de formulario concreto, o si más adelante conectas la API de TikTok. Cambia también `updatedAt`.
+- **Para la app de desarrolladora de TikTok** y para las tiendas de apps te piden las direcciones públicas: `https://tu-dominio.com/privacidad` y `https://tu-dominio.com/terminos`.
+- **Publicación:** estas rutas dependen de que el servicio devuelva la página principal cuando piden una ruta que no existe como archivo. Cloudflare Pages y Netlify lo hacen así si no agregas un `404.html` propio (no se probó en un servicio real).
+
 ### Título y descripción en Google
 
 `site.json`. El título ideal mide entre 30 y 60 caracteres y la descripción entre 70 y 160; `npm run audit` lo comprueba.
@@ -196,22 +236,34 @@ El `alt` es el texto que lee el lector de pantalla y Google: describe lo que se 
 
 ### Videos
 
-Los videos **no van en git** (pesan): se alojan en un servicio y en el JSON solo se guarda la dirección `https://…`.
+Los videos **no van en git** (pesan): en producción se alojan en un servicio y en el JSON solo se guarda la dirección `https://…`.
 
-**Preparar el clip:** vertical, 720×1280, MP4 con video H.264, entre 6 y 15 s, **máximo ~3 MB**, con audio (el botón de sonido lo usa). Con ffmpeg (`winget install ffmpeg`):
+**Prepararlos:** copia tus videos (aunque sean largos o pesados) a `apps/web/media-src/videos/` y corre:
 
 ```bash
-ffmpeg -i original.mp4 -vf "scale=720:1280:force_original_aspect_ratio=increase,crop=720:1280" -c:v libx264 -profile:v main -crf 26 -preset slow -c:a aac -b:a 96k -movflags +faststart -t 15 video-01.mp4
+npm run videos                       # todos
+npm run videos -- mirador-la-palma   # solo uno (el nombre del archivo, sin .mp4)
 ```
 
-> Este comando **no se probó** (ffmpeg no está instalado en este equipo). Si el archivo pasa de 3 MB, sube `-crf 26` a `28`. Los videos descargados de TikTok traen marca de agua: usa tu archivo original de edición o de la galería.
+Por cada video genera, en `apps/web/public/media/videos/`, un clip vertical 9:16 de hasta 15 s, H.264 con audio, que empieza a verse sin esperar la descarga y pesa **≤ 3 MB** (si no cabe, lo comprime más). Los horizontales quedan completos, centrados sobre un fondo desenfocado. También saca una portada (WebP) en `public/media/images/` e imprime el bloque JSON para `videos.json`. Tus originales no se tocan.
+
+Cada clip parte del segundo 0. Para elegir mejor el momento, edita `apps/web/video-clips.json`:
+
+```json
+{
+  "mirador-la-palma": { "start": 8, "duration": 14, "posterAt": 3 },
+  "concierto-arcangel": { "mute": true }
+}
+```
+
+`start` es el segundo donde empieza, `duration` cuánto dura, `mute: true` quita el audio (úsalo si suena música con derechos de autor, como en un concierto) y `posterAt` es el segundo de la portada. Los videos descargados de TikTok traen marca de agua: usa tu archivo original de edición o de la galería (con los originales del celular se ven más nítidos que los de WhatsApp).
 
 **Dónde alojarlos** (uno solo):
 
 - **Cloudflare R2** (recomendado si publicas en Cloudflare): tiene capa gratis.
 - **Bunny** o **Cloudinary**: alternativas con capa gratis o muy barata.
 
-Sube el archivo, copia su dirección pública `https://…` y ponla en `src` del video. Para probar en tu PC sin subir nada: guárdalo en `apps/web/public/media/videos/mi-video.mp4` y usa `"src": "/media/videos/mi-video.mp4"` (esa carpeta no se sube a git).
+Sube el clip de `public/media/videos/`, copia su dirección pública `https://…` y ponla en `src` del video. Para probar en tu PC sin subir nada, deja `"src": "/media/videos/mi-video.mp4"` (esa carpeta no se sube a git).
 
 **Para la app móvil**, las rutas que empiezan con `/media/…` necesitan una dirección base: en `apps/mobile/.env.local` pon `EXPO_PUBLIC_MEDIA_BASE_URL=https://tu-dominio.com`. Si usas direcciones `https://…` completas en el JSON, no hace falta.
 
@@ -302,6 +354,8 @@ git push
 ## 9. Lista antes de publicar
 
 - [ ] `npm run check:content:strict` sin marcadores pendientes (fotos, videos, textos, lugares).
+- [ ] Cada recomendación y lugar tiene su etiqueta de transparencia (`disclosure`), y es la real.
+- [ ] Una persona abogada revisó `legal.json` y lo marcaste como `reviewedByLawyer: true`; las direcciones `/privacidad` y `/terminos` abren en el sitio publicado.
 - [ ] Todas las fotos tienen un `alt` real, pasadas por `npm run images`.
 - [ ] Videos alojados en `https://`, ≤ 3 MB cada uno.
 - [ ] `VITE_SITE_URL` con tu dirección final.
@@ -323,6 +377,6 @@ git push
 - Publicación real (Cloudflare Pages, dominio, `_headers` en producción).
 - Instalación como app y videos en **iPhone**.
 - Envío real del formulario con un servicio.
-- El comando de **ffmpeg** para los videos.
+- Videos ya recortados en un celular real y con conexión real (el comando `npm run videos` sí se probó con tus videos, y las portadas se revisaron).
 - Videos reales pesados en la web.
 - Lectores de pantalla reales (NVDA, VoiceOver, TalkBack).

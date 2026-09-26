@@ -248,7 +248,18 @@ export default function InquiryDialog({ open, onClose }: Props) {
           </div>
 
           <p className="mt-3.5 text-[0.78rem] text-ink-soft">
-            Solo uso tus datos para responderte. No los comparto con nadie.
+            Solo uso tus datos para responderte y no los vendo ni los cedo. Al enviar autorizas su
+            uso como explico en la{' '}
+            <a
+              href="/privacidad"
+              target="_blank"
+              rel="noopener"
+              className="underline underline-offset-2"
+            >
+              política de privacidad
+              <span className="sr-only"> (se abre en una pestaña nueva)</span>
+            </a>
+            .
           </p>
         </form>
       )}
