@@ -1,57 +1,110 @@
 [
   {
     "id": "video-01",
-    "title": "[TITULO_VIDEO_01]",
-    "caption": "Una línea en mi voz sobre este video.",
+    "title": "Uno de los mejores miradores",
+    "caption": "Un gran lugar para disfrutar con tus amigos, familia y pareja",
+    "src": "/media/videos/mirador-la-palma.mp4",
     "poster": {
-      "alt": "Portada del video 1 (pendiente)",
-      "placeholder": "[VIDEO_TIKTOK_01]",
+      "src": "/media/images/mirador-la-palma-poster-576.webp",
+      "srcSet": "/media/images/mirador-la-palma-poster-480.webp 480w, /media/images/mirador-la-palma-poster-576.webp 576w",
+      "width": 576,
+      "height": 1024,
+      "alt": "Letrero de La Palma de noche, con luces colgantes",
+      "placeholder": "Uno de los mejores miradores",
       "tone": "rosa"
     },
-    "tiktokUrl": "[LINK_TIKTOK_VIDEO_01]"
+    "tiktokUrl": "https://vt.tiktok.com/ZSb2JJ4Lc/",
+    "category": "lugares",
+    "disclosure": "propio"
   },
   {
     "id": "video-02",
-    "title": "[TITULO_VIDEO_02]",
-    "caption": "Lo probé para que tú no tengas que hacerlo.",
+    "title": "Definiendo mis rizos con productos de Ponto",
+    "caption": "Los mejores productos para hidratar mis crespos",
+    "src": "/media/videos/crespos-con-ponto.mp4",
     "poster": {
-      "alt": "Portada del video 2 (pendiente)",
-      "placeholder": "[VIDEO_TIKTOK_02]",
-      "tone": "cereza"
+      "src": "/media/images/crespos-con-ponto-poster-576.webp",
+      "srcSet": "/media/images/crespos-con-ponto-poster-480.webp 480w, /media/images/crespos-con-ponto-poster-576.webp 576w",
+      "width": 576,
+      "height": 1024,
+      "alt": "Mariana con el texto «Definiendo crespos» sobre el video",
+      "placeholder": "Definiendo mis rizos con productos de Ponto",
+      "tone": "azul"
     },
-    "tiktokUrl": "[LINK_TIKTOK_VIDEO_02]"
+    "tiktokUrl": "https://vt.tiktok.com/ZSb21cSxQ/",
+    "category": "cabello",
+    "disclosure": "propio"
   },
   {
     "id": "video-03",
-    "title": "[TITULO_VIDEO_03]",
-    "caption": "¿Esto realmente vale la pena?",
+    "title": "Oler rico nunca es una opción",
+    "caption": "Esta crema para peinar tiene todo el olor delicioso que nunca debe faltar en nuestro cabello",
+    "src": "/media/videos/sedal-crema-para-peinar.mp4",
     "poster": {
-      "alt": "Portada del video 3 (pendiente)",
-      "placeholder": "[VIDEO_TIKTOK_03]",
-      "tone": "azul"
+      "src": "/media/images/sedal-crema-para-peinar-poster-576.webp",
+      "srcSet": "/media/images/sedal-crema-para-peinar-poster-480.webp 480w, /media/images/sedal-crema-para-peinar-poster-576.webp 576w",
+      "width": 576,
+      "height": 1024,
+      "alt": "Mariana sosteniendo una botella verde de crema para peinar",
+      "placeholder": "Oler rico nunca es una opción",
+      "tone": "cereza"
     },
-    "tiktokUrl": "[LINK_TIKTOK_VIDEO_03]"
+    "tiktokUrl": "https://vt.tiktok.com/ZSb21h1N9/",
+    "category": "cabello",
+    "disclosure": "propio"
   },
   {
     "id": "video-04",
-    "title": "[TITULO_VIDEO_04]",
-    "caption": "Encontré un lugar que tienes que conocer.",
+    "title": "Sushi Dog en Takamar",
+    "caption": "Un sushi muy rico",
+    "src": "/media/videos/takamar-sushi.mp4",
     "poster": {
-      "alt": "Portada del video 4 (pendiente)",
-      "placeholder": "[VIDEO_TIKTOK_04]",
+      "src": "/media/images/takamar-sushi-poster-576.webp",
+      "srcSet": "/media/images/takamar-sushi-poster-480.webp 480w, /media/images/takamar-sushi-poster-576.webp 576w",
+      "width": 576,
+      "height": 1024,
+      "alt": "Letrero luminoso de Takamar Sushi & Poke",
+      "placeholder": "Sushi Dog en Takamar",
       "tone": "rosa"
     },
-    "tiktokUrl": "[LINK_TIKTOK_VIDEO_04]"
+    "tiktokUrl": "[LINK_TIKTOK_TAKAMAR]",
+    "category": "restaurantes",
+    "disclosure": "propio"
   },
   {
     "id": "video-05",
-    "title": "[TITULO_VIDEO_05]",
-    "caption": "Amiga, probé esto…",
+    "title": "Descansar en Aguas de la Montaña",
+    "caption": "Un gran lugar para descansar",
+    "src": "/media/videos/hosteria.mp4",
     "poster": {
-      "alt": "Portada del video 5 (pendiente)",
-      "placeholder": "[VIDEO_TIKTOK_05]",
+      "src": "/media/images/hosteria-poster-576.webp",
+      "srcSet": "/media/images/hosteria-poster-480.webp 480w, /media/images/hosteria-poster-576.webp 576w",
+      "width": 576,
+      "height": 1024,
+      "alt": "Terraza de madera con vista a la montaña",
+      "placeholder": "Descansar en Aguas de la Montaña",
+      "tone": "azul"
+    },
+    "tiktokUrl": "https://vt.tiktok.com/ZSb2J8wWm/",
+    "category": "lugares",
+    "disclosure": "propio"
+  },
+  {
+    "id": "video-06",
+    "title": "Mi popsocket de Bloomshell",
+    "caption": "No me duró pegado en mi celular, pero le daré una nueva oportunidad",
+    "src": "/media/videos/bloomshell-popsocket.mp4",
+    "poster": {
+      "src": "/media/images/bloomshell-popsocket-poster-464.webp",
+      "srcSet": "/media/images/bloomshell-popsocket-poster-464.webp 464w",
+      "width": 464,
+      "height": 824,
+      "alt": "Mariana hablando del popsocket de Bloomshell, con el título en pantalla",
+      "placeholder": "Mi popsocket de Bloomshell",
       "tone": "cereza"
     },
-    "tiktokUrl": "[LINK_TIKTOK_VIDEO_05]"
+    "tiktokUrl": "https://vt.tiktok.com/ZSb2JdLC8/",
+    "category": "productos",
+    "disclosure": "propio"
   }
 ]

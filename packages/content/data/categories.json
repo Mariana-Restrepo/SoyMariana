@@ -5,7 +5,7 @@
     "name": "Belleza",
     "tone": "rosa",
     "blurb": "Maquillaje que sí uso, y el que no.",
-    "examples": ["[EJEMPLO_BELLEZA_01]", "[EJEMPLO_BELLEZA_02]"]
+    "examples": ["Lip combo Ruby Rose + Maybelline"]
   },
   {
     "key": "cabello",
@@ -13,7 +13,7 @@
     "name": "Cabello",
     "tone": "azul",
     "blurb": "Probando productos, técnicas y descubrimientos para mis rizos.",
-    "examples": ["[EJEMPLO_CABELLO_01]", "[EJEMPLO_CABELLO_02]"]
+    "examples": ["Crema para peinar Sedal", "Ponto"]
   },
   {
     "key": "cuidado-personal",
@@ -21,7 +21,7 @@
     "name": "Cuidado personal",
     "tone": "cereza",
     "blurb": "Lo que me pongo y lo que de verdad me sirve.",
-    "examples": ["[EJEMPLO_CUIDADO_01]", "[EJEMPLO_CUIDADO_02]"]
+    "examples": ["Yaja, crema y splash"]
   },
   {
     "key": "restaurantes",
@@ -29,7 +29,7 @@
     "name": "Restaurantes",
     "tone": "rosa",
     "blurb": "Lo que pedí, lo que probé y si volvería.",
-    "examples": ["[EJEMPLO_RESTAURANTE_01]", "[EJEMPLO_RESTAURANTE_02]"]
+    "examples": ["La Matriarca", "DeMaduro"]
   },
   {
     "key": "lugares",
@@ -37,7 +37,7 @@
     "name": "Lugares",
     "tone": "azul",
     "blurb": "Cafés y rincones que valen el desvío.",
-    "examples": ["[EJEMPLO_LUGAR_01]", "[EJEMPLO_LUGAR_02]"]
+    "examples": ["Mirador La Palma", "Aguas de la Montaña"]
   },
   {
     "key": "productos",
@@ -45,7 +45,7 @@
     "name": "Productos",
     "tone": "cereza",
     "blurb": "Cosas que compré para que tú no tengas que arriesgarte.",
-    "examples": ["[EJEMPLO_PRODUCTO_01]", "[EJEMPLO_PRODUCTO_02]"]
+    "examples": ["Popsocket de Bloomshell"]
   },
   {
     "key": "lifestyle",
@@ -53,6 +53,6 @@
     "name": "Lifestyle",
     "tone": "rosa",
     "blurb": "Planes, hábitos y pequeños descubrimientos del día a día.",
-    "examples": ["[EJEMPLO_LIFESTYLE_01]", "[EJEMPLO_LIFESTYLE_02]"]
+    "examples": ["Concierto de Arcángel"]
   }
 ]

@@ -32,6 +32,7 @@ export default function RecommendationDetail() {
 
   const categoryName = categories.find((c) => c.key === rec.category)?.name ?? rec.category;
   const link = safeUrl(rec.link);
+  const video = safeUrl(rec.videoUrl);
 
   return (
     <View style={styles.screen}>
@@ -93,8 +94,18 @@ export default function RecommendationDetail() {
             style={styles.cta}
           />
         ) : null}
-        {link && rec.affiliate ? (
-          <AffiliateNote style={styles.affiliate} />
+        {video ? (
+          <Button
+            label="Ver mi video en TikTok ↗"
+            variant="quiet"
+            onPress={() => openLink(video)}
+            style={styles.videoLink}
+          />
+        ) : null}
+        {link ? (
+          rec.affiliate ? (
+            <AffiliateNote style={styles.affiliate} />
+          ) : null
         ) : rec.link ? (
           <AppText variant="small" color={colors.inkSoft} style={styles.cta}>
             Enlace pendiente de agregar.
@@ -129,6 +140,7 @@ const styles = StyleSheet.create({
   badges: { flexDirection: 'row', flexWrap: 'wrap', alignItems: 'center', gap: 10 },
   disclosure: { marginTop: 12 },
   affiliate: { marginTop: 12 },
+  videoLink: { marginTop: 14, alignSelf: 'flex-start' },
   block: { marginTop: 22, gap: 4 },
   item: { marginTop: 4 },
   cta: { marginTop: 28, alignSelf: 'flex-start' },

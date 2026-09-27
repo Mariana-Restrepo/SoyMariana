@@ -13,6 +13,7 @@ import { openLink, safeUrl } from '@/lib/links';
 export function PlaceCard({ place }: { place: Place }) {
   const map = safeUrl(place.mapUrl);
   const social = safeUrl(place.socialUrl);
+  const video = safeUrl(place.videoUrl);
 
   return (
     <View
@@ -54,6 +55,18 @@ export function PlaceCard({ place }: { place: Place }) {
       <View style={styles.footer}>
         <VerdictStamp verdict={place.verdict} />
         {place.disclosure ? <DisclosureTag disclosure={place.disclosure} /> : null}
+        {video && (
+          <Pressable
+            accessibilityRole="link"
+            accessibilityLabel={`Ver mi video de ${place.name} en TikTok`}
+            onPress={() => openLink(video)}
+            style={styles.link}
+          >
+            <AppText variant="label" color={colors.azul}>
+              Mi video ↗
+            </AppText>
+          </Pressable>
+        )}
         {map && (
           <Pressable
             accessibilityRole="link"

@@ -29,10 +29,14 @@
     },
     {
       "label": "Qué me gusta",
-      "text": "Descubrir cosas nuevas. [ME_GUSTA_01].",
+      "text": "Descubrir cosas nuevas. Jugar voleibol.",
       "image": {
-        "alt": "Foto de lo que le gusta (pendiente)",
-        "placeholder": "[IMAGEN_SOBRE_MI_02]",
+        "src": "/media/images/voleibol-560.webp",
+        "srcSet": "/media/images/voleibol-480.webp 480w, /media/images/voleibol-560.webp 560w",
+        "width": 560,
+        "height": 700,
+        "alt": "Partido de voleibol: una jugadora salta a rematar la pelota",
+        "placeholder": "Voleibol",
         "tone": "azul"
       }
     },

@@ -12,6 +12,7 @@ type Props = { recommendation: Recommendation | null; onClose: () => void };
 /** Detalle de una recomendación (overlay con link propio: /?r=slug). */
 export function RecommendationDialog({ recommendation: rec, onClose }: Props) {
   const link = safeHref(rec?.link);
+  const video = safeHref(rec?.videoUrl);
   const categoryName = rec
     ? (categories.find((c) => c.key === rec.category)?.name ?? rec.category)
     : '';
@@ -65,16 +66,24 @@ export function RecommendationDialog({ recommendation: rec, onClose }: Props) {
             </>
           )}
 
-          {link ? (
-            <>
-              <ButtonLink variant="rosa" href={link} {...externalProps(link)}>
-                {rec.linkLabel ?? 'Ver más'} ↗
-              </ButtonLink>
-              {rec.affiliate && <AffiliateNote className="mt-3" />}
-            </>
-          ) : rec.link ? (
+          {(link || video) && (
+            <div className="flex flex-wrap items-center gap-3">
+              {link && (
+                <ButtonLink variant="rosa" href={link} {...externalProps(link)}>
+                  {rec.linkLabel ?? 'Ver más'} ↗
+                </ButtonLink>
+              )}
+              {video && (
+                <ButtonLink variant="quiet" href={video} {...externalProps(video)}>
+                  Ver mi video en TikTok ↗
+                </ButtonLink>
+              )}
+            </div>
+          )}
+          {link && rec.affiliate && <AffiliateNote className="mt-3" />}
+          {!link && rec.link && (
             <p className="text-[0.85rem] text-ink-soft">Enlace pendiente de agregar.</p>
-          ) : null}
+          )}
         </div>
       )}
     </Dialog>

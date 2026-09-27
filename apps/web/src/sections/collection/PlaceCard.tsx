@@ -12,6 +12,7 @@ type Props = { place: Place };
 export function PlaceCard({ place }: Props) {
   const map = safeHref(place.mapUrl);
   const social = safeHref(place.socialUrl);
+  const video = safeHref(place.videoUrl);
 
   return (
     <article
@@ -54,8 +55,17 @@ export function PlaceCard({ place }: Props) {
       <div className="mx-1 mt-3.5 flex flex-wrap items-center gap-x-4 gap-y-2">
         <VerdictStamp verdict={place.verdict} />
         {place.disclosure && <DisclosureTag disclosure={place.disclosure} />}
-        {(map || social) && (
+        {(map || social || video) && (
           <span className="flex gap-4 text-[0.85rem] font-medium">
+            {video && (
+              <a
+                href={video}
+                className="inline-flex min-h-11 items-center text-azul underline underline-offset-4"
+                {...externalProps(video)}
+              >
+                Mi video ↗
+              </a>
+            )}
             {map && (
               <a
                 href={map}

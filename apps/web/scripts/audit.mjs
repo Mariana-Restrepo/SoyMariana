@@ -566,7 +566,13 @@ try {
       if (['error', 'warning'].includes(m.type()))
         problems.push(`${m.type()}: ${m.text().slice(0, 120)}`);
     });
-    page.on('requestfailed', (r) => problems.push(`falló: ${r.url().slice(0, 100)}`));
+    page.on('requestfailed', (r) => {
+      const reason = r.failure()?.errorText ?? '';
+      // El navegador aborta a propósito las descargas de video a medias (pide por rangos y corta
+      // cuando ya tiene suficiente o cuando el video sale de pantalla): no es un fallo real.
+      if (r.resourceType() === 'media' && reason === 'net::ERR_ABORTED') return;
+      problems.push(`falló (${reason}): ${r.url().slice(0, 100)}`);
+    });
     page.on('response', (r) => {
       if (r.status() >= 400) problems.push(`HTTP ${r.status()}: ${r.url().slice(0, 100)}`);
     });

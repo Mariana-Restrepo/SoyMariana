@@ -125,6 +125,8 @@ export const recommendationSchema = z.object({
   disclosure: disclosureKeySchema.optional(),
   /** El `link` es de afiliado (Mariana puede recibir una comisión). */
   affiliate: z.boolean().optional(),
+  /** Enlace al video de TikTok donde Mariana habla de esto. */
+  videoUrl: z.string().optional(),
 });
 
 export const placeSchema = z.object({
@@ -142,6 +144,8 @@ export const placeSchema = z.object({
   socialUrl: z.string().optional(),
   /** Cómo llegó a Mariana (propio, invitación, colaboración…). Obligatorio para publicar. */
   disclosure: disclosureKeySchema.optional(),
+  /** Enlace al video de TikTok donde Mariana habla de este lugar. */
+  videoUrl: z.string().optional(),
 });
 
 export const metricFormatSchema = z.enum(['int', 'compact', 'approx']);
