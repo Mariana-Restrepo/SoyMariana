@@ -10,15 +10,14 @@ import { cn } from '@/lib/utils';
 
 const NAV = [
   { id: 'videos', label: 'Videos' },
-  { id: 'lo-que-pruebo', label: 'Lo que pruebo' },
+  { id: 'coleccion', label: 'Lo que pruebo' },
   { id: 'sobre-mi', label: 'Sobre mí' },
 ] as const;
 
-/** Qué ítem del menú se ilumina según la sección que se ve (la colección vive en "Lo que pruebo"). */
+/** Qué ítem del menú se ilumina según la sección que se ve. */
 const SECTION_TO_NAV: Record<string, string> = {
   videos: 'videos',
-  'lo-que-pruebo': 'lo-que-pruebo',
-  coleccion: 'lo-que-pruebo',
+  coleccion: 'coleccion',
   'sobre-mi': 'sobre-mi',
   numeros: 'sobre-mi',
 };
@@ -177,7 +176,7 @@ export function Header() {
                 onClick={() => setMenuOpen(false)}
                 className="py-1.5 font-serif text-[2.6rem] leading-[1.15] no-underline"
               >
-                {item.id === 'lo-que-pruebo' ? (
+                {item.id === 'coleccion' ? (
                   <>
                     Lo que <em className="text-cereza-ink">pruebo</em>
                   </>

@@ -41,7 +41,7 @@ export function Hero() {
             <ButtonLink variant="rosa" href="#videos">
               Mírame en acción
             </ButtonLink>
-            <ButtonLink variant="quiet" href="#lo-que-pruebo">
+            <ButtonLink variant="quiet" href="#coleccion">
               Lo que pruebo
             </ButtonLink>
           </div>
