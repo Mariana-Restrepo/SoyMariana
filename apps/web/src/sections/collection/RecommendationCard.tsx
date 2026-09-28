@@ -1,4 +1,4 @@
-import { categories, type Recommendation } from '@soymariana/content';
+import { categories, SILENT_DISCLOSURE, type Recommendation } from '@soymariana/content';
 import { seededRotation } from '@soymariana/core';
 
 import { DisclosureTag } from '@/components/brand/DisclosureTag';
@@ -40,7 +40,7 @@ export function RecommendationCard({ recommendation: rec, index, onOpen }: Props
         </button>
       </h3>
       <p className="mx-1.5 text-[0.95rem] leading-relaxed text-ink-soft">“{rec.opinion}”</p>
-      {rec.disclosure && (
+      {rec.disclosure && rec.disclosure !== SILENT_DISCLOSURE && (
         <div className="mx-1.5 mt-3">
           <DisclosureTag disclosure={rec.disclosure} />
         </div>

@@ -1,4 +1,4 @@
-import type { Place } from '@soymariana/content';
+import { SILENT_DISCLOSURE, type Place } from '@soymariana/content';
 import { seededRotation } from '@soymariana/core';
 
 import { DisclosureTag } from '@/components/brand/DisclosureTag';
@@ -54,7 +54,9 @@ export function PlaceCard({ place }: Props) {
 
       <div className="mx-1 mt-3.5 flex flex-wrap items-center gap-x-4 gap-y-2">
         <VerdictStamp verdict={place.verdict} />
-        {place.disclosure && <DisclosureTag disclosure={place.disclosure} />}
+        {place.disclosure && place.disclosure !== SILENT_DISCLOSURE && (
+          <DisclosureTag disclosure={place.disclosure} />
+        )}
         {(map || social || video) && (
           <span className="flex gap-4 text-[0.85rem] font-medium">
             {video && (

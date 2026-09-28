@@ -1,4 +1,4 @@
-import type { Video } from '@soymariana/content';
+import { SILENT_DISCLOSURE, type Video } from '@soymariana/content';
 import { useEffect, useRef, useState } from 'react';
 
 import { DisclosureTag } from '@/components/brand/DisclosureTag';
@@ -188,7 +188,9 @@ export function VideoCard({
       >
         <h3 className="text-[1.3rem] leading-tight">{video.title}</h3>
         <p className="text-[0.92rem] text-ink-soft">{video.caption}</p>
-        {video.disclosure && <DisclosureTag disclosure={video.disclosure} className="mt-2" />}
+        {video.disclosure && video.disclosure !== SILENT_DISCLOSURE && (
+          <DisclosureTag disclosure={video.disclosure} className="mt-2" />
+        )}
         {tiktok ? (
           <a
             href={tiktok}

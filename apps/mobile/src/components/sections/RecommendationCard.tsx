@@ -1,4 +1,4 @@
-import { categories, type Recommendation } from '@soymariana/content';
+import { categories, SILENT_DISCLOSURE, type Recommendation } from '@soymariana/content';
 import { seededRotation } from '@soymariana/core';
 import { Pressable, StyleSheet, View } from 'react-native';
 
@@ -15,11 +15,12 @@ type Props = { recommendation: Recommendation; index: number; onOpen: (slug: str
 /** Tarjeta tipo "foto pegada": ligeramente inclinada (siempre igual para el mismo id). */
 export function RecommendationCard({ recommendation: rec, index, onOpen }: Props) {
   const categoryName = categories.find((c) => c.key === rec.category)?.name ?? rec.category;
+  const notable = rec.disclosure && rec.disclosure !== SILENT_DISCLOSURE ? rec.disclosure : null;
 
   return (
     <Pressable
       accessibilityRole="button"
-      accessibilityLabel={`${rec.name}. ${categoryName}. ${rec.opinion}.${rec.disclosure ? ` ${disclosureA11y(rec.disclosure)}.` : ''} Ver detalle`}
+      accessibilityLabel={`${rec.name}. ${categoryName}. ${rec.opinion}.${notable ? ` ${disclosureA11y(notable)}.` : ''} Ver detalle`}
       onPress={() => onOpen(rec.slug)}
       style={({ pressed }) => [
         styles.card,
@@ -48,9 +49,7 @@ export function RecommendationCard({ recommendation: rec, index, onOpen }: Props
       <AppText variant="small" color={colors.inkSoft} style={styles.opinion}>
         “{rec.opinion}”
       </AppText>
-      {rec.disclosure ? (
-        <DisclosureTag disclosure={rec.disclosure} style={styles.disclosure} />
-      ) : null}
+      {notable ? <DisclosureTag disclosure={notable} style={styles.disclosure} /> : null}
     </Pressable>
   );
 }

@@ -1,4 +1,4 @@
-import { categories, type Recommendation } from '@soymariana/content';
+import { categories, SILENT_DISCLOSURE, type Recommendation } from '@soymariana/content';
 
 import { AffiliateNote, DisclosureTag, DisclosureText } from '@/components/brand/DisclosureTag';
 import { VerdictStamp } from '@/components/brand/VerdictStamp';
@@ -13,6 +13,7 @@ type Props = { recommendation: Recommendation | null; onClose: () => void };
 export function RecommendationDialog({ recommendation: rec, onClose }: Props) {
   const link = safeHref(rec?.link);
   const video = safeHref(rec?.videoUrl);
+  const notable = rec?.disclosure && rec.disclosure !== SILENT_DISCLOSURE ? rec.disclosure : null;
   const categoryName = rec
     ? (categories.find((c) => c.key === rec.category)?.name ?? rec.category)
     : '';
@@ -27,13 +28,13 @@ export function RecommendationDialog({ recommendation: rec, onClose }: Props) {
           </p>
           <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
             <VerdictStamp verdict={rec.verdict} />
-            {rec.disclosure && <DisclosureTag disclosure={rec.disclosure} />}
+            {notable && <DisclosureTag disclosure={notable} />}
           </div>
           <h2 id="rec-dialog-title" className="my-2 text-[2.2rem] leading-none">
             {rec.name}
           </h2>
           <p className="text-ink">“{rec.opinion}”</p>
-          {rec.disclosure && <DisclosureText disclosure={rec.disclosure} className="mt-2.5" />}
+          {notable && <DisclosureText disclosure={notable} className="mt-2.5" />}
 
           {rec.liked.length > 0 && (
             <>

@@ -1,4 +1,4 @@
-import { categories, recommendations } from '@soymariana/content';
+import { categories, recommendations, SILENT_DISCLOSURE } from '@soymariana/content';
 import { router, useLocalSearchParams } from 'expo-router';
 import { Pressable, ScrollView, StyleSheet, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
@@ -33,6 +33,7 @@ export default function RecommendationDetail() {
   const categoryName = categories.find((c) => c.key === rec.category)?.name ?? rec.category;
   const link = safeUrl(rec.link);
   const video = safeUrl(rec.videoUrl);
+  const notable = rec.disclosure && rec.disclosure !== SILENT_DISCLOSURE ? rec.disclosure : null;
 
   return (
     <View style={styles.screen}>
@@ -49,15 +50,13 @@ export default function RecommendationDetail() {
         </AppText>
         <View style={styles.badges}>
           <VerdictStamp verdict={rec.verdict} />
-          {rec.disclosure ? <DisclosureTag disclosure={rec.disclosure} /> : null}
+          {notable ? <DisclosureTag disclosure={notable} /> : null}
         </View>
         <AppText variant="h2" accessibilityRole="header" style={styles.name}>
           {rec.name}
         </AppText>
         <AppText variant="lead">“{rec.opinion}”</AppText>
-        {rec.disclosure ? (
-          <DisclosureText disclosure={rec.disclosure} style={styles.disclosure} />
-        ) : null}
+        {notable ? <DisclosureText disclosure={notable} style={styles.disclosure} /> : null}
 
         {rec.liked.length > 0 && (
           <View style={styles.block}>

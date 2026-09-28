@@ -1,11 +1,11 @@
 {
   "title": "Transparencia",
-  "intro": "Cada recomendación y cada lugar dice cómo llegó a mí. Así sabes cuándo es una opinión sin nada de por medio y cuándo hay una marca involucrada.",
+  "intro": "Si una recomendación o un lugar no trae ninguna etiqueta, es porque lo compré yo, sin ayuda de ninguna marca: es lo normal. Cuando sí hay una marca de por medio, lo digo con una de estas etiquetas.",
   "items": [
     {
       "key": "propio",
       "label": "Lo pagué yo",
-      "description": "Lo compré con mi plata o fui por mi cuenta. Ninguna marca me pagó ni me lo regaló."
+      "description": "Lo compré con mi plata o fui por mi cuenta. Ninguna marca me pagó ni me lo regaló. No lleva una etiqueta visible en las tarjetas, porque es lo normal: aquí se explica para que sepas qué significa que no haya ninguna."
     },
     {
       "key": "regalo",

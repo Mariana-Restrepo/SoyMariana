@@ -1,4 +1,4 @@
-import type { Video } from '@soymariana/content';
+import { SILENT_DISCLOSURE, type Video } from '@soymariana/content';
 import { useEvent } from 'expo';
 import { useVideoPlayer, VideoView, type VideoPlayer } from 'expo-video';
 import { useEffect, useState } from 'react';
@@ -209,7 +209,7 @@ export function VideoCard({
         <AppText variant="small" color={colors.inkSoft}>
           {video.caption}
         </AppText>
-        {video.disclosure ? (
+        {video.disclosure && video.disclosure !== SILENT_DISCLOSURE ? (
           <DisclosureTag disclosure={video.disclosure} style={{ marginTop: 6 }} />
         ) : null}
         {tiktok ? (

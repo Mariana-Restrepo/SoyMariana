@@ -161,12 +161,14 @@ Los **tipos de colaboración** que se ofrecen (Reseña, Recomendación, Video pa
 
 Cada recomendación, cada lugar (y, si quieres, cada video) lleva una etiqueta que dice cómo llegó a ti. Se elige con el campo `disclosure`:
 
-| Valor          | Se muestra          | Úsalo cuando…                                                |
-| -------------- | ------------------- | ------------------------------------------------------------ |
-| `propio`       | Lo pagué yo         | Lo compraste tú o fuiste por tu cuenta, sin ninguna marca    |
-| `regalo`       | Me lo regalaron     | Te lo enviaron sin costo, sin pago y sin condiciones         |
-| `invitacion`   | Me invitaron        | Te invitaron al lugar o experiencia, sin pago ni condiciones |
-| `colaboracion` | Colaboración pagada | Hay un acuerdo con la marca (pago u otra compensación)       |
+| Valor          | Se muestra en la tarjeta | Úsalo cuando…                                                |
+| -------------- | ------------------------ | ------------------------------------------------------------ |
+| `propio`       | **Nada** (es el normal)  | Lo compraste tú o fuiste por tu cuenta, sin ninguna marca    |
+| `regalo`       | Me lo regalaron          | Te lo enviaron sin costo, sin pago y sin condiciones         |
+| `invitacion`   | Me invitaron             | Te invitaron al lugar o experiencia, sin pago ni condiciones |
+| `colaboracion` | Colaboración pagada      | Hay un acuerdo con la marca (pago u otra compensación)       |
+
+`propio` no muestra ninguna etiqueta en la web ni en la app: como es lo más común, mostrarla en cada tarjeta se sentía repetitivo. La transparencia importa para las excepciones (regalo, invitación, colaboración); si una tarjeta no dice nada, se entiende que la pagaste tú. Igual sigue siendo **obligatorio** poner `disclosure` en cada recomendación y lugar (aunque sea `propio`): así queda claro que lo revisaste, aunque no se vea. La página de términos explica las cuatro categorías, incluida `propio`, para quien quiera entender el sistema completo.
 
 Si hay pago o condiciones sobre lo que puedes decir, **es `colaboracion`**, aunque te hayan mandado el producto. Si el enlace de compra es de afiliado (puedes ganar una comisión), agrega `"affiliate": true` en la recomendación: el detalle mostrará el aviso.
 

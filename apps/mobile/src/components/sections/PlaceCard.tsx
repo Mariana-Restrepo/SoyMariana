@@ -1,4 +1,4 @@
-import type { Place } from '@soymariana/content';
+import { SILENT_DISCLOSURE, type Place } from '@soymariana/content';
 import { seededRotation } from '@soymariana/core';
 import { Pressable, StyleSheet, View } from 'react-native';
 
@@ -54,7 +54,9 @@ export function PlaceCard({ place }: { place: Place }) {
 
       <View style={styles.footer}>
         <VerdictStamp verdict={place.verdict} />
-        {place.disclosure ? <DisclosureTag disclosure={place.disclosure} /> : null}
+        {place.disclosure && place.disclosure !== SILENT_DISCLOSURE ? (
+          <DisclosureTag disclosure={place.disclosure} />
+        ) : null}
         {video && (
           <Pressable
             accessibilityRole="link"

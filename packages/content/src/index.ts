@@ -11,6 +11,7 @@ import videosJson from '../data/videos.json';
 import type {
   CategoryInfo,
   Collab,
+  DisclosureKey,
   DisclosuresFile,
   Links,
   MetricsFile,
@@ -38,6 +39,12 @@ export const places = placesJson as unknown as Place[];
 export const metrics = metricsJson as unknown as MetricsFile;
 export const collab = collabJson as unknown as Collab;
 export const disclosures = disclosuresJson as unknown as DisclosuresFile;
+
+/**
+ * "propio": lo compró o fue por su cuenta. Es lo normal, así que no lleva etiqueta visible en
+ * las tarjetas: la transparencia importa para las excepciones (regalo, invitación, colaboración).
+ */
+export const SILENT_DISCLOSURE = 'propio' satisfies DisclosureKey;
 
 export const content = {
   site,
