@@ -1,6 +1,7 @@
 import type { ImageRef } from '@soymariana/content';
 import type { ReactNode } from 'react';
 
+import { withBase, withBaseSrcSet } from '@/lib/base';
 import { cn } from '@/lib/utils';
 
 type Props = {
@@ -35,8 +36,8 @@ export function MediaFrame({
     <div className={cn('relative overflow-hidden', className)} style={{ background: gradient }}>
       {hasSrc ? (
         <img
-          src={image.src}
-          srcSet={image.srcSet}
+          src={withBase(image.src)}
+          srcSet={withBaseSrcSet(image.srcSet)}
           sizes={sizes}
           alt={image.alt}
           width={image.width}

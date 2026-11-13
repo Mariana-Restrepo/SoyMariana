@@ -11,6 +11,8 @@ import {
 } from '@soymariana/core';
 import { useEffect, useRef, useState, type FormEvent } from 'react';
 
+import { withBase } from '@/lib/base';
+
 import { Button } from '@/components/ui/Button';
 import { Dialog } from '@/components/ui/Dialog';
 import { ChoiceGroup, InputField, RequiredMark, TextareaField } from '@/components/ui/Field';
@@ -251,7 +253,7 @@ export default function InquiryDialog({ open, onClose }: Props) {
             Solo uso tus datos para responderte y no los vendo ni los cedo. Al enviar autorizas su
             uso como explico en la{' '}
             <a
-              href="/privacidad"
+              href={withBase('/privacidad')}
               target="_blank"
               rel="noopener"
               className="underline underline-offset-2"

@@ -3,6 +3,7 @@ import type { LegalSlug } from '@soymariana/core';
 import { useEffect } from 'react';
 
 import { Footer } from '@/components/layout/Footer';
+import { withBase } from '@/lib/base';
 import { LegalPage } from '@/sections/legal/LegalPage';
 
 /**
@@ -35,7 +36,7 @@ export function LegalApp({ slug }: { slug: LegalSlug }) {
       </a>
       <header className="border-b border-ink/10">
         <div className="wrap flex items-center justify-between gap-4 py-4">
-          <a href="/" className="flex items-baseline gap-1.5 font-serif text-[1.6rem] no-underline">
+          <a href={withBase('/')} className="flex items-baseline gap-1.5 font-serif text-[1.6rem] no-underline">
             <em className="text-[0.95em]">Soy</em>
             <span>Mariana</span>
             <span
@@ -46,7 +47,7 @@ export function LegalApp({ slug }: { slug: LegalSlug }) {
             </span>
           </a>
           <a
-            href="/"
+            href={withBase('/')}
             className="inline-flex min-h-11 items-center text-[0.95rem] underline underline-offset-4"
           >
             ← Volver al inicio

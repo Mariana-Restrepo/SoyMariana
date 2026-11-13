@@ -9,9 +9,10 @@ import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 
 import { App } from './App';
+import { stripBase } from './lib/base';
 
 const root = createRoot(document.getElementById('root')!);
-const legalSlug = legalSlugFromPath(window.location.pathname);
+const legalSlug = legalSlugFromPath(stripBase(window.location.pathname));
 
 if (legalSlug) {
   // /privacidad y /terminos: se cargan aparte para no engordar la página principal.

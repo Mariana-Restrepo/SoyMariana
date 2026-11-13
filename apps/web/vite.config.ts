@@ -103,7 +103,7 @@ function seo(siteUrl: string): Plugin {
  * Precarga las tipografías críticas (títulos y texto): el navegador las pide junto con el HTML
  * en vez de esperar a leer el CSS, y el titular del hero se pinta con su tipografía real sin saltos.
  */
-function preloadFonts(): Plugin {
+function preloadFonts(base: string): Plugin {
   const critical =
     /(instrument-serif-latin-400-(normal|italic)|dm-sans-latin-wght-normal)-[^/]*.woff2$/;
   return {
@@ -120,7 +120,7 @@ function preloadFonts(): Plugin {
               rel: 'preload',
               as: 'font',
               type: 'font/woff2',
-              href: `/${file}`,
+              href: `${base}${file}`,
               crossorigin: '',
             },
             injectTo: 'head' as const,
@@ -131,6 +131,8 @@ function preloadFonts(): Plugin {
 
 export default defineConfig(({ command, mode }) => {
   const env = loadEnv(mode, here, 'VITE_');
+  // Ruta base: "/" en local; en GitHub Pages se compila con VITE_BASE=/SoyMariana/.
+  const base = (env.VITE_BASE || '/').replace(/\/?$/, '/');
   const siteUrl = (env.VITE_SITE_URL || 'http://localhost:5173').replace(/\/$/, '');
   if (command === 'build' && !env.VITE_SITE_URL) {
     console.warn(
@@ -141,11 +143,12 @@ export default defineConfig(({ command, mode }) => {
   const site = readJson<Site>('site.json');
 
   return {
+    base,
     plugins: [
       react(),
       tailwindcss(),
       seo(siteUrl),
-      preloadFonts(),
+      preloadFonts(base),
       VitePWA({
         registerType: 'autoUpdate',
         includeAssets: ['favicon.svg', 'icons/apple-touch-icon.png'],
@@ -154,17 +157,17 @@ export default defineConfig(({ command, mode }) => {
           short_name: 'Soy Mariana',
           description: site.description,
           lang: 'es-CO',
-          start_url: '/',
-          scope: '/',
+          start_url: base,
+          scope: base,
           display: 'standalone',
           orientation: 'portrait',
           theme_color: site.themeColor,
           background_color: '#FFFAF6',
           icons: [
-            { src: '/icons/icon-192.png', sizes: '192x192', type: 'image/png' },
-            { src: '/icons/icon-512.png', sizes: '512x512', type: 'image/png' },
+            { src: `${base}icons/icon-192.png`, sizes: '192x192', type: 'image/png' },
+            { src: `${base}icons/icon-512.png`, sizes: '512x512', type: 'image/png' },
             {
-              src: '/icons/icon-maskable-512.png',
+              src: `${base}icons/icon-maskable-512.png`,
               sizes: '512x512',
               type: 'image/png',
               purpose: 'maskable',
@@ -174,7 +177,7 @@ export default defineConfig(({ command, mode }) => {
         workbox: {
           // Se guarda la "cáscara" de la app. Los videos NO se precachean (pesan y son opcionales).
           globPatterns: ['**/*.{js,css,html,svg,png,woff2,webmanifest}'],
-          navigateFallback: '/index.html',
+          navigateFallback: `${base}index.html`,
           cleanupOutdatedCaches: true,
         },
       }),

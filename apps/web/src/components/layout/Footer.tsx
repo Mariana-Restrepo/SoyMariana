@@ -1,5 +1,6 @@
 import { links, profile } from '@soymariana/content';
 
+import { withBase } from '@/lib/base';
 import { externalProps, safeHref, safeMailto } from '@/lib/utils';
 
 /** Enlace a una red o al correo; si todavía es un [PLACEHOLDER], se muestra sin ser link. */
@@ -90,13 +91,13 @@ export function Footer() {
           <span className="flex flex-wrap items-center gap-x-5 gap-y-1">
             <nav aria-label="Legal" className="flex gap-x-5">
               <a
-                href="/privacidad"
+                href={withBase('/privacidad')}
                 className="inline-flex min-h-11 items-center underline underline-offset-4"
               >
                 Privacidad
               </a>
               <a
-                href="/terminos"
+                href={withBase('/terminos')}
                 className="inline-flex min-h-11 items-center underline underline-offset-4"
               >
                 Términos

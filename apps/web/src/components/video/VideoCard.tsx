@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from 'react';
 
 import { DisclosureTag } from '@/components/brand/DisclosureTag';
 import { MediaFrame } from '@/components/ui/MediaFrame';
+import { withBase } from '@/lib/base';
 import { cn, externalProps, safeHref } from '@/lib/utils';
 
 type Props = {
@@ -77,8 +78,8 @@ export function VideoCard({
         {shouldLoad ? (
           <video
             ref={ref}
-            src={video.src}
-            poster={video.poster.src}
+            src={withBase(video.src)}
+            poster={withBase(video.poster.src)}
             aria-label={video.title}
             muted
             loop

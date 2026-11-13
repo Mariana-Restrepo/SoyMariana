@@ -3,6 +3,7 @@ import { legal } from '@soymariana/content/legal';
 import { fillLegalText, type LegalSlug } from '@soymariana/core';
 
 import { DisclosureTag } from '@/components/brand/DisclosureTag';
+import { withBase } from '@/lib/base';
 import { safeMailto } from '@/lib/utils';
 
 const bullet =
@@ -16,8 +17,8 @@ export function LegalPage({ slug }: { slug: LegalSlug }) {
   const doc = slug === 'privacidad' ? legal.privacy : legal.terms;
   const other =
     slug === 'privacidad'
-      ? { href: '/terminos', label: legal.terms.title }
-      : { href: '/privacidad', label: legal.privacy.title };
+      ? { href: withBase('/terminos'), label: legal.terms.title }
+      : { href: withBase('/privacidad'), label: legal.privacy.title };
 
   const values = {
     name: legal.controller.name,
